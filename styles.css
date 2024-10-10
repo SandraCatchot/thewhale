@@ -1,0 +1,133 @@
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #eff6e0;
+  color: #01161e;
+}
+
+header {
+  background: #124559;
+  color: #eff6e0;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  max-height: 80px;
+  margin-right: 10px;
+}
+
+.header-icons {
+  font-size: 2.2rem;
+  cursor: pointer;
+  align-items: center;
+}
+
+iframe {
+  width: 100%;
+  height: 220px;
+}
+
+.menu-icon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.main-title {
+  text-align: center;
+  margin: 1rem;
+  font-size: 30px;
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.image-container {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.image-container img {
+  width: 80%;
+  max-width: 300px;
+}
+
+.description {
+  text-align: center;
+  margin: 1rem;
+  font-size: 0.9rem;
+  color: #01161e;
+}
+
+.links-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.links-container a {
+  background: #124559;
+  color: #eff6e0;
+  padding: 0.8rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  width: 150px;
+  height: 100px;
+  align-content: center;
+  box-shadow: 2px 2px 4px #124559;
+}
+
+.links-container a:hover {
+  background-color: #ffa630;
+  color: #01161e;
+  opacity: 0.7;
+  font-weight: 800;
+  animation-name: fadeInOut, moveLeft300px, bounce;
+  animation-duration: 2.5s, 5s, 1s;
+  animation-iteration-count: 2, 1, 5;
+}
+
+footer {
+  background: #124559;
+  color: #eff6e0;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+}
+
+footer a:link {
+  color: #eff6e0;
+}
+
+footer a:visited {
+  color: #ffa630;
+}
+
+/* Media queries para versión web */
+@media (min-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .image-container img {
+    max-width: 500px;
+  }
+
+  .links-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .links-container a {
+    padding: 1rem;
+  }
+}
