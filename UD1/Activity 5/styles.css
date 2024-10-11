@@ -28,7 +28,13 @@ header {
 .header-icons {
   font-size: 2.2rem;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+}
+
+.menu-links a {
+  display: none;
 }
 
 iframe {
@@ -39,6 +45,7 @@ iframe {
 .menu-icon {
   font-size: 2rem;
   cursor: pointer;
+  margin-left: 25px;
 }
 
 .main-title {
@@ -91,9 +98,6 @@ iframe {
   color: #01161e;
   opacity: 0.7;
   font-weight: 800;
-  animation-name: fadeInOut, moveLeft300px, bounce;
-  animation-duration: 2.5s, 5s, 1s;
-  animation-iteration-count: 2, 1, 5;
 }
 
 footer {
@@ -118,16 +122,25 @@ footer a:visited {
     font-size: 2rem;
   }
 
-  .image-container img {
-    max-width: 500px;
+  .menu-links a {
+    background: #124559;
+    color: #eff6e0;
+    padding: 0.8rem;
+    border-radius: 5px;
+    width: 150px;
+    height: 100px;
+    align-content: center;
+    box-shadow: 2px 2px 4px #124559;
+    display: inline;
+    align-items: end;
   }
 
-  .links-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+  .menu-icon {
+    display: none;
   }
 
-  .links-container a {
-    padding: 1rem;
+   .links-container {
+    display: none;
   }
+
 }
