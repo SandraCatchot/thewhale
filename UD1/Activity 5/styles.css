@@ -42,6 +42,14 @@ header {
   ); /* Pequeña rotación al pasar el ratón sobre el logo */
 }
 
+.logo_login a {
+  color: #eff6e0;
+}
+
+.logo_login a:hover {
+  color:#ffa630;
+}
+
 .header-icons {
   font-size: 2.8rem;
   cursor: pointer;
