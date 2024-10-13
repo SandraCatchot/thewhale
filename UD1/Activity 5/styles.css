@@ -1,8 +1,8 @@
-body {
+body, main {
   font-family: "Lato", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #eff6e0;
+  background-color: #E8EBE4;
   color: #01161e;
 }
 
@@ -13,11 +13,16 @@ header {
     rgba(18, 69, 89, 1) 82%,
     rgba(239, 246, 224, 1) 100%
   );
-  color: #eff6e0;
+  color: #E8EBE4;
   padding: 1.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+span {
+  font-weight: bold;
+  text-shadow: 1px 1px 15px #ffa630;
 }
 
 .menu:hover {
@@ -43,7 +48,7 @@ header {
 }
 
 .logo_login a {
-  color: #eff6e0;
+  color: #E8EBE4;
 }
 
 .logo_login a:hover {
@@ -75,18 +80,17 @@ header {
 
 .menu ul a {
   display: block;
-  color: #eff6e0;
+  color: #E8EBE4;
   text-decoration: none;
   font-weight: 400;
   font-size: 15px;
   padding: 10px;
-  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .menu ul li {
-  background-color: rgb(18, 69, 89);
+  background-color: #124559;
   position: relative;
   float: left;
   margin: 0;
@@ -102,7 +106,7 @@ header {
   position: absolute;
   top: 100%;
   left: 0;
-  background: #eee;
+  background: #E8EBE4;
   padding: 0;
 }
 
@@ -122,14 +126,14 @@ header {
 
 footer {
   background: #124559;
-  color: #eff6e0;
+  color: #E8EBE4;
   text-align: center;
   padding: 1rem;
   font-size: 0.8rem;
 }
 
 footer a:link {
-  color: #eff6e0;
+  color: #E8EBE4;
 }
 
 footer a:visited {
@@ -158,9 +162,19 @@ footer a:visited {
 
   .menu-links a {
     background: #124559;
-    color: #eff6e0;
+    color: #E8EBE4;
     padding: 20px;
     display: inline;
+    text-decoration: none;
+  }
+
+  .menu-links a:hover {
+    color: #ffa630; 
+    background: linear-gradient(
+      180deg,
+      rgba(18, 69, 89, 1) 89%,
+      rgba(239, 246, 224, 1) 100%
+    );
   }
 
   .menu-icon {
