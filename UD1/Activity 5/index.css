@@ -1,51 +1,6 @@
-body {
-  font-family: "Lato", sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #eff6e0;
-  color: #01161e;
-}
-
-header {
-  background: #124559;
-  color: #eff6e0;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  max-height: 80px;
-  margin-right: 10px;
-}
-
-.header-icons {
-  font-size: 2.8rem;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.menu-links a {
-  display: none;
-}
-
 iframe {
   width: 100%;
   height: 220px;
-}
-
-.menu-icon {
-  font-size: 2rem;
-  cursor: pointer;
-  margin-left: 25px;
 }
 
 .main-title {
@@ -53,6 +8,7 @@ iframe {
   margin: 1rem;
   font-size: 30px;
   font-family: "Merriweather Sans", sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave en el título */
 }
 
 .image-container {
@@ -81,7 +37,7 @@ iframe {
 }
 
 .links-container a {
-  background: #124559;
+  background: linear-gradient(45deg, #124559, #0d3340);
   color: #eff6e0;
   padding: 0.8rem;
   border-radius: 5px;
@@ -90,58 +46,55 @@ iframe {
   width: 150px;
   height: 100px;
   align-content: center;
-  box-shadow: 2px 2px 4px #124559;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra en botones */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Transición suave */
 }
 
 .links-container a:hover {
-  background-color: #ffa630;
-  color: #01161e;
-  opacity: 0.7;
-  font-weight: 800;
+  color: #ffa630;
+  transform: scale(1.05); /* Transformación al pasar el ratón */
 }
 
 .links-container-web {
   display: none;
 }
 
-footer {
-  background: #124559;
-  color: #eff6e0;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.8rem;
+/* Animación para el título principal */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-footer a:link {
-  color: #eff6e0;
+/* Animación para el iframe (modelo 3D de la ballena) */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-footer a:visited {
-  color: #ffa630;
+.sketchfab-embed-wrapper {
+  animation: slideIn 1s ease-in-out;
+}
+
+.main-title {
+  animation: fadeIn 1s ease-in-out; /* Título aparece de forma animada */
 }
 
 /* Media queries para versión web */
 @media (min-width: 768px) {
   .main-title {
     font-size: 2rem;
-  }
-
-  .menu_login {
-    display: flex;
-    justify-content: flex-end;
-    text-align: center;
-    align-items: center;
-  }
-
-  .header-icons {
-    margin-left: 50px;
-  }
-
-  .menu-links a {
-    background: #124559;
-    color: #eff6e0;
-    padding: 20px;
-    display: inline;
   }
 
   .links-container-web {
@@ -160,16 +113,17 @@ footer a:visited {
     text-align: center;
     justify-content: center;
     align-items: center;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .container-web:hover {
+    transform: scale(1.05); /* Aumenta el tamaño del contenedor al pasar el ratón */
   }
 
   .container-web img {
     border-radius: 8px;
     max-width: 100%;
     height: 80%;
-  }
-
-  .menu-icon {
-    display: none;
   }
 
   .links-container {

@@ -61,8 +61,10 @@ header {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 10px;
-  grid-auto-rows: 200px;
-  margin-top: 2rem;
+  grid-auto-rows: auto;
+  grid-auto-columns: auto;
+  margin-top: 2.5rem;
+  padding: 0.7rem;
 }
 
 .portfoli-container img {
@@ -70,6 +72,12 @@ header {
   height: 100%;
   object-fit: cover;
   border-radius: 5px;
+  transition: transform 0.3s ease-in-out; /* Suaviza el efecto */
+  width: 100%; /* Ajusta según el tamaño que desees inicialmente */
+}
+
+.portfoli-container img:hover {
+  transform: scale(1.1); /* Amplía la imagen un 10% al pasar el ratón */
 }
 
 .portfolio .tall {
@@ -83,44 +91,11 @@ header {
   grid-row: span 2;
 }
 
-footer {
-  background: #124559;
-  color: #eff6e0;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.8rem;
-}
-
-footer a:link {
-  color: #eff6e0;
-}
-
-footer a:visited {
-  color: #ffa630;
-}
 
 /* Media queries para versión web */
 @media (min-width: 768px) {
   .main-title {
     font-size: 2rem;
-  }
-
-  .menu_login {
-    display: flex;
-    justify-content: flex-end;
-    text-align: center;
-    align-items: center;
-  }
-
-  .header-icons {
-    margin-left: 50px;
-  }
-
-  .menu-links a {
-    background: #124559;
-    color: #eff6e0;
-    padding: 20px;
-    display: inline;
   }
 
   .links-container-web {
@@ -131,12 +106,4 @@ footer a:visited {
     justify-content: center;
   }
 
-  
-
-  .menu-icon {
-    display: none;
-  }
-
 }
-
-

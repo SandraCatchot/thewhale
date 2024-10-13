@@ -1,0 +1,161 @@
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #eff6e0;
+  color: #01161e;
+}
+
+header {
+  background: rgb(18, 69, 89);
+  background: linear-gradient(
+    180deg,
+    rgba(18, 69, 89, 1) 82%,
+    rgba(239, 246, 224, 1) 100%
+  );
+  color: #eff6e0;
+  padding: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu:hover {
+  transform: scale(
+    1.05
+  ); /* Aumenta el tamaño del contenedor al pasar el ratón */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  max-height: 100px;
+  margin-right: 10px;
+}
+
+.logo img:hover {
+  transform: rotate(
+    5deg
+  ); /* Pequeña rotación al pasar el ratón sobre el logo */
+}
+
+.header-icons {
+  font-size: 2.8rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+}
+
+.menu-links a {
+  display: none;
+}
+
+.menu {
+  margin-right: 20px;
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu ul a {
+  display: block;
+  color: #eff6e0;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 15px;
+  padding: 10px;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.menu ul li {
+  background-color: rgb(18, 69, 89);
+  position: relative;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.menu ul li:hover {
+  background: #ffa630;
+}
+
+.menu ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #eee;
+  padding: 0;
+}
+
+.menu ul ul li {
+  float: none;
+  width: 150px;
+}
+
+.menu ul ul a {
+  line-height: 120%;
+  padding: 10px 15px;
+}
+
+.menu ul li:hover > ul {
+  display: block;
+}
+
+footer {
+  background: #124559;
+  color: #eff6e0;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+}
+
+footer a:link {
+  color: #eff6e0;
+}
+
+footer a:visited {
+  color: #ffa630;
+}
+
+@media (min-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .menu_login {
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+    align-items: center;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .header-icons {
+    margin-left: 50px;
+  }
+
+  .menu-links a {
+    background: #124559;
+    color: #eff6e0;
+    padding: 20px;
+    display: inline;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+}

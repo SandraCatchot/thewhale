@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aula Museu - La balena blava</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="common.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,22 +25,32 @@
   <body>
     <header>
       <div class="logo">
-        <img
-          src="images/logo_aula_museu00-removebg-preview.png"
-          alt="Logo Balena Blava"
-        />
-        <span>Balena blava</span>
+        <a href="/UD1/Activity 5/index.html"><img src="images/logo_aula_museu00-removebg-preview.png"/></a>
+        <span>IES Joan Ramis i Ramis</span>
       </div>
       <div class="menu_login">
         <div class="menu-links">
           <a href="#historia">Història</a>
-          <a href="#portfoli">Portfoli</a>
+          <a href="/UD1/Activity 5/pages/portfoli.html">Portfoli</a>
           <a href="#noticies">Notícies</a>
           <a href="/UD1/Activity 5/pages/portfoli.html">Al voltant de la balena</a>
         </div>
         <div class="header-icons">
+          <div>
+            <nav class="menu">
+              <ul>
+               <li><a href="#">Menú</a>
+                <ul>
+                  <li><a href="#">Història</a></li>
+                  <li><a href="/UD1/Activity 5/pages/portfoli.html">Portfoli</a></li>
+                  <li><a href="#">Notícies</a></li>
+                  <li><a href="#">Al voltant de la balena</a></li>
+                  </ul>              
+              </li>
+              </ul>
+              </nav>
+          </div>
           <ion-icon name="person-circle"></ion-icon>
-          <div class="menu-icon">☰</div>
         </div> 
       </div>
            
@@ -72,7 +83,7 @@
 
       <div class="links-container">
         <a href="#historia">Història</a>
-        <a href="#portfoli">Portfoli</a>
+        <a href="/UD1/Activity 5/pages/portfoli.html">Portfoli</a>
         <a href="#noticies">Notícies</a>
         <a href="#al-voltant">Al voltant de la balena</a>
       </div>
@@ -84,7 +95,7 @@
           <p>Descripción del apartado</p>
         </div>
         <div class="container-web">
-          <a href=""><img src="images/ballena.png"/></a>
+          <a href="/UD1/Activity 5/pages/portfoli.html"><img src="images/ballena.png"/></a>
           <h3>Portofoli</h3>
           <p>Descripción del apartado</p>
         </div>
@@ -103,10 +114,11 @@
     </main>
 
     <footer>
-      <p>© 2024 Todos los derechos reservados</p>
+      <p>© 2024 Tots els drets reservats</p>
+      <p>Pàgina Web creada per Sandra Catchot Sancho</p>
       <p>
-        <a href="#terminos">Términos del servicio</a> •
-        <a href="#privacidad">Política de privacidad</a>
+        <a href="#terminos">Terminis del servei</a> •
+        <a href="#privacidad">Polítia de privacitatd</a>
       </p>
     </footer>
   </body>
