@@ -1,8 +1,10 @@
-body, main {
+body,
+main {
   font-family: "Lato", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #E8EBE4;
+  height: 100%;
+  background-color: #e8ebe4;
   color: #01161e;
 }
 
@@ -10,19 +12,14 @@ header {
   background: rgb(18, 69, 89);
   background: linear-gradient(
     180deg,
-    rgba(18, 69, 89, 1) 82%,
+    rgba(19, 69, 89, 1) 85%,
     rgba(239, 246, 224, 1) 100%
   );
-  color: #E8EBE4;
-  padding: 1.2rem;
+  color: #e8ebe4;
+  padding: 1.6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-span {
-  font-weight: bold;
-  text-shadow: 1px 1px 15px #ffa630;
 }
 
 .menu:hover {
@@ -44,15 +41,15 @@ span {
 .logo img:hover {
   transform: rotate(
     5deg
-  ); /* Pequeña rotación al pasar el ratón sobre el logo */
+  );
 }
 
 .logo_login a {
-  color: #E8EBE4;
+  color: #e8ebe4;
 }
 
 .logo_login a:hover {
-  color:#ffa630;
+  color: #ffa630;
 }
 
 .header-icons {
@@ -75,18 +72,22 @@ span {
 .menu ul {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0;    
 }
 
 .menu ul a {
   display: block;
-  color: #E8EBE4;
+  color: #e8ebe4;
   text-decoration: none;
   font-weight: 400;
   font-size: 15px;
   padding: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.menu ul a:hover {
+  color:#01161e;
 }
 
 .menu ul li {
@@ -99,6 +100,7 @@ span {
 
 .menu ul li:hover {
   background: #ffa630;
+  transition: background-color 0.6s ease;
 }
 
 .menu ul ul {
@@ -106,7 +108,7 @@ span {
   position: absolute;
   top: 100%;
   left: 0;
-  background: #E8EBE4;
+  background: #e8ebe4;
   padding: 0;
 }
 
@@ -126,14 +128,16 @@ span {
 
 footer {
   background: #124559;
-  color: #E8EBE4;
+  color: #e8ebe4;
   text-align: center;
-  padding: 1rem;
   font-size: 0.8rem;
+  position: absolute;
+  
+  width: 100%;
 }
 
 footer a:link {
-  color: #E8EBE4;
+  color: #e8ebe4;
 }
 
 footer a:visited {
@@ -162,14 +166,14 @@ footer a:visited {
 
   .menu-links a {
     background: #124559;
-    color: #E8EBE4;
+    color: #e8ebe4;
     padding: 20px;
     display: inline;
     text-decoration: none;
   }
 
   .menu-links a:hover {
-    color: #ffa630; 
+    color: #ffa630;
     background: linear-gradient(
       180deg,
       rgba(18, 69, 89, 1) 89%,

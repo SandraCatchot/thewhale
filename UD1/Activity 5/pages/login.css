@@ -4,7 +4,8 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 80px;
 }
 
 .login-popup {
@@ -12,24 +13,23 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   width: 300px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para resaltar el popup */
+  padding: 35px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   text-align: center;
 }
 
 .login-popup h2 {
-  margin-bottom: 20px;
   font-size: 18px;
   color: #01161e;
-  background-color: #E8EBE4; /* Color de cabecera acorde a la paleta */
-  padding: 10px;
+  background-color: #E8EBE4; 
+  padding: 15px;
   border-radius: 5px;
 }
 
 .input-container {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   background-color: #fef9ff;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -37,8 +37,8 @@
 }
 
 .input-container ion-icon {
-  font-size: 1.2rem;
-  margin-right: 10px;
+  font-size: 2rem;
+  margin-right: 15px;
   color: #124559; /* Icono acorde al color de la web */
 }
 
@@ -48,11 +48,10 @@
   width: 100%;
   font-size: 1rem;
   color: #01161e;
-  background-color: transparent;
 }
 
 button {
-  width: 100%;
+  width: 40%;
   padding: 10px;
   background-color: #124559;
   color: #E8EBE4;
@@ -60,7 +59,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.7s ease;
 }
 
 button:hover {
@@ -68,9 +67,8 @@ button:hover {
   color: #01161e;
 }
 
-/* Sombra y transformaciones */
 .login-popup {
-  animation: fadeIn 0.5s ease-in-out;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
 @keyframes fadeIn {
@@ -86,6 +84,7 @@ button:hover {
 
 @media (min-width: 768px) {
   .login-popup {
-    width: 500px;
+    width: 450px;
   }
+  
 }
