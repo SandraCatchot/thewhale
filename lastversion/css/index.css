@@ -34,7 +34,7 @@ iframe {
   align-content: center;
   justify-content: center;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.4s ease, color 0.3s ease;
 }
 
 .links-container a:hover {
@@ -94,22 +94,15 @@ iframe {
   }
 
   .links-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: flex;   
     justify-content: center;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 50px;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
   }
 
   .links-container a {
     width: 180px;
     height: 50px;
-    align-content: center;
-    justify-content: center;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, background-color 0.3s ease;
   }
 
   iframe {
