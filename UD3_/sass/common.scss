@@ -1,0 +1,15 @@
+body, main {
+    font-family: $primary-font;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: $secondary-color;
+    color: $dark-color;
+  }
+  
+  h1, h2, h3 {
+    text-align: center;
+    margin: 1rem;
+    color: $dark-color;
+  }
+
