@@ -1,0 +1,51 @@
+@import '_variables';
+@import 'mixins';
+
+.container {
+    text-align: center;
+    padding: 20px;
+
+    .container-opciones {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 20px;
+
+        .tab {
+            cursor: pointer;
+            padding: 5px 10px;
+            &.active {
+                border-bottom: 2px solid $dark-color;
+            }
+        }
+    }
+
+    .container-ossos {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+
+        .card-ossos, .card-feina {
+            width: 100%;
+            max-width: 350px;
+            height: 300px;
+            background-color: $secondary-color;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: justify;
+
+            .image-voltant {
+                width: 350px;
+                height: 250px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+
+            .text-voltant {
+                background-color: $secondary-color;
+                border-radius: 3px;
+            }
+        }
+    }
+}
