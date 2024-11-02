@@ -65,40 +65,52 @@
   <body>
     <div class="container">
       <h2>Al voltant de la balena</h2>
-      <div class="container-opciones">
-        <span id="tab-ossos" class="tab active" onclick="showContent('ossos')"
-          >Els seus òssos</span
-        >
-        <span id="tab-feina" class="tab" onclick="showContent('feina')"
-          >Altres feines</span
-        >
-      </div>
-      <div class="container-ossos">
-        <div class="card-ossos">
-          <img src="../images/muntatge4.png" class="image-voltant" />
-          <p class="text-voltant">NOM ÓS - Petita descripció</p>
+        <div class="container-opciones">
+            <span id="tab-ossos" class="tab active" onclick="showList('ossos')">Els seus òssos</span>
+            <span id="tab-feina" class="tab" onclick="showList('feina')">Altres feines d'alumnes</span>
         </div>
-        <div class="card-ossos">
-          <img src="../images/muntatge4.png" class="image-voltant" />
-          <p class="text-voltant">NOM ÓS - Petita descripció</p>
+
+        <div id="container-mobile" class="container-mobile">
+            <div class="card-ossos">
+                <img src="../images/muntatge4.png" class="image-voltant" />
+                <p class="text-voltant">Descripció de l'ós seleccionat.</p>
+            </div>
+            <div class="card-ossos">
+              <img src="../images/muntatge4.png" class="image-voltant" />
+              <p class="text-voltant">Descripció de l'ós seleccionat.</p>
+          </div>
+          <div class="card-ossos">
+            <img src="../images/muntatge4.png" class="image-voltant" />
+            <p class="text-voltant">Descripció de l'ós seleccionat.</p>
         </div>
-        <div class="card-ossos">
-          <img src="../images/muntatge4.png" class="image-voltant" />
-          <p class="text-voltant">NOM ÓS - Petita descripció</p>
+            <div class="card-feina">
+                <img src="../images/muntatge19.png" class="image-voltant" />
+                <p class="text-voltant">Descripció feina seleccionada.</p>
+            </div>
+            <div class="card-feina">
+              <img src="../images/muntatge19.png" class="image-voltant" />
+              <p class="text-voltant">Descripció feina seleccionada.</p>
+          </div>
+          <div class="card-feina">
+            <img src="../images/muntatge19.png" class="image-voltant" />
+            <p class="text-voltant">Descripció feina seleccionada.</p>
         </div>
-        <div class="card-feina">
-          <img src="../images/muntatge19.png" class="image-voltant" />
-          <p class="text-voltant">NOM FEINA - Petita descripció</p>
         </div>
-        <div class="card-feina">
-          <img src="../images/muntatge19.png" class="image-voltant" />
-          <p class="text-voltant">NOM FEINA - Petita descripció</p>
+
+        <div id="container-desktop" class="container-desktop">
+            <div id="listado" class="listado">
+                <div class="list-item" onclick="showDetail('os1')">Ós 1</div>
+                <div class="list-item" onclick="showDetail('os2')">Ós 2</div>
+                <div class="list-item" onclick="showDetail('os3')">Ós 3</div>
+                <div class="list-item" onclick="showDetail('os4')">Ós 4</div>
+                <div class="list-item" onclick="showDetail('os5')">Ós 5</div>
+            </div>
+
+            <div id="details" class="details">
+                <img id="details-image" src="../images/muntatge4.png" class="image-voltant" />
+                <p id="details-text" class="text-voltant">Descripción detallada de la selección.</p>
+            </div>
         </div>
-        <div class="card-feina">
-          <img src="../images/muntatge19.png" class="image-voltant" />
-          <p class="text-voltant">NOM FEINA - Petita descripció</p>
-        </div>
-      </div>
     </div>
 
     <script src="../scripts/script.js"></script>

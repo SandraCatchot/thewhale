@@ -20,24 +20,22 @@
         }
     }
 
-    .container-ossos {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
+    #container-mobile {
+        display: block; 
 
         .card-ossos, .card-feina {
             width: 100%;
             max-width: 350px;
-            height: 300px;
+            height: auto;
             background-color: $secondary-color;
             padding: 15px;
             border-radius: 5px;
             text-align: justify;
 
             .image-voltant {
-                width: 350px;
-                height: 250px;
+                width: 100%;
+                max-width: 350px;
+                height: auto;
                 border-radius: 10px;
                 margin-bottom: 10px;
             }
@@ -46,6 +44,47 @@
                 background-color: $secondary-color;
                 border-radius: 3px;
             }
+        }
+    }
+
+    #container-desktop {
+        display: none; 
+
+        .listado {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 30%;
+
+            .list-item {
+                padding: 10px;
+                border: 1px solid $dark-color;
+                cursor: pointer;
+                &:hover {
+                    background-color: $secondary-color;
+                }
+            }
+        }
+
+        #details {
+            width: 70%;
+            .image-voltant {
+                width: 100%;
+                max-width: 500px;
+            }
+        }
+    }
+
+    @media (min-width: 768px) {
+        #container-mobile {
+            display: none; 
+        }
+
+        #container-desktop {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: flex-start;
         }
     }
 }
