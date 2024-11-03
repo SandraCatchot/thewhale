@@ -1,14 +1,5 @@
-// _mixins.scss
 @mixin box-shadow($x, $y, $blur, $color) {
   box-shadow: $x $y $blur $color;
-}
-
-@mixin gradient-bg($start, $end) {
-  background: linear-gradient(45deg, $start, $end);
-}
-
-@mixin transition($property, $duration, $timing) {
-  transition: $property $duration $timing;
 }
 
 @mixin basicButton() {

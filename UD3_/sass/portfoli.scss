@@ -17,7 +17,7 @@
   margin: 1rem;
   font-size: 0.9rem;
   color: $secondary-color;
-  animation: slideIn 1s ease-in-out; // Animación para la descripción
+  animation: slideIn 1s ease-in-out; 
 }
 
 .portfoli-container {
@@ -28,7 +28,7 @@
   grid-auto-columns: auto;
   margin-top: 2.5rem;
   padding: 0.7rem;
-  animation: fadeIn 1.5s ease-in-out; // Animación para la carga de imágenes
+  animation: fadeIn 1.5s ease-in-out; 
 
   img {
     width: 100%;
@@ -38,7 +38,7 @@
     @include transition(transform, 0.3s, ease-in-out);
 
     &:hover {
-      transform: scale(1.1); // Amplía la imagen un 10% al pasar el ratón
+      transform: scale(1.1); 
       @include box-shadow(0, 8px, 12px, rgba(0, 0, 0, 0.3)); 
     }
   }
