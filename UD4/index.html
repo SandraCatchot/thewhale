@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula Museu - La balena blava</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/index.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html"><img src="images/logo_ok_AULAMUSEU.png" /></a>
+      </div>
+      <div class="menu_login">
+        <div class="menu-links">
+          <a href="#historia">Història</a>
+          <a href="pages/portfoli.html">Portfoli</a>
+          <a href="#noticies">Notícies</a>
+          <a href="pages/alvoltant.html">Al voltant de la balena</a>
+        </div>
+        <div class="header-icons">
+          <div>
+            <nav class="menu">
+              <ul>
+                <li>
+                  <a href="#">Menú</a>
+                  <ul>
+                    <li><a href="#">Història</a></li>
+                    <li>
+                      <a href="pages/portfoli.html">Portfoli</a>
+                    </li>
+                    <li><a href="#">Notícies</a></li>
+                    <li>
+                      <a href="pages/alvoltant.html">Al voltant de la balena</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="logo_login">
+            <a href="pages/login.html"
+              ><ion-icon name="person-circle"></ion-icon
+            ></a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <h1 class="main-title">Descobreix la balena blava</h1>
+      <section class="ballena3D">
+        <div class="sketchfab-embed-wrapper whale">
+          <iframe
+            title="Blue whale skeleton"
+            frameborder="0"
+            allowfullscreen
+            mozallowfullscreen="true"
+            webkitallowfullscreen="true"
+            allow="autoplay; fullscreen; xr-spatial-tracking"
+            xr-spatial-tracking
+            execution-while-out-of-viewport
+            execution-while-not-rendered
+            web-share
+            src="https://sketchfab.com/models/8502dbef80ed4aa688c13c90cb14de73/embed"
+          >
+          </iframe>
+        </div>
+      </section>
+      <section class="links-container">
+        <a href="#historia">Història</a>
+        <a href="pages/portfoli.html">Portfoli</a>
+        <a href="#noticies">Notícies</a>
+        <a href="pages/alvoltant.html">Al voltant de la balena</a>
+      </section>
+
+      <aside class="access">
+        <button id="btnAccess" class="btnAccess">
+          <img src="/UD4/images/logoAcces.png" style="width: 60px; height: 60px" />
+        </button>
+      </aside>
+      <section id="access-panel" class="access-panel hidden">
+        <div class="panel-header">
+          <h2>Opciones de Accesibilidad</h2>
+          <button class="close-button" onclick="toggleAccessPanel()">✖</button>
+        </div>
+        <div class="panel-content">
+          <p>Opciones de accesibilidad pronto estarán disponibles.</p>
+        </div>
+      </section>      
+
+    </main>
+    <footer>
+      <p>© 2024 Tots els drets reservats</p>
+      <p>Pàgina Web creada per Sandra Catchot Sancho</p>
+      <p>
+        <a href="#terminos">Terminis del servei</a> •
+        <a href="#privacidad">Polítia de privacitatd</a>
+      </p>
+    </footer>
+    <script src="scripts/index.js"></script>
+  </body>
+</html>

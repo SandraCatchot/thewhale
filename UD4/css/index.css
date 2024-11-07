@@ -14,8 +14,7 @@ h1, h2, h3 {
 }
 
 header {
-  background: #124559;
-  background: linear-gradient(to right, #124559, #01161e);
+  background: linear-gradient(45deg, #124559, #01161e);
   color: #01161e;
   padding: 1.6rem;
   display: flex;
@@ -81,8 +80,7 @@ header {
   color: #01161e;
 }
 .menu ul li {
-  background: #124559;
-  background: linear-gradient(to right, #124559, #01161e);
+  background: linear-gradient(45deg, #124559, #01161e);
   position: relative;
   float: left;
   margin: 0;
@@ -113,8 +111,7 @@ header {
 }
 
 footer {
-  background: #124559;
-  background: linear-gradient(to right, #124559, #01161e);
+  background: linear-gradient(45deg, #124559, #01161e);
   color: #E8EBE4;
   text-align: center;
   font-size: 0.8rem;
@@ -146,7 +143,6 @@ footer a:visited {
   }
   .menu-links a {
     color: #E8EBE4;
-    background-color: #ffa630;
     padding: 20px;
     display: inline;
     text-decoration: none;
@@ -192,8 +188,7 @@ iframe {
   justify-items: center;
 }
 .links-container a {
-  background: #124559;
-  background: linear-gradient(to right, #124559, #01161e);
+  background: linear-gradient(45deg, #124559, #01161e);
   color: #E8EBE4;
   padding: 0.8rem;
   border-radius: 5px;
