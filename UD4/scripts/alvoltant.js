@@ -3,19 +3,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const boneDetails = {
         os1: {
             image: "../images/ossos/ossos1.webp",
-            text: "Aquest ós formava part de la secció superior de la columna vertebral de la balena..."
+            text: "Aquest os formava part de la secció superior de la columna vertebral de la balena, un punt de connexió crucial entre les vèrtebres i els músculs de l'esquena. La seva estructura robusta i corba permetia distribuir la pressió i suportar el pes del cos de la balena mentre nedava a l'oceà. Les marques de desgast evidencien anys de moviment constant, impulsant el gran cetaci a través de les aigües profundes."
         },
         os2: {
             image: "../images/ossos/ossos2.webp",
-            text: "Aquesta costella protegia el cor i els pulmons de la balena..."
+            text: "Aquesta costella protegia el cor i els pulmons de la balena, formant part de la seva gran caixa toràcica. La forma lleugerament arquejada i allargada indica la seva funció de protecció a la part frontal de l'animal. Les senyals de desgast i les petites marques a la superfície suggereixen que aquesta balena podria haver viscut una vida plena de trobades i batalles en el seu entorn marí."
         },
         os3: {
             image: "../images/ossos/ossos3.webp",
-            text: "L'escàpula d'una balena és essencial per a la unió de les aletes anteriors..."
+            text: "L'escàpula d'una balena és essencial per a la unió de les aletes anteriors. Aquest os ample i aplanat actuava com a base per als músculs i els lligaments de l'aleta, proporcionant flexibilitat i potència. La seva forma asimètrica revela la força i l'agilitat de la balena al nedar i maniobrar a l'oceà, amb una resistència estructural que evidencia la seva importància en la mobilitat de l'animal."
         },
         os4: {
             image: "../images/ossos/ossos4.webp",
-            text: "Encara que les balenes modernes no tenen extremitats posteriors visibles..."
+            text: "Encara que les balenes modernes no tenen extremitats posteriors visibles, posseeixen restes vestigials com aquest petit os que en temps antics era part d'una cama. Aquest fèmur reduït és una relíquia evolutiva, un recordatori de quan els ancestres de les balenes caminaven per terra. La seva mida reduïda i estructura simplificada parlen de milions d'anys d'adaptació al medi aquàtic."
         },
         os5: {
             image: "../images/ossos/ossos5.webp",
