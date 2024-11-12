@@ -8,7 +8,9 @@ body {
   color: #01161e;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-align: center;
   margin: 1rem;
   color: #01161e;
@@ -114,14 +116,32 @@ header {
   display: block;
 }
 
+button {
+  width: 40%;
+  padding: 10px;
+  background-color: #124559;
+  color: #E8EBE4;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.7s ease;
+  transition: background-color 0.7s ease;
+}
+button button:hover {
+  background-color: #ffa630;
+  color: #E8EBE4;
+}
+
 .access {
   position: fixed;
   bottom: 50px;
   left: 10px;
   z-index: 1000;
 }
-.access button {
-  background-color: #E8EBE4;
+
+.btnAccess {
+  background-color: transparent;
 }
 
 #access-panel {
@@ -269,5 +289,11 @@ footer a:visited {
   }
   .menu-icon {
     display: none;
+  }
+  .panel-content .access-option h3 {
+    font-size: 1.3rem;
+  }
+  .panel-content .access-option button {
+    font-size: 1.2rem;
   }
 }/*# sourceMappingURL=common.css.map */

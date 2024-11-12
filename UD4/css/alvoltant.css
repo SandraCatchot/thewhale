@@ -1,5 +1,5 @@
 @charset "UTF-8";
-body, main {
+body {
   font-family: "Lato", sans-serif;
   margin: 0;
   padding: 0;
@@ -120,9 +120,6 @@ header {
   left: 10px;
   z-index: 1000;
 }
-.access button {
-  background-color: #E8EBE4;
-}
 
 #access-panel {
   width: 300px;
@@ -207,17 +204,17 @@ header {
 
 /* MÉS CONTRAST */
 .dark-contrast {
-  filter: contrast(80%);
+  filter: contrast(130%);
 }
 
 /* MENYS CONTRAST */
 .light-contrast {
-  filter: contrast(40%);
+  filter: brightness(90%);
 }
 
 /* MÉS SATURACIÓ */
 .high-saturation {
-  filter: saturate(120%);
+  filter: saturate(130%);
 }
 
 /* MENYS SATURACIÓ */
@@ -330,6 +327,9 @@ footer a:visited {
 }
 .container #container-desktop {
   display: none;
+}
+.container .btnAccess {
+  background-color: transparent;
 }
 @keyframes fadeIn {
   0% {

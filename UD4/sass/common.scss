@@ -1,6 +1,5 @@
-@import '_variables';
-@import 'mixins';
-
+@import "_variables";
+@import "mixins";
 
 body {
   font-family: $primary-font;
@@ -11,7 +10,9 @@ body {
   color: $dark-color;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-align: center;
   margin: 1rem;
   color: $dark-color;
@@ -63,7 +64,7 @@ header {
 }
 
 .menu {
-  margin-right: 20px;  
+  margin-right: 20px;
 
   ul {
     list-style: none;
@@ -79,12 +80,12 @@ header {
       letter-spacing: 1px;
       border: 1px solid $secondary-color;
       background-color: gradient-bg($primary-color, $dark-color);
-      color: $secondary-color;        
+      color: $secondary-color;
       @include transition(all, 0.3s, ease-in-out);
 
       &:hover {
-        background-color: $color-accent; 
-        color: $primary-color;           
+        background-color: $color-accent;
+        color: $primary-color;
       }
     }
 
@@ -105,17 +106,17 @@ header {
         li {
           float: none;
           width: 150px;
-          
+
           a {
             line-height: 120%;
             padding: 10px 15px;
-            background-color: $primary-color; 
-            color: $secondary-color;          // Texto blanco
+            background-color: $primary-color;
+            color: $secondary-color; // Texto blanco
             @include transition(all, 0.3s, ease-in-out);
 
             &:hover {
               background-color: $color-accent; // Fondo color acento
-              color: $primary-color;           // Texto color primario
+              color: $primary-color; // Texto color primario
             }
           }
         }
@@ -128,15 +129,25 @@ header {
   }
 }
 
+button {
+  @include basicButton();
+  @include transition(background-color, 0.7s, ease);
+
+  button:hover {
+    background-color: $color-accent;
+    color: $secondary-color;
+  }
+}
+
 .access {
   position: fixed;
   bottom: 50px;
   left: 10px;
   z-index: 1000;
+}
 
-  button {
-    background-color: $secondary-color;
-  }
+.btnAccess {
+  background-color: transparent;
 }
 
 #access-panel {
@@ -159,7 +170,7 @@ header {
   display: none;
 
   &.visible {
-    display: block; 
+    display: block;
   }
 
   .panel-header {
@@ -190,7 +201,7 @@ header {
     font-family: $primary-font;
     color: $dark-color;
     text-align: center;
-    padding: 0.5rem;    
+    padding: 0.5rem;
 
     .access-option {
       margin-bottom: 0.5rem;
@@ -236,7 +247,7 @@ header {
 
 /* MENYS CONTRAST */
 .light-contrast {
-  filter: brightness(90%)
+  filter: brightness(90%);
 }
 
 /* MÉS SATURACIÓ */
@@ -302,5 +313,17 @@ footer {
 
   .menu-icon {
     display: none;
+  }
+
+  .panel-content {
+    .access-option {
+      h3 {
+        font-size: 1.3rem;
+      }
+
+      button {
+        font-size: 1.2rem;
+      }
+    }
   }
 }

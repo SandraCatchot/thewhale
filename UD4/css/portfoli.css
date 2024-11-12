@@ -1,4 +1,5 @@
-body, main {
+@charset "UTF-8";
+body {
   font-family: "Lato", sans-serif;
   margin: 0;
   padding: 0;
@@ -21,10 +22,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.menu:hover {
-  transform: scale(1.05);
 }
 
 .logo {
@@ -76,10 +73,13 @@ header {
   padding: 10px;
   letter-spacing: 1px;
   border: 1px solid #E8EBE4;
+  background-color: gradient-bg(#124559, #01161e);
+  color: #E8EBE4;
+  transition: all 0.3s ease-in-out;
 }
 .menu ul a:hover {
-  color: #01161e;
   background-color: #ffa630;
+  color: #124559;
 }
 .menu ul li {
   position: relative;
@@ -87,16 +87,12 @@ header {
   margin: 0;
   padding: 0;
 }
-.menu ul li:hover {
-  background: #ffa630;
-  transition: background-color 0.6s ease;
-}
 .menu ul li ul {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  background: #E8EBE4;
+  background: gradient-bg(#124559, #01161e);
   padding: 0;
 }
 .menu ul li ul li {
@@ -106,9 +102,33 @@ header {
 .menu ul li ul li a {
   line-height: 120%;
   padding: 10px 15px;
+  background-color: #124559;
+  color: #E8EBE4;
+  transition: all 0.3s ease-in-out;
+}
+.menu ul li ul li a:hover {
+  background-color: #ffa630;
+  color: #124559;
 }
 .menu ul li:hover > ul {
   display: block;
+}
+
+button {
+  width: 40%;
+  padding: 10px;
+  background-color: #124559;
+  color: #E8EBE4;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.7s ease;
+  transition: background-color 0.7s ease;
+}
+button button:hover {
+  background-color: #ffa630;
+  color: #E8EBE4;
 }
 
 .access {
@@ -118,11 +138,21 @@ header {
   z-index: 1000;
 }
 
+.btnAccess {
+  background-color: transparent;
+}
+
+#access-panel {
+  width: 300px;
+  background-color: #E8EBE4;
+  border: 2px solid #124559;
+}
+
 .access-panel {
   position: fixed;
   bottom: 80px;
   left: 10px;
-  width: 300px;
+  width: 600px;
   background-color: #E8EBE4;
   border: 2px solid #124559;
   border-radius: 10px;
@@ -161,9 +191,56 @@ header {
   text-align: center;
   padding: 0.5rem;
 }
+.access-panel .panel-content .access-option {
+  margin-bottom: 0.5rem;
+}
+.access-panel .panel-content .access-option h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.access-panel .panel-content .access-option button {
+  margin: 0.2rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.6rem;
+  background-color: #124559;
+  color: #E8EBE4;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.access-panel .panel-content .access-option button:hover {
+  background-color: #ffa630;
+  color: #01161e;
+}
 
 .hidden {
   display: none;
+}
+
+/* ESCALA DE GRISOS */
+.grayscale {
+  filter: grayscale(100%);
+}
+
+/* MÉS CONTRAST */
+.dark-contrast {
+  filter: contrast(130%);
+}
+
+/* MENYS CONTRAST */
+.light-contrast {
+  filter: brightness(90%);
+}
+
+/* MÉS SATURACIÓ */
+.high-saturation {
+  filter: saturate(130%);
+}
+
+/* MENYS SATURACIÓ */
+.low-saturation {
+  filter: saturate(70%);
 }
 
 footer {
