@@ -14,7 +14,8 @@ h1, h2, h3 {
 }
 
 header {
-  background: linear-gradient(45deg, #124559, #01161e);
+  background: #124559;
+  background: linear-gradient(to right, #124559, #01161e);
   color: #01161e;
   padding: 1.6rem;
   display: flex;
@@ -69,18 +70,18 @@ header {
 }
 .menu ul a {
   display: block;
-  color: #E8EBE4;
   text-decoration: none;
   font-weight: 400;
   font-size: 15px;
   padding: 10px;
   letter-spacing: 1px;
+  border: 1px solid #E8EBE4;
 }
 .menu ul a:hover {
   color: #01161e;
+  background-color: #ffa630;
 }
 .menu ul li {
-  background: linear-gradient(45deg, #124559, #01161e);
   position: relative;
   float: left;
   margin: 0;
@@ -110,8 +111,64 @@ header {
   display: block;
 }
 
+.access {
+  position: fixed;
+  bottom: 50px;
+  left: 10px;
+  z-index: 1000;
+}
+
+.access-panel {
+  position: fixed;
+  bottom: 80px;
+  left: 10px;
+  width: 300px;
+  background-color: #E8EBE4;
+  border: 2px solid #124559;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  z-index: 1002;
+  display: none;
+}
+.access-panel.visible {
+  display: block;
+}
+.access-panel .panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.access-panel .panel-header h2 {
+  font-size: 1.2rem;
+  color: #124559;
+  margin: 0;
+}
+.access-panel .panel-header .close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #01161e;
+}
+.access-panel .panel-header .close-button:hover {
+  color: #ffa630;
+}
+.access-panel .panel-content {
+  font-family: "Lato", sans-serif;
+  color: #01161e;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
 footer {
-  background: linear-gradient(45deg, #124559, #01161e);
+  background: #124559;
+  background: linear-gradient(to right, #124559, #01161e);
   color: #E8EBE4;
   text-align: center;
   font-size: 0.8rem;

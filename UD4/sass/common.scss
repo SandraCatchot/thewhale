@@ -1,7 +1,8 @@
 @import '_variables';
 @import 'mixins';
 
-body, main {
+
+body {
   font-family: $primary-font;
   margin: 0;
   padding: 0;
@@ -23,10 +24,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.menu:hover {
-  transform: scale(1.05);
 }
 
 .logo {
@@ -81,10 +78,13 @@ header {
       padding: 10px;
       letter-spacing: 1px;
       border: 1px solid $secondary-color;
+      background-color: gradient-bg($primary-color, $dark-color);
+      color: $secondary-color;        
+      @include transition(all, 0.3s, ease-in-out);
 
       &:hover {
-        color: $dark-color;
-        background-color: $color-accent;
+        background-color: $color-accent; 
+        color: $primary-color;           
       }
     }
 
@@ -94,17 +94,12 @@ header {
       margin: 0;
       padding: 0;
 
-      &:hover {
-        background: $color-accent;
-        @include transition(background-color, 0.6s, ease);
-      }
-
       ul {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
-        background: $secondary-color;
+        background: gradient-bg($primary-color, $dark-color);
         padding: 0;
 
         li {
@@ -114,6 +109,14 @@ header {
           a {
             line-height: 120%;
             padding: 10px 15px;
+            background-color: $primary-color; 
+            color: $secondary-color;          // Texto blanco
+            @include transition(all, 0.3s, ease-in-out);
+
+            &:hover {
+              background-color: $color-accent; // Fondo color acento
+              color: $primary-color;           // Texto color primario
+            }
           }
         }
       }
@@ -130,13 +133,23 @@ header {
   bottom: 50px;
   left: 10px;
   z-index: 1000;
+
+  button {
+    background-color: $secondary-color;
+  }
+}
+
+#access-panel {
+  width: 300px;
+  background-color: $secondary-color;
+  border: 2px solid $primary-color;
 }
 
 .access-panel {
   position: fixed;
   bottom: 80px;
   left: 10px;
-  width: 300px;
+  width: 600px;
   background-color: $secondary-color;
   border: 2px solid $primary-color;
   border-radius: 10px;
@@ -177,7 +190,33 @@ header {
     font-family: $primary-font;
     color: $dark-color;
     text-align: center;
-    padding: 0.5rem;
+    padding: 0.5rem;    
+
+    .access-option {
+      margin-bottom: 0.5rem;
+
+      h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      button {
+        margin: 0.2rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.6rem;
+        background-color: $primary-color;
+        color: $secondary-color;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        @include transition(background-color, 0.3s, ease);
+
+        &:hover {
+          background-color: $color-accent;
+          color: $dark-color;
+        }
+      }
+    }
   }
 }
 
@@ -185,6 +224,30 @@ header {
   display: none;
 }
 
+/* ESCALA DE GRISOS */
+.grayscale {
+  filter: grayscale(100%);
+}
+
+/* MÉS CONTRAST */
+.dark-contrast {
+  filter: contrast(130%);
+}
+
+/* MENYS CONTRAST */
+.light-contrast {
+  filter: brightness(90%)
+}
+
+/* MÉS SATURACIÓ */
+.high-saturation {
+  filter: saturate(130%);
+}
+
+/* MENYS SATURACIÓ */
+.low-saturation {
+  filter: saturate(70%);
+}
 
 footer {
   @include gradient-bg($primary-color, $dark-color);
@@ -204,7 +267,6 @@ footer {
     }
   }
 }
-
 
 @media (min-width: 768px) {
   .main-title {

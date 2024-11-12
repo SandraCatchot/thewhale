@@ -26,7 +26,7 @@
   <body>
     <header>
       <div class="logo">
-        <a href="index.html"><img src="images/logo_ok_AULAMUSEU.png" /></a>
+        <a href="index.html"><img src="images/logo_ok_AULAMUSEU.png" alt="logo" /></a>
       </div>
       <div class="menu_login">
         <div class="menu-links">
@@ -89,23 +89,44 @@
         <a href="#noticies">Notícies</a>
         <a href="pages/alvoltant.html">Al voltant de la balena</a>
       </section>
-
-      <aside class="access">
-        <button id="btnAccess" class="btnAccess">
-          <img src="/UD4/images/logoAcces.png" style="width: 60px; height: 60px" />
-        </button>
-      </aside>
-      <section id="access-panel" class="access-panel hidden">
-        <div class="panel-header">
-          <h2>Opciones de Accesibilidad</h2>
-          <button class="close-button" onclick="toggleAccessPanel()">✖</button>
-        </div>
-        <div class="panel-content">
-          <p>Opciones de accesibilidad pronto estarán disponibles.</p>
-        </div>
-      </section>      
-
     </main>
+
+    <aside class="access">
+      <button id="btnAccess" class="btnAccess">
+        <img
+          src="/UD4/images/logoAcces.png" alt="Ajustes de accesibilidad"
+          style="width: 60px; height: 60px"
+        />
+      </button>
+    </aside>
+    <section id="access-panel" class="access-panel hidden">
+      <div class="panel-header">
+        <h2>Opcions d'Accesibilitat</h2>
+        <button id="closeAccessPanel" class="close-button">✖</button>
+      </div>
+      <div class="panel-content">
+        <div class="access-option">
+          <h3>Ajusta el contrast</h3>
+          <button id="grayscale">Escala de grisos</button>
+          <button id="dark-contrast">+ Contrast</button>
+          <button id="light-contrast">- Contrast</button>
+          <button id="high-saturation">+ Saturació</button>
+          <button id="low-saturation">- Saturació</button>
+        </div>
+        <div class="access-option">
+          <h3>Ajusta la lletra</h3>
+          <button id="increase-font">+ Tamany lletra</button>
+          <button id="decrease-font">- Tamany lletra</button>
+          <button id="increase-line-height">+ Interlineat</button>
+          <button id="decrease-line-height">- Interlineat</button>
+          <button id="increase-word-spacing">+ Espai entre paraules</button>
+          <button id="decrease-word-spacing">- Espai entre paraules</button>
+          <button id="increase-letter-spacing">+ Espai entre lletres</button>
+          <button id="decrease-letter-spacing">- Espai entre lletres</button>
+        </div>
+      </div>
+    </section>
+    
     <footer>
       <p>© 2024 Tots els drets reservats</p>
       <p>Pàgina Web creada per Sandra Catchot Sancho</p>
@@ -114,6 +135,6 @@
         <a href="#privacidad">Polítia de privacitatd</a>
       </p>
     </footer>
-    <script src="scripts/index.js"></script>
+    <script src="scripts/access.js"></script>
   </body>
 </html>
