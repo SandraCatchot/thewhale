@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula Museu - La balena blava</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href="../index.html"
+          ><img src="../images/logo_ok_AULAMUSEU.png"
+        /></a>
+      </div>
+      <div class="menu_login">
+        <div class="menu-links">
+          <a href="#historia">Història</a>
+          <a href="portfoli.html">Portfoli</a>
+          <a href="pages/news.html">Notícies</a>
+          <a href="alvoltant.html">Al voltant de la balena</a>
+        </div>
+        <div class="header-icons">
+          <div>
+            <nav class="menu">
+              <ul>
+                <li>
+                  <a href="#">Menú</a>
+                  <ul>
+                    <li><a href="#">Història</a></li>
+                    <li>
+                      <a href="portfoli.html">Portfoli</a>
+                    </li>
+                    <li><a href="pages/news.html">Notícies</a></li>
+                    <li>
+                      <a href="alvoltant.html">Al voltant de la balena</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="logo_login">
+            <a href="login.html"><ion-icon name="person-circle"></ion-icon></a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="login-container">
+        <div class="login-popup">
+          <h2>INICI DE SESSIÓ</h2>
+          <form>
+            <div class="input-container">
+              <ion-icon name="person-circle"></ion-icon>
+              <input type="text" placeholder="Usuari" required />
+            </div>
+            <div class="input-container">
+              <ion-icon name="lock-closed"></ion-icon>
+              <input type="password" placeholder="Contrasenya" required />
+            </div>
+            <button type="submit">Iniciar sessió</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <aside class="access">
+      <button id="btnAccess" class="btnAccess">
+        <img
+          src="../images/logoAcces.png"
+          style="width: 60px; height: 60px"
+        />
+      </button>
+    </aside>
+    <section id="access-panel" class="access-panel hidden">
+      <div class="panel-header">
+        <h2>Opcions d'Accesibilitat</h2>
+        <button id="closeAccessPanel" class="close-button">✖</button>
+      </div>
+      <div class="panel-content">
+        <div class="access-option">
+          <h3>Ajusta el contrast</h3>
+          <button id="grayscale">Escala de grisos</button>
+          <button id="dark-contrast">+ Contrast</button>
+          <button id="light-contrast">- Contrast</button>
+          <button id="high-saturation">+ Saturació</button>
+          <button id="low-saturation">- Saturació</button>
+        </div>
+        <div class="access-option">
+          <h3>Ajusta la lletra</h3>
+          <button id="increase-font">+ Tamany lletra</button>
+          <button id="decrease-font">- Tamany lletra</button>
+          <button id="increase-line-height">+ Interlineat</button>
+          <button id="decrease-line-height">- Interlineat</button>
+          <button id="increase-word-spacing">+ Espai entre paraules</button>
+          <button id="decrease-word-spacing">- Espai entre paraules</button>
+          <button id="increase-letter-spacing">+ Espai entre lletres</button>
+          <button id="decrease-letter-spacing">- Espai entre lletres</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2024 Tots els drets reservats</p>
+      <p>Pàgina Web creada per Sandra Catchot Sancho</p>
+      <p>
+        <a href="#terminos">Terminis de servei</a> •
+        <a href="#privacidad">Política de privacitat</a>
+      </p>
+    </footer>
+
+    <script src="../scripts/access.js"></script>
+  </body>
+</html>

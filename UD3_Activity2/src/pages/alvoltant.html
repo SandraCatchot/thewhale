@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula Museu - La balena blava</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/alvoltant.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="../index.html"
+          ><img
+            src="../images/logo_aula_museu00-removebg-preview.png"
+            alt="logo"
+        /></a>
+      </div>
+      <div class="menu_login">
+        <div class="menu-links">
+          <a href="#historia">Història</a>
+          <a href="portfoli.html">Portfoli</a>
+          <a href="news.html">Notícies</a>
+          <a href="alvoltant.html">Al voltant de la balena</a>
+        </div>
+        <div class="header-icons">
+          <div>
+            <nav class="menu">
+              <ul>
+                <li>
+                  <a href="#">Menú</a>
+                  <ul>
+                    <li><a href="#">Història</a></li>
+                    <li>
+                      <a href="portfoli.html">Portfoli</a>
+                    </li>
+                    <li><a href="news.html">Notícies</a></li>
+                    <li><a href="alvoltant.html">Al voltant de la balena</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="logo_login">
+            <a href="login.html"><ion-icon name="person-circle"></ion-icon></a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <h2>Al voltant de la balena</h2>
+        <div class="container-opciones">
+          <span id="tab-ossos" class="tab active" onclick="showList('ossos')"
+            >Els òssos de la balena</span
+          >
+          <span id="tab-feina" class="tab" onclick="showList('feina')"
+            >Altres feines d'alumnes</span
+          >
+        </div>
+
+        <div id="container-mobile" class="container-mobile">
+          <div class="card-ossos">
+            <img
+              src="../../images/ossos/ossos1.webp"
+              class="image-voltant"
+              alt="Imatge vèrtex dorsal"
+            />
+            <p class="text-voltant">
+              <b>Vèrtex dorsal:</b><br />Aquest os formava part de la secció
+              superior de la columna vertebral de la balena, un punt de connexió
+              crucial entre les vèrtebres i els músculs de l'esquena. La seva
+              estructura robusta i corba permetia distribuir la pressió i
+              suportar el pes del cos de la balena mentre nedava a l'oceà. Les
+              marques de desgast evidencien anys de moviment constant, impulsant
+              el gran cetaci a través de les aigües profundes.
+            </p>
+          </div>
+          <div class="card-ossos">
+            <img
+              src="../../images/ossos/ossos2.webp"
+              class="image-voltant"
+              alt="Imatge costella toràcica"
+            />
+            <p class="text-voltant">
+              <b>Costella toràcica:</b><br />Aquesta costella protegia el cor i
+              els pulmons de la balena, formant part de la seva gran caixa
+              toràcica. La forma lleugerament arquejada i allargada indica la
+              seva funció de protecció a la part frontal de l'animal. Les
+              senyals de desgast i les petites marques a la superfície
+              suggereixen que aquesta balena podria haver viscut una vida plena
+              de trobades i batalles en el seu entorn marí.
+            </p>
+          </div>
+          <div class="card-ossos">
+            <img
+              src="../../images/ossos/ossos3.webp"
+              class="image-voltant"
+              alt="Imatge escàpula dreta"
+            />
+            <p class="text-voltant">
+              <b>Escàpula dreta:</b><br />L'escàpula d'una balena és essencial
+              per a la unió de les aletes anteriors. Aquest os ample i aplanat
+              actuava com a base per als músculs i els lligaments de l'aleta,
+              proporcionant flexibilitat i potència. La seva forma asimètrica
+              revela la força i l'agilitat de la balena al nedar i maniobrar a
+              l'oceà, amb una resistència estructural que evidencia la seva
+              importància en la mobilitat de l'animal.
+            </p>
+          </div>
+          <div class="card-ossos">
+            <img
+              src="../../images/ossos/ossos4.webp"
+              class="image-voltant"
+              alt="Imatge fèmur vestigial"
+            />
+            <p class="text-voltant">
+              <b>Fèmur vestigial:</b><br />Encara que les balenes modernes no
+              tenen extremitats posteriors visibles, posseeixen restes
+              vestigials com aquest petit os que en temps antics era part d'una
+              cama. Aquest fèmur reduït és una relíquia evolutiva, un
+              recordatori de quan els ancestres de les balenes caminaven per
+              terra. La seva mida reduïda i estructura simplificada parlen de
+              milions d'anys d'adaptació al medi aquàtic.
+            </p>
+          </div>
+          <div class="card-ossos">
+            <img
+              src="../../images/ossos/ossos5.webp"
+              class="image-voltant"
+              alt="Imatge mandíbula inferior"
+            />
+            <p class="text-voltant">
+              <b>Mandíbula inferior:</b><br />Aquest ós allargat i robust
+              formava part de la mandíbula de la balena. La seva superfície
+              mostra les textures dels punts d'inserció dels músculs de la
+              mandíbula, que li permetien obrir la seva enorme boca per filtrar
+              grans quantitats d'aigua i capturar krill i peixos. Les lleugeres
+              marques de desgast a la vora suggereixen una dieta rica en
+              organismes petits i el pas d'anys en l'ecosistema marí.
+            </p>
+          </div>
+          <div class="card-ossos">
+            <img
+              src="../../images/ossos/ossos6.webp"
+              class="image-voltant"
+              alt="Imatge vèrtebra caudal"
+            />
+            <p class="text-voltant">
+              <b>Vèrtebra caudal:</b><br />Situada a prop de la cua, aquesta
+              vèrtebra era part de l'estructura que donava suport a la poderosa
+              aleta caudal. La forma arrodonida i les protuberàncies en els
+              extrems ajudaven a distribuir la força de la musculatura de la
+              cua, facilitant la propulsió a l'aigua. Aquest os era essencial
+              per als moviments ràpids i el canvi de direcció, permetent a la
+              balena nedar amb agilitat malgrat la seva gran mida.
+            </p>
+          </div>
+          <div class="card-feina">
+            <img
+              src="../../images/muntatge1.png"
+              class="image-voltant"
+              alt="Imatge feina 1"
+            />
+            <p class="text-voltant">Descripció feina seleccionada.</p>
+          </div>
+          <div class="card-feina">
+            <img
+              src="../../images/muntatge1.png"
+              class="image-voltant"
+              alt="Imatge feina 2"
+            />
+            <p class="text-voltant">Descripció feina seleccionada.</p>
+          </div>
+          <div class="card-feina">
+            <img
+              src="../../images/muntatge1.png"
+              class="image-voltant"
+              alt="Imatge feina 3"
+            />
+            <p class="text-voltant">Descripció feina seleccionada.</p>
+          </div>
+        </div>
+
+        <div id="container-desktop" class="container-desktop">
+          <div id="listado" class="listado">
+            <div class="list-item" onclick="showDetail('os1')">Ós 1</div>
+            <div class="list-item" onclick="showDetail('os2')">Ós 2</div>
+            <div class="list-item" onclick="showDetail('os3')">Ós 3</div>
+            <div class="list-item" onclick="showDetail('os4')">Ós 4</div>
+            <div class="list-item" onclick="showDetail('os5')">Ós 5</div>
+          </div>
+
+          <div id="details" class="details">
+            <img
+              id="details-image"
+              src="../../images/ossos1.png"
+              class="image-voltant"
+            />
+          </div>
+
+          <div id="description" class="description">
+            <p id="details-text" class="text-voltant"></p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="access">
+      <button id="btnAccess" class="btnAccess">
+        <img
+          src="../images/logoAcces.png"
+          style="width: 60px; height: 60px"
+        />
+      </button>
+    </aside>
+    <section id="access-panel" class="access-panel hidden">
+      <div class="panel-header">
+        <h2>Opcions d'Accesibilitat</h2>
+        <button id="closeAccessPanel" class="close-button">✖</button>
+      </div>
+      <div class="panel-content">
+        <div class="access-option">
+          <h3>Ajusta el contrast</h3>
+          <button id="grayscale">Escala de grisos</button>
+          <button id="dark-contrast">+ Contrast</button>
+          <button id="light-contrast">- Contrast</button>
+          <button id="high-saturation">+ Saturació</button>
+          <button id="low-saturation">- Saturació</button>
+        </div>
+        <div class="access-option">
+          <h3>Ajusta la lletra</h3>
+          <button id="increase-font">+ Tamany lletra</button>
+          <button id="decrease-font">- Tamany lletra</button>
+          <button id="increase-line-height">+ Interlineat</button>
+          <button id="decrease-line-height">- Interlineat</button>
+          <button id="increase-word-spacing">+ Espai entre paraules</button>
+          <button id="decrease-word-spacing">- Espai entre paraules</button>
+          <button id="increase-letter-spacing">+ Espai entre lletres</button>
+          <button id="decrease-letter-spacing">- Espai entre lletres</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2024 Tots els drets reservats</p>
+      <p>Pàgina Web creada per Sandra Catchot Sancho</p>
+      <p>
+        <a href="#terminos">Terminis de servei</a> •
+        <a href="#privacidad">Política de privacitat</a>
+      </p>
+    </footer>
+
+    <script src="../scripts/alvoltant.js"></script>
+    <script src="../scripts/access.js"></script>
+  </body>
+</html>
