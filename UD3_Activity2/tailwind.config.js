@@ -3,10 +3,10 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     colors: {
-      'primary-color': '#124559',
-      'secondary-color': '#E8EBE4',
-      'color-accent': '#ffa630',
-      'dark-color': '#01161e',
+      'azulS': '#124559',
+      'blancoS': '#E8EBE4',
+      'amarilloS': '#ffa630',
+      'oscuroS': '#01161e',
     },
 
     fontFamily: {
