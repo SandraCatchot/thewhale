@@ -115,7 +115,7 @@ header {
 }
 
 button {
-  padding: 10px;
+  padding: 5px;
   background-color: #124559;
   color: #E8EBE4;
   border: none;
@@ -132,13 +132,18 @@ button button:hover {
 
 .access {
   position: fixed;
-  bottom: 50px;
-  left: 10px;
+  bottom: 200px;
+  left: 18px;
   z-index: 1000;
 }
 
 .btnAccess {
   background-color: transparent;
+}
+
+.btnAccess img {
+  width: 70px;
+  height: 70px;
 }
 
 #access-panel {

@@ -4,11 +4,11 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: #E8EBE4;
-  color: #01161e;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-align: center;
   margin: 1rem;
   color: #01161e;
@@ -115,7 +115,7 @@ header {
 }
 
 button {
-  padding: 10px;
+  padding: 5px;
   background-color: #124559;
   color: #E8EBE4;
   border: none;
@@ -287,6 +287,12 @@ footer a:visited {
   .menu-icon {
     display: none;
   }
+  .panel-content .access-option h3 {
+    font-size: 1.3rem;
+  }
+  .panel-content .access-option button {
+    font-size: 1.2rem;
+  }
 }
 .main-title {
   text-align: center;
@@ -299,10 +305,10 @@ footer a:visited {
 }
 
 .description {
-  text-align: center;
-  margin: 1rem;
-  font-size: 0.9rem;
-  color: #E8EBE4;
+  text-align: justify;
+  margin: 2rem;
+  font-size: 1rem;
+  color: #124559;
   animation: slideIn 1s ease-in-out;
 }
 
@@ -312,9 +318,9 @@ footer a:visited {
   gap: 10px;
   grid-auto-rows: auto;
   grid-auto-columns: auto;
-  margin-top: 2.5rem;
-  padding: 0.7rem;
-  animation: fadeIn 1.5s ease-in-out;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0.9rem;
 }
 .portfoli-container img {
   width: 100%;

@@ -13,10 +13,10 @@
 }
 
 .description {
-  text-align: center;
-  margin: 1rem;
-  font-size: 0.9rem;
-  color: $secondary-color;
+  text-align: justify;
+  margin: 2rem;
+  font-size: 1rem;
+  color: $primary-color;
   animation: slideIn 1s ease-in-out; 
 }
 
@@ -26,9 +26,9 @@
   gap: 10px;
   grid-auto-rows: auto;
   grid-auto-columns: auto;
-  margin-top: 2.5rem;
-  padding: 0.7rem;
-  animation: fadeIn 1.5s ease-in-out; 
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0.9rem;
 
   img {
     width: 100%;
