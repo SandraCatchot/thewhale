@@ -132,13 +132,18 @@ button button:hover {
 
 .access {
   position: fixed;
-  bottom: 50px;
-  left: 10px;
+  bottom: 200px;
+  left: 18px;
   z-index: 1000;
 }
 
 .btnAccess {
   background-color: transparent;
+}
+
+.btnAccess img {
+  width: 70px;
+  height: 70px;
 }
 
 #access-panel {
@@ -305,9 +310,9 @@ footer a:visited {
 }
 
 .description {
-  text-align: justify;
+  text-align: center;
   margin: 2rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #124559;
   animation: slideIn 1s ease-in-out;
 }

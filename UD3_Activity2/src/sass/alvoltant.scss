@@ -4,13 +4,12 @@
 
 .container {
   text-align: center;
-  padding: 20px;
+  padding: 15px;
 
   h2 {
     text-align: center;
     color: $primary-color;
-    margin: 1rem;
-    font-size: 30px;
+    margin: 0.5rem;
     font-family: $secondary-font;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
@@ -34,21 +33,18 @@
   #container-mobile {
     display: block;
     text-align: center;
+    background-color: #b7c3c7;
 
     .card-ossos,
     .card-feina {
-      width: 100%;
-      max-width: 350px;
-      height: auto;
-      background-color: $secondary-color;
+      background-color: #b7c3c7;
       padding: 15px;
       border-radius: 10px;
       text-align: center;
 
       .image-voltant {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
+        width: 250px;
+        border-radius: 15px;
         margin-bottom: 10px;
 
         &:hover {
@@ -58,7 +54,6 @@
       }
 
       .text-voltant {
-        background-color: $secondary-color;
         border-radius: 3px;
         text-align: justify;
       }
@@ -113,13 +108,17 @@
 
     #container-desktop {
       display: flex;
+      background-color: #b7c3c7;       
+      border-radius: 10px;
+      margin: 25px;
+      padding: 10px;
 
       .listado {
         display: flex;
         flex-direction: column;
         gap: 15px;
         width: 20%;
-        margin-left: 20px;
+        margin: 25px;
 
         .list-item {
           padding: 15px;
