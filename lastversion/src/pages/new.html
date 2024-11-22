@@ -64,60 +64,33 @@
       </div>
     </header>
 
-    <main class="font-primary-font mx-auto p-4 max-w-7xl">
-      <div class="flex flex-col md:flex-row justify-between items-center mb-6">
-        <h1 class="font-secondary-font text-3xl text-dark-color mb-4 md:mb-0">
-          NOTÍCIES
+    <main class="max-w-4xl mx-auto p-6">
+        <a href="news.html" class="text-azulS font-semibold hover:underline flex items-center mb-6">
+          ← Torna a Notícies
+        </a>
+        <h1 class="text-3xl font-secondary-font font-bold mb-4">
+            La Balena Blava del Ramis rep una nova tècnica de conservació
         </h1>
-        <div class="relative w-full md:w-1/2 -z-50">
-          <span class="absolute inset-y-0 left-3 flex items-center text-gray-500">
-            <ion-icon name="search"></ion-icon>
-          </span>
-          <input 
-            type="text" 
-            placeholder="Cerca notícies..." 
-            class="w-full pl-10 border border-gray-300 rounded-lg py-2 px-4 text-dark-color focus:outline-none focus:ring-2 focus:ring-azulS focus:border-transparent"
-          />
+        <div class="text-sm text-center text-gray-600 mb-6">
+          Publicat el 10/11/2024 per <span class="font-semibold">Patricia Carreras</span>
         </div>
-      </div>
-      <section class="grid gap-6 mb-8 md:grid-cols-2 lg:grid-cols-3">
-        <div class="card-component">
-          <img src="../images/muntatge20.png" alt="Imatge notícia" class="card-image">
-          <div class="p-4">
-            <h2 class="text-xl font-bold text-oscuroS mb-2">La Balena Blava del Ramis rep una nova tècnica de conservació</h2>
-            <p class="mb-4">10/11/2024</p>
-            <p class="mb-4">
-              L'equip de restauració de l’Institut Joan Ramis i Ramis ha començat a aplicar una nova tècnica de consolidació per a les restes... 
-            </p>
-            <a href="new.html" class="text-azulS font-semibold hover:underline">Llegeix més</a>
-          </div>
+        <img src="../images/muntatge20.png" alt="Imatge destacada" class="w-full h-64 object-cover rounded-lg mb-6 shadow-lg">
+    
+        <article class="text-gray-800 text-justify">
+          <p>
+            L'equip de restauració de l’Institut Joan Ramis i Ramis ha començat a aplicar una nova tècnica de consolidació per a les restes de la balena blava que formen part del projecte AulaMuseu. Aquesta metodologia, que combina tecnologia 3D i materials avançats, permetrà reforçar les estructures òssies més fràgils. 
+          </p><br>
+          <p>
+            El projecte, que ja ha rebut elogis a nivell internacional, inclourà una nova exposició interactiva a partir del pròxim any.
+          </p>
+        </article>
+    
+        <div class="mt-6 flex justify-center space-x-4">
+          <button class="bg-azulS text-blancoS px-4 rounded-lg hover:bg-amarilloS hover:text-oscuroS">
+            Afegeix un comentari
+          </button>
         </div>
-        <div class="card-component">
-          <img src="../images/centrecultural.jpg
-          " alt="Imatge notícia" class="card-image">
-          <div class="p-4">
-            <h2 class="text-xl font-bold text-oscuroS mb-2">Inauguració del nou centre de cultura marítima a Ciutadella</h2>
-            <p class="mb-4">25/09/2024</p>
-            <p class="mb-4">
-              El nou centre cultural dedicat a la història marítima de Menorca ha obert les seves portes aquest cap de setmana a Ciutadella. L’espai compta amb exposicions interactives...
-            </p>
-            <a href="new.html" class="text-azulS font-semibold hover:underline">Llegeix més</a>
-          </div>
-        </div>
-        <div class="card-component">
-          <img src="../images/camicavalls.jpg" alt="Imatge notícia" class="card-image">
-          <div class="p-4">
-            <h2 class="text-xl font-bold text-oscuroS mb-2">El Cami de Cavalls acull una cursa solidària sense precedents</h2>
-            <p class="mb-4">12/05/2024</p>
-            <p class="mb-4">
-              Aquest diumenge, més de 500 participants van recórrer un tram del Cami de Cavalls en una cursa solidària organitzada per recaptar fons per a la conservació...
-            </p>
-            <a href="new.html" class="text-azulS font-semibold hover:underline">Llegeix més</a>
-          </div>
-        </div>
-
-      </section>
-    </main>    
+      </main>    
 
     <aside class="access">
       <button id="btnAccess" class="btnAccess">
