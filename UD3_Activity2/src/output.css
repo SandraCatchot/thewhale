@@ -659,12 +659,12 @@ video {
   margin-bottom: 1.5rem;
 }
 
-.mt-6 {
-  margin-top: 1.5rem;
-}
-
 .mb-8 {
   margin-bottom: 2rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
 }
 
 .block {
@@ -689,10 +689,6 @@ video {
 
 .h-64 {
   height: 16rem;
-}
-
-.h-48 {
-  height: 12rem;
 }
 
 .w-full {
