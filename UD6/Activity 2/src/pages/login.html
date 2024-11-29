@@ -6,7 +6,6 @@
     <title>Aula Museu - La balena blava</title>
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/login.css" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,6 +20,9 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="../js/login.js"></script>
   </head>
 
   <body>
@@ -70,13 +72,14 @@
           <form>
             <div class="input-container">
               <ion-icon name="person-circle"></ion-icon>
-              <input type="text" placeholder="Usuari" required />
+              <input type="email" placeholder="Correu electrònic" required />
             </div>
             <div class="input-container">
               <ion-icon name="lock-closed"></ion-icon>
               <input type="password" placeholder="Contrasenya" required />
             </div>
             <button type="submit">Iniciar sessió</button>
+            <p id="feedback"></p>
           </form>
         </div>
       </div>
@@ -84,10 +87,7 @@
 
     <aside class="access">
       <button id="btnAccess" class="btnAccess">
-        <img
-          src="../images/logoAcces.png"
-
-        />
+        <img src="../images/logoAcces.png" />
       </button>
     </aside>
     <section id="access-panel" class="access-panel hidden">
