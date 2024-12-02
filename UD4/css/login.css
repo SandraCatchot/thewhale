@@ -8,7 +8,9 @@ body {
   color: #01161e;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-align: center;
   margin: 1rem;
   color: #01161e;
@@ -287,6 +289,12 @@ footer a:visited {
   }
   .menu-icon {
     display: none;
+  }
+  .panel-content .access-option h3 {
+    font-size: 1.3rem;
+  }
+  .panel-content .access-option button {
+    font-size: 1.2rem;
   }
 }
 .login-container {
