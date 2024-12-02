@@ -4,7 +4,6 @@
 body {
   font-family: $primary-font;
   margin: 0;
-  padding: 0;
   height: 100%;
 }
 
@@ -128,7 +127,6 @@ header {
 }
 
 button {
-  @include basicButton();
   @include transition(background-color, 0.7s, ease);
 
   button:hover {
@@ -144,8 +142,8 @@ button {
   z-index: 1000;
 }
 
-.btnAccess {
-  background-color: transparent;
+.btnAccess { 
+  border-radius: 50px;
 }
 
 .btnAccess img {
