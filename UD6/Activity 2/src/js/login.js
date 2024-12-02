@@ -100,37 +100,5 @@ $(document).ready(function () {
     function generateSalt() {
         return Math.random().toString(36).substring(2, 15);
     }
-
-    if (window.location.pathname.includes("edit_users.html")) {
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        const userTable = $("#userTable");
     
-        if (users.length === 0) {
-            userTable.html("<p>No hi ha usuaris disponibles.</p>");
-        } else {
-            const table = $("<table>").addClass("user-table").append(`
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nom</th>
-                        <th>Email</th>
-                        <th>Actiu</th>
-                    </tr>
-                </thead>
-            `);
-    
-            users.forEach((user) => {
-                table.append(`
-                    <tr>
-                        <td>${user.id}</td>
-                        <td>${user.name}</td>
-                        <td>${user.email}</td>
-                        <td>${user.active ? "Sí" : "No"}</td>
-                    </tr>
-                `);
-            });
-    
-            userTable.append(table);
-        }
-    }
 });
