@@ -8,18 +8,19 @@
 
   h2 {
     text-align: center;
-    color: $primary-color;
-    margin: 0.5rem;
+    color: $dark-color;
+    margin-bottom: 1em;
+    font-size: 1.5em;
     font-family: $secondary-font;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: normal;
+    @include transition(opacity, 0.8s, ease-in-out);
   }
 
   .container-opciones {
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin-bottom: 20px;
-    font-size: 1.1em;
+    margin-bottom: 1.2em;
 
     .tab {
       cursor: pointer;
@@ -89,8 +90,12 @@
   }
 
   @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
   }
 
   @media (min-width: 768px) {
@@ -98,8 +103,13 @@
       display: none;
     }
 
+    h2 {
+      margin-bottom: 1.2em;
+      font-size: 2em;
+    }
+
     .container-opciones {
-      font-size: 1.2em;
+      font-size: 1.3em;
     }
 
     #container-desktop {

@@ -14,13 +14,15 @@ img, iframe {
 }
 
 main {
-  margin-bottom: 3em;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
 }
 
 h1, h2, h3 {
   text-align: center;
   margin: 1rem;
   color: #01161e;
+  font-family: #E8EBE4;
 }
 
 header {
@@ -72,6 +74,7 @@ header .menu_login .logo_login a:hover {
 }
 .desktop-menu a:hover {
   color: #ffa630;
+  text-decoration: underline;
 }
 
 .header-icons {
@@ -170,9 +173,9 @@ footer a:visited {
 .access .btnAccess {
   width: 50px;
   height: 50px;
+  background-color: transparent;
   border-radius: 50%;
   border: none;
-  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -343,17 +346,18 @@ body.letter-spacing-wide {
 }
 .container h2 {
   text-align: center;
-  color: #124559;
-  margin: 0.5rem;
+  color: #01161e;
+  margin-bottom: 1em;
+  font-size: 1.5em;
   font-family: "Merriweather Sans", sans-serif;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-weight: normal;
+  transition: opacity 0.8s ease-in-out;
 }
 .container .container-opciones {
   display: flex;
   justify-content: center;
   gap: 30px;
-  margin-bottom: 20px;
-  font-size: 1.1em;
+  margin-bottom: 1.2em;
 }
 .container .container-opciones .tab {
   cursor: pointer;
@@ -426,8 +430,12 @@ body.letter-spacing-wide {
   .container #container-mobile {
     display: none;
   }
+  .container h2 {
+    margin-bottom: 1.2em;
+    font-size: 2em;
+  }
   .container .container-opciones {
-    font-size: 1.2em;
+    font-size: 1.3em;
   }
   .container #container-desktop {
     display: flex;

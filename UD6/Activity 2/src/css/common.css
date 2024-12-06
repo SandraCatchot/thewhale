@@ -14,13 +14,15 @@ img, iframe {
 }
 
 main {
-  margin-bottom: 3em;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
 }
 
 h1, h2, h3 {
   text-align: center;
   margin: 1rem;
   color: #01161e;
+  font-family: #E8EBE4;
 }
 
 header {
@@ -72,6 +74,7 @@ header .menu_login .logo_login a:hover {
 }
 .desktop-menu a:hover {
   color: #ffa630;
+  text-decoration: underline;
 }
 
 .header-icons {

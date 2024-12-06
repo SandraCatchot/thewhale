@@ -1,50 +1,45 @@
-@import 'common';
-@import 'variables';
-@import 'mixins';
+@import "common";
+@import "variables";
+@import "mixins";
 
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   min-height: 100vh;
-  margin-top: 50px;
-  margin-bottom: 80px;
 }
 
 .login-popup {
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: $secondary-color;
+  border: 1px solid $primary-color;
   border-radius: 10px;
-  width: 300px;
-  padding: 35px;
+  width: 325px;
+  padding: 25px;
   @include box-shadow(0, 4px, 8px, rgba(0, 0, 0, 0.1));
   text-align: center;
   animation: fadeIn 0.8s ease-in-out;
 
   h2 {
-    font-size: 18px;
     color: $primary-color;
-    background-color: $secondary-color;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    font-weight: 700;
+    margin: 1.2rem;
+    font-size: 1.5em;
+    font-family: $secondary-font;
+    font-weight: normal;
+    @include transition(opacity, 0.8s, ease-in-out);
   }
 
   form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 
     button {
-      padding: 15px;
+      padding: 10px;
       background-color: $primary-color;
       color: $secondary-color;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      font-weight: 600;
 
       &:hover {
         background-color: $color-accent;
@@ -53,10 +48,10 @@
     }
 
     #feedback {
-      font-size: 0.9rem;
+      font-size: 1.2rem;
       color: $dark-color;
       text-align: center;
-      height: 20px;
+      height: 25px;
     }
   }
 }
@@ -75,14 +70,18 @@
     color: $primary-color;
   }
 
+  &:hover {
+    border: 1.5px solid $primary-color;
+  }
+
   input {
     border: none;
     outline: none;
     width: 100%;
-    font-size: 1rem;
     color: $dark-color;
-    background: transparent;
+    background: transparent; 
   }
+
 }
 
 @keyframes fadeIn {

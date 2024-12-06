@@ -4,18 +4,18 @@
 
 .main-title {
   text-align: center;
-  color: $primary-color;
-  margin: 1rem;
-  font-size: 30px;
+  color: $dark-color;
+  margin: 1.5em;
+  font-size: 1.5em;
   font-family: $secondary-font;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+  font-weight: normal;
   animation: fadeIn 1s ease-in-out; 
 }
 
 .description {
-  text-align: center;
+  text-align: justify;
   margin: 2rem;
-  font-size: 1.2rem;
+  font-size: 1em;
   color: $primary-color;
   animation: scaleUp 2s ease-in-out;
 }
@@ -39,7 +39,6 @@
     @include transition(transform, 0.3s, ease-in-out);
 
     &:hover {
-      transform: scale(1.1); 
       @include box-shadow(0, 8px, 12px, rgba(0, 0, 0, 0.3)); 
     }
   }
