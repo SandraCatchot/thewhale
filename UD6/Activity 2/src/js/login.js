@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    
     if (!localStorage.getItem("users")) {
         const salt = generateSalt();
         const defaultUser = {
@@ -19,7 +18,6 @@ $(document).ready(function () {
 
     $("form").submit(function (e) {
         e.preventDefault();
-
         const email = $("input[type='email']").val().trim();
         const password = $("input[type='password']").val().trim();
         const feedback = $("#feedback");
@@ -42,6 +40,7 @@ $(document).ready(function () {
 
         if (hashedPassword === user.password_hash) {
             if (user.is_first_login) {
+                localStorage.setItem("current_email", email);
                 feedback.text("Primer inici de sessió. Per favor, canvii la contrasenya.")
                     .css("color", "orange");
                 setTimeout(() => (window.location.href = "change_password.html"), 2000);
@@ -56,7 +55,6 @@ $(document).ready(function () {
 
     $("form#changePasswordForm").submit(function (e) {
         e.preventDefault();
-
         const email = localStorage.getItem("current_email");
         const newPassword = $("input[type='password']").val().trim();
         const feedback = $("#feedback");
@@ -74,16 +72,11 @@ $(document).ready(function () {
             return;
         }
 
-        // Generar el hash de la nueva contraseña con la sal existente
         const user = users[userIndex];
         const saltedPassword = newPassword + user.salt;
         const hashedPassword = CryptoJS.SHA256(saltedPassword).toString();
-
-        // Actualizar la contraseña y cambiar is_first_login a 0
         users[userIndex].password_hash = hashedPassword;
-        users[userIndex].is_first_login = 0; // Cambiado de true a 0
-
-        // Guardar los cambios en localStorage
+        users[userIndex].is_first_login = 0;
         localStorage.setItem("users", JSON.stringify(users));
 
         feedback.text("Contrasenya canviada correctament!").css("color", "green");
@@ -100,5 +93,4 @@ $(document).ready(function () {
     function generateSalt() {
         return Math.random().toString(36).substring(2, 15);
     }
-    
 });

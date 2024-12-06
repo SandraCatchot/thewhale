@@ -6,7 +6,7 @@
     <title>Aula Museu - Notícies</title>
     <link rel="stylesheet" href="../output.css" />
     <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/portfoli.css" />
+    <link rel="stylesheet" href="../css/accesibilidad.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -27,101 +27,121 @@
   <body>
     <header>
       <div class="logo">
-        <a href="../../index.html"
-          ><img src="../images/logo_aula_museu00-removebg-preview.png"
-        /></a>
+        <a href="../../index.html">
+          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo" />
+        </a>
       </div>
       <div class="menu_login">
-        <div class="menu-links">
+        <nav class="desktop-menu">
           <a href="#historia">Història</a>
           <a href="portfoli.html">Portfoli</a>
           <a href="news.html">Notícies</a>
           <a href="alvoltant.html">Al voltant de la balena</a>
+        </nav>
+
+        <div class="logo_login">
+          <a href="../pages/login.html">
+            <ion-icon name="person-circle"></ion-icon>
+          </a>
         </div>
-        <div class="header-icons">
-          <div>
-            <nav class="menu">
-              <ul>
-                <li>
-                  <a href="#">Menú</a>
-                  <ul>
-                    <li><a href="#">Història</a></li>
-                    <li>
-                      <a href="portfoli.html">Portfoli</a>
-                    </li>
-                    <li><a href="news.html">Notícies</a></li>
-                    <li>
-                      <a href="alvoltant.html">Al voltant de la balena</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <div class="logo_login">
-            <a href="login.html"><ion-icon name="person-circle"></ion-icon></a>
-          </div>
+
+        <div class="mobile-menu-icon">
+          <ion-icon name="menu"></ion-icon>
         </div>
       </div>
     </header>
 
+    <div class="mobile-menu">
+      <div class="close-btn">
+        <ion-icon name="close"></ion-icon>
+      </div>
+      <nav class="mobile-menu-links">
+        <a href="#historia">Història</a>
+        <a href="portfoli.html">Portfoli</a>
+        <a href="news.html">Notícies</a>
+        <a href="alvoltant.html">Al voltant de la balena</a>
+      </nav>
+    </div>
+
     <main class="max-w-4xl mx-auto p-6">
-        <a href="news.html" class="text-azulS font-semibold hover:underline flex items-center mb-6">
-          ← Torna a Notícies
-        </a>
-        <h1 class="text-3xl font-secondary-font font-bold mb-4">
-            La Balena Blava del Ramis rep una nova tècnica de conservació
-        </h1>
-        <div class="text-sm text-center text-gray-600 mb-6">
-          Publicat el 10/11/2024 per <span class="font-semibold">Patricia Carreras</span>
-        </div>
-        <img src="../images/muntatge20.png" alt="Imatge destacada" class="w-full h-64 object-cover rounded-lg mb-6 shadow-lg">
-    
-        <article class="text-gray-800 text-justify">
-          <p>
-            L'equip de restauració de l’Institut Joan Ramis i Ramis ha començat a aplicar una nova tècnica de consolidació per a les restes de la balena blava que formen part del projecte AulaMuseu. Aquesta metodologia, que combina tecnologia 3D i materials avançats, permetrà reforçar les estructures òssies més fràgils. 
-          </p><br>
-          <p>
-            El projecte, que ja ha rebut elogis a nivell internacional, inclourà una nova exposició interactiva a partir del pròxim any.
-          </p>
-        </article>
-    
-        <div class="mt-6 flex justify-center space-x-4">
-          <button class="bg-azulS text-blancoS px-4 rounded-lg hover:bg-amarilloS hover:text-oscuroS">
-            Afegeix un comentari
-          </button>
-        </div>
-      </main>    
+      <a
+        href="news.html"
+        class="text-azulS font-semibold hover:underline flex items-center mb-6"
+      >
+        ← Torna a Notícies
+      </a>
+      <h1 class="text-3xl font-secondary-font font-bold mb-4">
+        La Balena Blava del Ramis rep una nova tècnica de conservació
+      </h1>
+      <div class="text-sm text-center text-gray-600 mb-6">
+        Publicat el 10/11/2024 per
+        <span class="font-semibold">Patricia Carreras</span>
+      </div>
+      <img
+        src="../images/muntatge20.png"
+        alt="Imatge destacada"
+        class="w-full h-64 object-cover rounded-lg mb-6 shadow-lg"
+      />
+
+      <article class="text-gray-800 text-justify">
+        <p>
+          L'equip de restauració de l’Institut Joan Ramis i Ramis ha començat a
+          aplicar una nova tècnica de consolidació per a les restes de la balena
+          blava que formen part del projecte AulaMuseu. Aquesta metodologia, que
+          combina tecnologia 3D i materials avançats, permetrà reforçar les
+          estructures òssies més fràgils.
+        </p>
+        <br />
+        <p>
+          El projecte, que ja ha rebut elogis a nivell internacional, inclourà
+          una nova exposició interactiva a partir del pròxim any.
+        </p>
+      </article>
+
+      <div class="mt-6 flex justify-center space-x-4">
+        <button
+          class="bg-azulS text-blancoS px-4 rounded-lg hover:bg-amarilloS hover:text-oscuroS"
+        >
+          Afegeix un comentari
+        </button>
+      </div>
+    </main>
 
     <aside class="access">
       <button id="btnAccess" class="btnAccess">
-        <img src="../images/logoAcces.png" class="max-w-20" />
+        <img src="../images/logoAcces.png" alt="Accés" />
       </button>
     </aside>
-    <section id="access-panel" class="access-panel hidden">
+    <section id="access-panel" class="access-panel">
       <div class="panel-header">
         <h2>Opcions d'Accesibilitat</h2>
-        <button id="closeAccessPanel" class="close-button">✖</button>
+        <button id="closeAccessPanel" class="close-button">
+          <ion-icon name="close"></ion-icon>
+        </button>
       </div>
       <div class="panel-content">
         <div class="access-option">
           <h3>Ajusta el contrast</h3>
-          <button id="grayscale">Escala de grisos</button>
-          <button id="dark-contrast">+ Contrast</button>
-          <button id="light-contrast">- Contrast</button>
-          <button id="high-saturation">+ Saturació</button>
-          <button id="low-saturation">- Saturació</button>
+          <div class="access-buttons">
+            <button data-class="grayscale">Escala de grisos</button>
+            <button data-class="dark-contrast">+ Contrast</button>
+            <button data-class="light-contrast">- Contrast</button>
+            <button data-class="high-saturation">+ Saturació</button>
+            <button data-class="low-saturation">- Saturació</button>
+          </div>
         </div>
         <div class="access-option">
           <h3>Ajusta la lletra</h3>
-          <button id="increase-font">+ Tamany lletra</button>
-          <button id="decrease-font">- Tamany lletra</button>
-          <button id="increase-line-height">+ Interlineat</button>
-          <button id="decrease-line-height">- Interlineat</button>
-          <button id="increase-word-spacing">+ Espai entre paraules</button>
-          <button id="decrease-word-spacing">- Espai entre paraules</button>
-          <button id="increase-letter-spacing">+ Espai entre lletres</button>
-          <button id="decrease-letter-spacing">- Espai entre lletres</button>
+          <div class="access-buttons">
+            <button data-class="font-size-large">+ Tamany lletra</button>
+            <button data-class="font-size-medium">- Tamany lletra</button>
+            <button data-class="line-height-wide">+ Interlineat</button>
+            <button data-class="line-height-normal">- Interlineat</button>
+            <button data-class="word-spacing-wide">+ Espai paraules</button>
+            <button data-class="word-spacing-normal">- Espai paraules</button>
+            <button data-class="letter-spacing-wide">+ Espai lletres</button>
+            <button data-class="letter-spacing-normal">- Espai lletres</button>
+          </div>
         </div>
       </div>
     </section>
@@ -134,7 +154,53 @@
         <a href="#privacidad">Política de privacitat</a>
       </p>
     </footer>
-
-    <script src="../scripts/access.js"></script>
+    <script>
+      const mobileMenuIcon = document.querySelector(".mobile-menu-icon");
+      const mobileMenu = document.querySelector(".mobile-menu");
+      const closeMenuBtn = document.querySelector(".mobile-menu .close-btn");
+      mobileMenuIcon.addEventListener("click", () => {
+        mobileMenu.classList.add("open");
+      });
+      closeMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+      });
+    </script>
+    <script>
+      const btnAccess = document.getElementById("btnAccess");
+      const accessPanel = document.getElementById("access-panel");
+      const closeAccessPanel = document.getElementById("closeAccessPanel");
+      btnAccess.addEventListener("click", () => {
+        accessPanel.classList.add("open");
+      });
+      closeAccessPanel.addEventListener("click", () => {
+        accessPanel.classList.remove("open");
+      });
+    </script>
+    <script>
+      const buttons = document.querySelectorAll(".access-option button");
+      const body = document.body;
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const targetClass = button.getAttribute("data-class");
+          body.classList.remove(
+            "grayscale",
+            "dark-contrast",
+            "light-contrast",
+            "high-saturation",
+            "low-saturation",
+            "font-size-small",
+            "font-size-medium",
+            "font-size-large",
+            "line-height-normal",
+            "line-height-wide",
+            "word-spacing-normal",
+            "word-spacing-wide",
+            "letter-spacing-normal",
+            "letter-spacing-wide"
+          );
+          body.classList.add(targetClass);
+        });
+      });
+    </script>
   </body>
 </html>

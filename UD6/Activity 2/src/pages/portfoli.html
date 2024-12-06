@@ -6,6 +6,7 @@
     <title>Aula Museu - La balena blava</title>
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/portfoli.css" />
+    <link rel="stylesheet" href="../css/accesibilidad.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,49 +21,46 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-    <script src="../js/login.js"></script>
   </head>
 
   <body>
     <header>
       <div class="logo">
-        <a href="../../index.html"
-          ><img src="../images/logo_aula_museu00-removebg-preview.png"
-        /></a>
+        <a href="../../index.html">
+          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo"/>
+        </a>
       </div>
       <div class="menu_login">
-        <div class="menu-links">
+        <nav class="desktop-menu">
           <a href="#historia">Història</a>
           <a href="portfoli.html">Portfoli</a>
           <a href="news.html">Notícies</a>
           <a href="alvoltant.html">Al voltant de la balena</a>
+        </nav>
+        
+        <div class="logo_login">
+          <a href="../pages/login.html">
+            <ion-icon name="person-circle"></ion-icon>
+          </a>
         </div>
-        <div class="header-icons">
-          <div>
-            <nav class="menu">
-              <ul>
-                <li>
-                  <a href="#">Menú</a>
-                  <ul>
-                    <li><a href="#">Història</a></li>
-                    <li>
-                      <a href="portfoli.html">Portfoli</a>
-                    </li>
-                    <li><a href="news.html">Notícies</a></li>
-                    <li>
-                      <a href="alvoltant.html">Al voltant de la balena</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <div class="logo_login">
-            <a href="login.html"><ion-icon name="person-circle"></ion-icon></a>
-          </div>
+        
+        <div class="mobile-menu-icon">
+          <ion-icon name="menu"></ion-icon>
         </div>
       </div>
     </header>
+
+    <div class="mobile-menu">
+      <div class="close-btn">
+        <ion-icon name="close"></ion-icon>
+      </div>
+      <nav class="mobile-menu-links">
+        <a href="#historia">Història</a>
+        <a href="portfoli.html">Portfoli</a>
+        <a href="news.html">Notícies</a>
+        <a href="alvoltant.html">Al voltant de la balena</a>
+      </nav>
+    </div>
 
     <main>
       <h1 class="main-title">El muntatge de la balena</h1>
@@ -92,42 +90,44 @@
         <img src="../images/muntatge1.png" alt="Imagen 1" />
       </div>
     </main>
-
-    <aside class="access">
-      <button id="btnAccess" class="btnAccess">
-        <img
-          src="../images/logoAcces.png"
-        />
-      </button>
-    </aside>
-    <section id="access-panel" class="access-panel hidden">
-      <div class="panel-header">
-        <h2>Opcions d'Accesibilitat</h2>
-        <button id="closeAccessPanel" class="close-button">✖</button>
-      </div>
-      <div class="panel-content">
-        <div class="access-option">
-          <h3>Ajusta el contrast</h3>
-          <button id="grayscale">Escala de grisos</button>
-          <button id="dark-contrast">+ Contrast</button>
-          <button id="light-contrast">- Contrast</button>
-          <button id="high-saturation">+ Saturació</button>
-          <button id="low-saturation">- Saturació</button>
+      <aside class="access">
+        <button id="btnAccess" class="btnAccess">
+          <img src="../images/logoAcces.png" alt="Accés"/>
+        </button>
+      </aside>
+      <section id="access-panel" class="access-panel">
+        <div class="panel-header">
+          <h2>Opcions d'Accesibilitat</h2>
+          <button id="closeAccessPanel" class="close-button">
+            <ion-icon name="close"></ion-icon>
+          </button>
         </div>
-        <div class="access-option">
-          <h3>Ajusta la lletra</h3>
-          <button id="increase-font">+ Tamany lletra</button>
-          <button id="decrease-font">- Tamany lletra</button>
-          <button id="increase-line-height">+ Interlineat</button>
-          <button id="decrease-line-height">- Interlineat</button>
-          <button id="increase-word-spacing">+ Espai entre paraules</button>
-          <button id="decrease-word-spacing">- Espai entre paraules</button>
-          <button id="increase-letter-spacing">+ Espai entre lletres</button>
-          <button id="decrease-letter-spacing">- Espai entre lletres</button>
+        <div class="panel-content">
+          <div class="access-option">
+            <h3>Ajusta el contrast</h3>
+            <div class="access-buttons">
+              <button data-class="grayscale">Escala de grisos</button>
+              <button data-class="dark-contrast">+ Contrast</button>
+              <button data-class="light-contrast">- Contrast</button>
+              <button data-class="high-saturation">+ Saturació</button>
+              <button data-class="low-saturation">- Saturació</button>
+            </div>
+          </div>
+          <div class="access-option">
+            <h3>Ajusta la lletra</h3>
+            <div class="access-buttons">
+              <button data-class="font-size-large">+ Tamany lletra</button>
+              <button data-class="font-size-medium">- Tamany lletra</button>
+              <button data-class="line-height-wide">+ Interlineat</button>
+              <button data-class="line-height-normal">- Interlineat</button>
+              <button data-class="word-spacing-wide">+ Espai paraules</button>
+              <button data-class="word-spacing-normal">- Espai paraules</button>
+              <button data-class="letter-spacing-wide">+ Espai lletres</button>
+              <button data-class="letter-spacing-normal">- Espai lletres</button>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
-
+      </section>    
     <footer>
       <p>© 2024 Tots els drets reservats</p>
       <p>Pàgina Web creada per Sandra Catchot Sancho</p>
@@ -136,7 +136,44 @@
         <a href="#privacidad">Política de privacitat</a>
       </p>
     </footer>
-
-    <script src="../scripts/access.js"></script>
+    <script>
+      const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const closeMenuBtn = document.querySelector('.mobile-menu .close-btn');
+      mobileMenuIcon.addEventListener('click', () => {
+        mobileMenu.classList.add('open');
+      });
+      closeMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+      });
+    </script>
+    <script>
+      const btnAccess = document.getElementById('btnAccess');
+      const accessPanel = document.getElementById('access-panel');
+      const closeAccessPanel = document.getElementById('closeAccessPanel');
+      btnAccess.addEventListener('click', () => {
+        accessPanel.classList.add('open');
+      });
+      closeAccessPanel.addEventListener('click', () => {
+        accessPanel.classList.remove('open');
+      });
+    </script>
+    <script>
+      const buttons = document.querySelectorAll('.access-option button');
+      const body = document.body;
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const targetClass = button.getAttribute('data-class');
+          body.classList.remove(
+            'grayscale', 'dark-contrast', 'light-contrast', 'high-saturation', 'low-saturation',
+            'font-size-small', 'font-size-medium', 'font-size-large',
+            'line-height-normal', 'line-height-wide',
+            'word-spacing-normal', 'word-spacing-wide',
+            'letter-spacing-normal', 'letter-spacing-wide'
+          );
+          body.classList.add(targetClass);
+        });
+      });
+    </script>
   </body>
 </html>
