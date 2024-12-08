@@ -44,45 +44,16 @@ $(document).ready(function () {
                 feedback.text("Primer inici de sessió. Per favor, canvii la contrasenya.")
                     .css("color", "orange");
                 setTimeout(() => (window.location.href = "change_password.html"), 2000);
+                localStorage.setItem("logged_in_user", JSON.stringify(user));
             } else {
                 feedback.text("Inici de sessió validat!").css("color", "green");
+                localStorage.setItem("logged_in_user", JSON.stringify(user));
                 setTimeout(() => (window.location.href = "edit_users.html"), 2000);
+                
             }
         } else {
             feedback.text("Contrasenya incorrecta.").css("color", "red");
         }
-    });
-
-    $("form#changePasswordForm").submit(function (e) {
-        e.preventDefault();
-        const email = localStorage.getItem("current_email");
-        const newPassword = $("input[type='password']").val().trim();
-        const feedback = $("#feedback");
-
-        if (!newPassword || newPassword.length < 8) {
-            feedback.text("La contrasenya ha de tenir almenys 8 caràcters.").css("color", "red");
-            return;
-        }
-
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        const userIndex = users.findIndex((u) => u.email === email);
-
-        if (userIndex === -1) {
-            feedback.text("Error: Usuari no trobat.").css("color", "red");
-            return;
-        }
-
-        const user = users[userIndex];
-        const saltedPassword = newPassword + user.salt;
-        const hashedPassword = CryptoJS.SHA256(saltedPassword).toString();
-        users[userIndex].password_hash = hashedPassword;
-        users[userIndex].is_first_login = 0;
-        localStorage.setItem("users", JSON.stringify(users));
-
-        feedback.text("Contrasenya canviada correctament!").css("color", "green");
-        setTimeout(() => {
-            window.location.href = "portfoli.html";
-        }, 2000);
     });
 
     function isValidEmail(email) {

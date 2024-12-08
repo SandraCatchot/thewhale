@@ -1,11 +1,12 @@
 $(document).ready(function () {
-    // Obtener usuarios desde localStorage o inicializar vacío
     let users = JSON.parse(localStorage.getItem("users")) || [];
     let nextId = users.length ? Math.max(...users.map((u) => u.id)) + 1 : 1;
 
-    // Función para renderizar la tabla de usuarios
     function renderUserTable() {
         const table = `
+        <div class="table-header">
+            <button id="createUser" class="create-user-btn">Crear Nuevo Usuario</button>
+        </div>
         <table class="users-table">
             <thead>
                 <tr>
@@ -32,6 +33,7 @@ $(document).ready(function () {
                     <td>
                         <button class="edit-user" data-id="${user.id}">Editar</button>
                         <button class="delete-user" data-id="${user.id}">Eliminar</button>
+                        <button class="change-password" data-id="${user.id}">Cambiar Contraseña</button>
                     </td>
                 </tr>
                 `
@@ -42,7 +44,6 @@ $(document).ready(function () {
         $(".edit-users-container").html(table);
     }
 
-    // Renderizar formulario de creación/edición
     function renderUserForm(user = {}) {
         const isEditing = !!user.id;
         const formHtml = `
@@ -75,7 +76,6 @@ $(document).ready(function () {
         </div>`;
         $(".edit-users-container").html(formHtml);
 
-        // Guardar cambios
         $("#userForm").submit(function (e) {
             e.preventDefault();
             const formData = new FormData(e.target);
@@ -96,21 +96,21 @@ $(document).ready(function () {
             renderUserTable();
         });
 
-        // Cancelar formulario
         $("#cancelForm").click(renderUserTable);
     }
 
-    // Renderizar la tabla inicialmente
-    renderUserTable();
+    $(document).on("click", ".change-password", function () {
+        const userId = $(this).data("id");
+        localStorage.setItem("userToChangePassword", userId);
+        window.location.href = "change_password.html";
+    });
 
-    // Manejar edición de usuario
     $(document).on("click", ".edit-user", function () {
         const userId = Number($(this).data("id"));
         const user = users.find((u) => u.id === userId);
         renderUserForm(user);
     });
 
-    // Manejar eliminación de usuario
     $(document).on("click", ".delete-user", function () {
         const userId = Number($(this).data("id"));
         users = users.filter((u) => u.id !== userId);
@@ -118,8 +118,9 @@ $(document).ready(function () {
         renderUserTable();
     });
 
-    // Manejar creación de usuario
     $(document).on("click", "#createUser", function () {
         renderUserForm();
     });
+
+    renderUserTable();
 });

@@ -2,9 +2,8 @@
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
-}
-@media (max-width: 768px) {
-  .users-table {
+
+  @media (max-width: 768px) {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
@@ -30,9 +29,8 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   background: #fff;
-}
-@media (max-width: 768px) {
-  .user-form {
+
+  @media (max-width: 768px) {
     width: 90%;
   }
 }
@@ -46,9 +44,9 @@
   margin-bottom: 10px;
 }
 
-.user-form input[type=text],
-.user-form input[type=email],
-.user-form input[type=password] {
+.user-form input[type="text"],
+.user-form input[type="email"],
+.user-form input[type="password"] {
   width: 100%;
   padding: 8px;
   margin: 5px 0 10px;
@@ -56,43 +54,47 @@
   border-radius: 4px;
 }
 
+
 .user-form button.cancel {
   background: #dc3545;
-}
-.user-form button.cancel:hover {
-  background: #c82333;
+
+  &:hover {
+    background: #c82333;
+  }
 }
 
 .table-header {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 20px;
-}
-.table-header .create-user-btn {
-  padding: 10px;
-  background-color: #124559;
-  color: #E8EBE4;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.table-header .create-user-btn:hover {
-  background-color: #ffa630;
-  color: #01161e;
-}
-@media (max-width: 768px) {
-  .table-header .create-user-btn {
-    width: 100%;
-    text-align: center;
-    padding: 12px;
+
+  .create-user-btn {
+    padding: 10px;
+    background-color: #124559;
+    color: #E8EBE4;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #ffa630;
+      color: #01161e ;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .create-user-btn {
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+    }
   }
 }
 
 .edit-users-container {
   padding: 20px;
-}
-@media (max-width: 768px) {
-  .edit-users-container {
+
+  @media (max-width: 768px) {
     padding: 10px;
   }
-}/*# sourceMappingURL=edit_users.css.map */
+}

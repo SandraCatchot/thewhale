@@ -1,28 +1,30 @@
-html, body {
+body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-body {
-  font-family: "Lato", sans-serif;
-}
-
-img, iframe {
+img,
+iframe {
   max-width: 100%;
   height: auto;
 }
 
 main {
-  margin-bottom: 2.5em;
-  margin-top: 1.5em;
+  margin: 0 auto;
+  width: 100%;
+  font-family: "Lato", sans-serif;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-align: center;
   margin: 1rem;
   color: #01161e;
-  font-family: #E8EBE4;
+  font-family: "Merriweather Sans", sans-serif;
 }
 
 header {
@@ -33,14 +35,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: "Lato", sans-serif;
 }
 header .logo {
   display: flex;
   align-items: center;
 }
 header .logo img {
-  max-height: 100px;
-  margin-right: 10px;
+  max-height: 120px;
 }
 header .logo img:hover {
   transform: rotate(5deg);
@@ -56,7 +58,7 @@ header .menu_login .logo_login a {
   transition: color 0.4s ease-in;
 }
 header .menu_login .logo_login a ion-icon {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 header .menu_login .logo_login a:hover {
   color: #ffa630;
@@ -78,7 +80,7 @@ header .menu_login .logo_login a:hover {
 }
 
 .header-icons {
-  font-size: 2.8rem;
+  font-size: 3rem;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -88,10 +90,16 @@ header .menu_login .logo_login a:hover {
 
 button {
   transition: background-color 0.7s ease;
-}
-button button:hover {
-  background-color: #ffa630;
+  padding: 10px;
+  background-color: #124559;
   color: #E8EBE4;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #ffa630;
+  color: #01161e;
 }
 
 footer {
@@ -99,13 +107,13 @@ footer {
   background: linear-gradient(to right, #124559, #01161e);
   color: #E8EBE4;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
   height: 100px;
   width: 100%;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-  margin-top: 2em;
+  margin-top: 1.5em;
 }
 footer a:link {
   color: #E8EBE4;
@@ -166,30 +174,26 @@ footer a:visited {
 
 .access {
   position: fixed;
-  bottom: 30px;
+  bottom: 40px;
   left: 30px;
   z-index: 1000;
-}
-.access .btnAccess {
   width: 50px;
   height: 50px;
+}
+.access .btnAccess {
   background-color: transparent;
-  border-radius: 50%;
-  border: none;
+  border-radius: 40%;
   display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 .access .btnAccess img {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
 }
 .access .btnAccess:hover {
   background-color: #ffa630;
-  transform: scale(1.05);
 }
 
 .access-panel {
@@ -441,7 +445,9 @@ body.letter-spacing-wide {
     display: flex;
     background-color: rgba(18, 69, 89, 0.25);
     border-radius: 10px;
-    margin: 25px;
+    border: 1px solid #124559;
+    margin-left: 40px;
+    margin-right: 40px;
     padding: 10px;
   }
   .container #container-desktop .listado {
@@ -463,14 +469,14 @@ body.letter-spacing-wide {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
   }
   .container #container-desktop #details {
-    width: 50%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .container #container-desktop #details #details-image {
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     height: auto;
     border-radius: 10px;
     margin: 20px;

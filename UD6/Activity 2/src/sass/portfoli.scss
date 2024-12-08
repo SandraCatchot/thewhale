@@ -2,10 +2,16 @@
 @import 'variables';
 @import 'mixins';
 
+main {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
 .main-title {
   text-align: center;
   color: $dark-color;
-  margin: 1.5em;
+  margin: 1em;
   font-size: 1.5em;
   font-family: $secondary-font;
   font-weight: normal;
@@ -14,7 +20,7 @@
 
 .description {
   text-align: justify;
-  margin: 2rem;
+  margin: 1em;
   font-size: 1em;
   color: $primary-color;
   animation: scaleUp 2s ease-in-out;
@@ -22,13 +28,11 @@
 
 .portfoli-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
   grid-auto-rows: auto;
   grid-auto-columns: auto;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  padding: 0.9rem;
+  padding: 1.2rem;
 
   img {
     width: 100%;

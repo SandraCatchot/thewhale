@@ -1,31 +1,33 @@
 @import "_variables";
 @import "mixins";
 
-html, body {
+body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-body {
-  font-family: $primary-font;
-}
-
-img, iframe {
+img,
+iframe {
   max-width: 100%;
   height: auto;
 }
 
 main {
-  margin-bottom: 2.5em;
-  margin-top: 1.5em; 
+  margin: 0 auto; 
+  width: 100%;
+  font-family: $primary-font;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-align: center;
   margin: 1rem;
   color: $dark-color;
-  font-family: $secondary-color;
+  font-family: $secondary-font;
 }
 
 header {
@@ -35,13 +37,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: $primary-font;
 
   .logo {
     display: flex;
     align-items: center;
     img {
-      max-height: 100px;
-      margin-right: 10px;
+      max-height: 120px;
       &:hover {
         transform: rotate(5deg);
       }
@@ -49,16 +51,16 @@ header {
   }
 
   .menu_login {
-    display: flex; 
-    align-items: center; 
-    justify-content: flex-end; 
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     gap: 1rem;
 
     .logo_login a {
       color: $secondary-color;
       @include transition(color, 0.4s, ease-in);
       ion-icon {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
       &:hover {
         color: $color-accent;
@@ -83,7 +85,7 @@ header {
 }
 
 .header-icons {
-  font-size: 2.8rem;
+  font-size: 3rem;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -93,9 +95,16 @@ header {
 
 button {
   @include transition(background-color, 0.7s, ease);
-  button:hover {
+  padding: 10px;
+  background-color: $primary-color;
+  color: $secondary-color;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
     background-color: $color-accent;
-    color: $secondary-color;
+    color: $dark-color;
   }
 }
 
@@ -104,12 +113,13 @@ footer {
   color: $secondary-color;
   text-align: center;
   font-size: 0.9rem;
+  font-family: $primary-font;
   height: 100px;
   width: 100%;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-  margin-top: 2em;
+  padding: 1.5em;
+  margin-top: 1em;
   a {
     &:link {
       color: $secondary-color;
@@ -172,28 +182,24 @@ footer {
 
 .access {
   position: fixed;
-  bottom: 30px;
+  bottom: 40px;
   left: 30px;
   z-index: 1000;
+  width: 50px;
+  height: 50px;
   .btnAccess {
-    width: 50px;
-    height: 50px;
     background-color: transparent;
-    border-radius: 50%;
-    border: none;
+    border-radius: 40%;
     display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
-    @include box-shadow(0,4px,10px, rgba(0,0,0,0.2));
+    @include box-shadow(0, 4px, 10px, rgba(0, 0, 0, 0.2));
     @include transition(all, 0.3s, ease);
     img {
-      width: 40px;
-      height: 40px;
+      width: 45px;
+      height: 45px;
     }
     &:hover {
       background-color: $color-accent;
-      transform: scale(1.05);
     }
   }
 }
