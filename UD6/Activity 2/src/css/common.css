@@ -1,9 +1,9 @@
+html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  box-sizing: border-box;
 }
 
 img,
@@ -109,17 +109,16 @@ footer {
   text-align: center;
   font-size: 0.9rem;
   font-family: "Lato", sans-serif;
-  height: 100px;
-  width: 100%;
+  height: 120px;
   align-items: center;
   justify-content: center;
   padding: 1.5em;
   margin-top: 1em;
 }
-footer a:link {
+footer a {
   color: #E8EBE4;
 }
-footer a:visited {
+footer a:hover {
   color: #ffa630;
 }
 
@@ -135,7 +134,7 @@ footer a:visited {
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background: #01161e;
   display: flex;
   flex-direction: column;
@@ -238,7 +237,7 @@ footer a:visited {
   color: #ffa630;
 }
 .access-panel .panel-header .close-button ion-icon {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 .access-panel .panel-content .access-option {
   text-align: center;

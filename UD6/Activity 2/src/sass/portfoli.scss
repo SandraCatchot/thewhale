@@ -1,12 +1,6 @@
-@import 'common';
 @import 'variables';
 @import 'mixins';
 
-main {
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-}
 
 .main-title {
   text-align: center;
@@ -28,11 +22,11 @@ main {
 
 .portfoli-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 15px;
   grid-auto-rows: auto;
   grid-auto-columns: auto;
-  padding: 1.2rem;
+  padding: 1.4rem;
 
   img {
     width: 100%;

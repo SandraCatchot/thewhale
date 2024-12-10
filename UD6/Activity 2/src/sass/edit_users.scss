@@ -1,3 +1,6 @@
+@import "_variables";
+@import "mixins";
+
 .users-table {
   width: 100%;
   border-collapse: collapse;
@@ -92,7 +95,9 @@
 }
 
 .edit-users-container {
-  padding: 20px;
+  padding: 15px;
+  margin-bottom: 200px;
+  max-width: 90%;
 
   @media (max-width: 768px) {
     padding: 10px;

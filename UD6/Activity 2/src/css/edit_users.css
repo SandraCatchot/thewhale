@@ -89,7 +89,9 @@
 }
 
 .edit-users-container {
-  padding: 20px;
+  padding: 15px;
+  margin-bottom: 200px;
+  max-width: 90%;
 }
 @media (max-width: 768px) {
   .edit-users-container {
