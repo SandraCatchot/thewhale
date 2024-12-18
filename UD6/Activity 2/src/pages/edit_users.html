@@ -29,7 +29,7 @@
     <header>
       <div class="logo">
         <a href="../../index.html">
-          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo"/>
+          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo" />
         </a>
       </div>
       <div class="menu_login">
@@ -39,13 +39,13 @@
           <a href="news.html">Notícies</a>
           <a href="alvoltant.html">Al voltant de la balena</a>
         </nav>
-        
+
         <div class="logo_login">
           <a href="../pages/login.html">
             <ion-icon name="person-circle"></ion-icon>
           </a>
         </div>
-        
+
         <div class="mobile-menu-icon">
           <ion-icon name="menu"></ion-icon>
         </div>
@@ -65,8 +65,6 @@
     </div>
 
     <main class="edit-users-container">
-      <h1>Gestión de Usuarios</h1>
-      <button id="createUser">Crear Usuario</button>
     </main>
 
     <aside class="access">
@@ -120,39 +118,48 @@
       </p>
     </footer>
     <script>
-      const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
-      const mobileMenu = document.querySelector('.mobile-menu');
-      const closeMenuBtn = document.querySelector('.mobile-menu .close-btn');
-      mobileMenuIcon.addEventListener('click', () => {
-        mobileMenu.classList.add('open');
+      const mobileMenuIcon = document.querySelector(".mobile-menu-icon");
+      const mobileMenu = document.querySelector(".mobile-menu");
+      const closeMenuBtn = document.querySelector(".mobile-menu .close-btn");
+      mobileMenuIcon.addEventListener("click", () => {
+        mobileMenu.classList.add("open");
       });
-      closeMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-      });
-    </script>
-    <script>
-      const btnAccess = document.getElementById('btnAccess');
-      const accessPanel = document.getElementById('access-panel');
-      const closeAccessPanel = document.getElementById('closeAccessPanel');
-      btnAccess.addEventListener('click', () => {
-        accessPanel.classList.add('open');
-      });
-      closeAccessPanel.addEventListener('click', () => {
-        accessPanel.classList.remove('open');
+      closeMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
       });
     </script>
     <script>
-      const buttons = document.querySelectorAll('.access-option button');
+      const btnAccess = document.getElementById("btnAccess");
+      const accessPanel = document.getElementById("access-panel");
+      const closeAccessPanel = document.getElementById("closeAccessPanel");
+      btnAccess.addEventListener("click", () => {
+        accessPanel.classList.add("open");
+      });
+      closeAccessPanel.addEventListener("click", () => {
+        accessPanel.classList.remove("open");
+      });
+    </script>
+    <script>
+      const buttons = document.querySelectorAll(".access-option button");
       const body = document.body;
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          const targetClass = button.getAttribute('data-class');
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const targetClass = button.getAttribute("data-class");
           body.classList.remove(
-            'grayscale', 'dark-contrast', 'light-contrast', 'high-saturation', 'low-saturation',
-            'font-size-small', 'font-size-medium', 'font-size-large',
-            'line-height-normal', 'line-height-wide',
-            'word-spacing-normal', 'word-spacing-wide',
-            'letter-spacing-normal', 'letter-spacing-wide'
+            "grayscale",
+            "dark-contrast",
+            "light-contrast",
+            "high-saturation",
+            "low-saturation",
+            "font-size-small",
+            "font-size-medium",
+            "font-size-large",
+            "line-height-normal",
+            "line-height-wide",
+            "word-spacing-normal",
+            "word-spacing-wide",
+            "letter-spacing-normal",
+            "letter-spacing-wide"
           );
           body.classList.add(targetClass);
         });

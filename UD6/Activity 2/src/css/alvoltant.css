@@ -55,6 +55,7 @@
 }
 .container #container-desktop {
   display: none;
+  margin-bottom: 2.5rem;
 }
 @keyframes fadeIn {
   0% {

@@ -1,12 +1,15 @@
 @import "_variables";
 @import "mixins";
 
-html,
-body {
-  height: 100%;
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;  
 }
 
 img,
@@ -118,7 +121,7 @@ footer {
   align-items: center;
   justify-content: center;
   padding: 1.5em;
-  margin-top: 1em;
+  margin-top: 1.5m;
   a {
     color: $secondary-color;
 
