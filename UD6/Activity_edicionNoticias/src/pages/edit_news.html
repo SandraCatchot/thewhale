@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula Museu - La balena blava</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/edit_news.css" />
+    <link rel="stylesheet" href="../css/accesibilidad.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="../js/edit_news.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="../../index.html">
+          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo" />
+        </a>
+      </div>
+      <div class="menu_login">
+        <nav class="desktop-menu">
+          <a href="#historia">Història</a>
+          <a href="portfoli.html">Portfoli</a>
+          <a href="news.html">Notícies</a>
+          <a href="alvoltant.html">Al voltant de la balena</a>
+        </nav>
+
+        <div class="logo_login">
+          <a href="../pages/login.html">
+            <ion-icon name="person-circle"></ion-icon>
+          </a>
+        </div>
+
+        <div class="mobile-menu-icon">
+          <ion-icon name="menu"></ion-icon>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu">
+      <div class="close-btn">
+        <ion-icon name="close"></ion-icon>
+      </div>
+      <nav class="mobile-menu-links">
+        <a href="#historia">Història</a>
+        <a href="portfoli.html">Portfoli</a>
+        <a href="news.html">Notícies</a>
+        <a href="alvoltant.html">Al voltant de la balena</a>
+      </nav>
+    </div>
+
+    <main class="edit-news-container">
+      <h1>Creació de notícies</h1>
+      <div class="container-add-title">
+        <h3>Títol de la notícia:</h3>
+        <input type="text" placeholder="Títol" required/>
+      </div>
+      <div class="container-tools">
+        <h3>Afegir elements</h3>
+        <div class="tool" data-type="paragraph">Afegir paràgraf</div>
+        <div class="tool" data-type="image">Afegir imatge</div>
+      </div>
+
+      <div id="builder">
+        <div class="row-container"></div>
+      </div>
+
+      <div id="config-tools">
+        <label for="column-choice">Nombre de columnes per fila:</label>
+        <select id="column-choice">
+          <option value="1">1 columna</option>
+          <option value="2">2 columnes</option>
+        </select>
+        <button id="add-row">Afegir fila</button>
+        <button id="save-config">Desar configuració</button>
+        <button id="load-config">Carregar configuració</button>
+      </div>
+
+      <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"
+      ></script>
+
+      <script
+        src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
+        integrity="sha384-SStJQoPipVtHHnIgUfDI+jTAbSyU+HMbhwt2XRRNpLIRFg9VguopT6Y4+cdOlkqg"
+        crossorigin="anonymous"
+      ></script>
+      <script src="editor.js"></script>
+    </main>
+
+    <aside class="access">
+      <button id="btnAccess" class="btnAccess">
+        <ion-icon
+          name="accessibility-outline"
+          style="font-size: 24px"
+        ></ion-icon>
+      </button>
+    </aside>
+    <section id="access-panel" class="access-panel">
+      <div class="panel-header">
+        <h2>Opcions d'Accesibilitat</h2>
+        <button id="closeAccessPanel" class="close-button">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </div>
+      <div class="panel-content">
+        <div class="access-option">
+          <h3>Ajusta el contrast</h3>
+          <div class="access-buttons">
+            <button data-class="grayscale">Escala de grisos</button>
+            <button data-class="dark-contrast">+ Contrast</button>
+            <button data-class="light-contrast">- Contrast</button>
+            <button data-class="high-saturation">+ Saturació</button>
+            <button data-class="low-saturation">- Saturació</button>
+          </div>
+        </div>
+        <div class="access-option">
+          <h3>Ajusta la lletra</h3>
+          <div class="access-buttons">
+            <button data-class="font-size-large">+ Tamany lletra</button>
+            <button data-class="font-size-medium">- Tamany lletra</button>
+            <button data-class="line-height-wide">+ Interlineat</button>
+            <button data-class="line-height-normal">- Interlineat</button>
+            <button data-class="word-spacing-wide">+ Espai paraules</button>
+            <button data-class="word-spacing-normal">- Espai paraules</button>
+            <button data-class="letter-spacing-wide">+ Espai lletres</button>
+            <button data-class="letter-spacing-normal">- Espai lletres</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2024 Tots els drets reservats</p>
+      <p>Pàgina Web creada per Sandra Catchot Sancho</p>
+      <p>
+        <a href="#terminos">Terminis de servei</a> •
+        <a href="#privacidad">Política de privacitat</a>
+      </p>
+    </footer>
+    <script>
+      const mobileMenuIcon = document.querySelector(".mobile-menu-icon");
+      const mobileMenu = document.querySelector(".mobile-menu");
+      const closeMenuBtn = document.querySelector(".mobile-menu .close-btn");
+      mobileMenuIcon.addEventListener("click", () => {
+        mobileMenu.classList.add("open");
+      });
+      closeMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+      });
+    </script>
+    <script>
+      const btnAccess = document.getElementById("btnAccess");
+      const accessPanel = document.getElementById("access-panel");
+      const closeAccessPanel = document.getElementById("closeAccessPanel");
+      btnAccess.addEventListener("click", () => {
+        accessPanel.classList.add("open");
+      });
+      closeAccessPanel.addEventListener("click", () => {
+        accessPanel.classList.remove("open");
+      });
+    </script>
+    <script>
+      const buttons = document.querySelectorAll(".access-option button");
+      const body = document.body;
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const targetClass = button.getAttribute("data-class");
+          body.classList.remove(
+            "grayscale",
+            "dark-contrast",
+            "light-contrast",
+            "high-saturation",
+            "low-saturation",
+            "font-size-small",
+            "font-size-medium",
+            "font-size-large",
+            "line-height-normal",
+            "line-height-wide",
+            "word-spacing-normal",
+            "word-spacing-wide",
+            "letter-spacing-normal",
+            "letter-spacing-wide"
+          );
+          body.classList.add(targetClass);
+        });
+      });
+    </script>
+  </body>
+</html>

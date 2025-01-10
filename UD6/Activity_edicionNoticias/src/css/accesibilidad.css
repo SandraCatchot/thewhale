@@ -1,0 +1,68 @@
+.access-panel {
+  position: fixed;
+  top: 100px;
+  right: -350px;
+  width: 300px;
+  background-color: #E8EBE4;
+  border-left: 2px solid #124559;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  z-index: 1001;
+  transition: right 0.3s ease-in-out;
+}
+.access-panel.open {
+  right: 20px;
+}
+.access-panel .panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #124559;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+.access-panel .panel-header h2 {
+  font-size: 1.2rem;
+  color: #124559;
+  margin: 0;
+  font-weight: bold;
+}
+.access-panel .panel-header .close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #01161e;
+  transition: color 0.3s ease;
+}
+.access-panel .panel-header .close-button:hover {
+  color: #ffa630;
+}
+.access-panel .panel-header .close-button ion-icon {
+  font-size: 1.5rem;
+}
+.access-panel .panel-content .access-option {
+  margin-bottom: 1.5rem;
+}
+.access-panel .panel-content .access-option h3 {
+  font-size: 1.1rem;
+  color: #124559;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+.access-panel .panel-content .access-option button {
+  margin: 0.2rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  background-color: #124559;
+  color: #E8EBE4;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.access-panel .panel-content .access-option button:hover {
+  background-color: #ffa630;
+  color: #01161e;
+}/*# sourceMappingURL=accesibilidad.css.map */

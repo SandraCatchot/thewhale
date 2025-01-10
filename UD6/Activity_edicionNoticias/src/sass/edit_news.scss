@@ -1,0 +1,102 @@
+.container-add-title {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 15px;
+  background-color: rgba(18, 69, 89, 0.25);
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+
+  input {
+    width: 400px;
+    padding: 5px;
+  }
+}
+
+.container-tools {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: rgba(18, 69, 89, 0.25);
+  border: 1px solid #ddd;
+}
+.container-tools div {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  cursor: move;
+}
+.row-container {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 60px;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.column {
+  width: 100%;
+  min-height: 100px;
+  border: 1px dashed #ccc;
+  padding: 10px;
+  background-color: #fafafa;
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.column.half {
+  width: 48%;
+}
+.element {
+  padding: 10px;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  cursor: move;
+}
+.element p {
+  margin: 0;
+  word-wrap: break-word;
+  white-space: pre-wrap; /* Permite saltos de línea */
+  width: 100%; /* Asegura que ocupe todo el ancho */
+}
+.element img {
+  max-width: 100%;
+}
+.delete-row-btn {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #124559;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-row-btn:hover {
+  background-color: #ffa630;
+}
+
+#config-tools {
+  margin: 20px;
+  margin-bottom: 100px;
+
+  label, select, button {
+    margin-right: 10px;
+  }
+
+  button {
+    padding: 15px;
+  }
+
+  select {
+    width: 200px;
+  }
+  
+}

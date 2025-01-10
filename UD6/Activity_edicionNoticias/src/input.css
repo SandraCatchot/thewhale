@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .card-component {
+        @apply bg-azulS bg-opacity-25 border border-azulS rounded-lg 
+        shadow-2xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden;
+    }
+
+    .card-image {
+        @apply w-full h-48 object-cover;
+    }
+
+}

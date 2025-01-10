@@ -1,0 +1,104 @@
+@import '_variables';
+@import 'mixins';
+@import 'common';
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  margin-bottom: 60px;
+}
+
+.login-popup {
+  background-color: $secondary-color;
+  border: 1px solid $primary-color;
+  border-radius: 10px;
+  width: 400px;
+  padding: 25px;
+  margin: 45px;
+  @include box-shadow(0, 4px, 8px, rgba(0, 0, 0, 0.1));
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+
+  h2 {
+    color: $primary-color;
+    margin: 1.2rem;
+    font-size: 1.5em;
+    font-family: $secondary-font;
+    font-weight: normal;
+    @include transition(opacity, 0.8s, ease-in-out);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    button {
+      padding: 10px;
+      background-color: $primary-color;
+      color: $secondary-color;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-accent;
+        color: $dark-color;
+      }
+    }
+
+    #feedback {
+      font-size: 1.2rem;
+      color: $dark-color;
+      text-align: center;
+      height: 25px;
+    }
+  }
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+
+  ion-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: $primary-color;
+  }
+
+  &:hover {
+    border: 1.5px solid $primary-color;
+  }
+
+  input {
+    border: none;
+    outline: none;
+    width: 100%;
+    color: $dark-color;
+    background: transparent; 
+  }
+
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .login-popup {
+    width: 450px;
+  }
+}
