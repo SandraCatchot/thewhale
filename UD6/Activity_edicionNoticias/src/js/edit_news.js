@@ -1,5 +1,4 @@
 $(function () {
-  // Hacer los elementos de la toolbox arrastrables
   $(".tool").draggable({
     helper: "clone",
     revert: "invalid",
@@ -8,8 +7,17 @@ $(function () {
   function initializeDroppable() {
     $(".column").droppable({
       accept: ".tool",
+      over: function (event, ui) {
+        $(this).addClass("drag-over");
+      },
+      out: function (event, ui) {
+        $(this).removeClass("drag-over");
+      },
       drop: function (event, ui) {
+        $(this).removeClass("drag-over");
+
         const type = ui.draggable.data("type");
+
         if ($(this).children().length >= 2 && $(this).hasClass("half")) {
           alert("Solo se permiten dos elementos por columna.");
           return;
@@ -33,7 +41,7 @@ $(function () {
                 <img src="" alt="Imagen" style="display: none;">
               </div>`
           );
-        } 
+        }
 
         $(this).append(newElement);
         makeElementsDraggable();
@@ -99,7 +107,7 @@ $(function () {
                   type: "image",
                   src: $(this).find("img").attr("src"),
                 });
-              } 
+              }
             });
           row.push(column);
         });
@@ -169,9 +177,21 @@ function loadImage(event) {
 function editParagraph(paragraph) {
   const $p = $(paragraph);
   const currentText = $p.text();
-  const input = $(`<input type="text" value="${currentText}" />`);
+  const textarea = $(
+    `<textarea class="editable-input">${currentText}</textarea>`
+  );
 
-  input.on("blur", function () {
+  textarea.on("input", function () {
+    // Esto asegura que el texto escrito sea visible
+    const text = $(this).val();
+    if (!text.trim()) {
+      $(this).css("color", "#a0a0a0");
+    } else {
+      $(this).css("color", "#01161e");
+    }
+  });
+
+  textarea.on("blur", function () {
     const newText = $(this).val();
     $p.text(newText);
     $p.show();
@@ -179,8 +199,6 @@ function editParagraph(paragraph) {
   });
 
   $p.hide();
-  $p.after(input);
-  input.focus();
+  $p.after(textarea);
+  textarea.focus();
 }
-
-

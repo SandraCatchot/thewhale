@@ -24,6 +24,18 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="../js/edit_news.js"></script>
+    <script src="../js/edit_news_save.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
+      integrity="sha384-SStJQoPipVtHHnIgUfDI+jTAbSyU+HMbhwt2XRRNpLIRFg9VguopT6Y4+cdOlkqg"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header>
@@ -64,45 +76,54 @@
       </nav>
     </div>
 
-    <main class="edit-news-container">
-      <h1>Creació de notícies</h1>
-      <div class="container-add-title">
-        <h3>Títol de la notícia:</h3>
-        <input type="text" placeholder="Títol" required/>
-      </div>
-      <div class="container-tools">
+    <main>
+      <h1 class="edit-news-title">CREACIÓ DE NOTÍCIES</h1>
+      <div class="edit-news-container">
+        <div class="container-add-title">
+          <h3>Títol de la notícia:</h3>
+          <input
+            type="text"
+            placeholder="Títol de la notícia"
+            class="edit-news-input"
+            id ="news-title"
+          />
+        </div>
+
+        <div class="container-add-author">
+          <h3>Nom de l'autor:</h3>
+          <input
+            type="text"
+            placeholder="Nom de l'autor"
+            id="news-author"
+            class="edit-news-input"
+          />
+        </div>
+
         <h3>Afegir elements</h3>
-        <div class="tool" data-type="paragraph">Afegir paràgraf</div>
-        <div class="tool" data-type="image">Afegir imatge</div>
+        <div class="container-tools">
+          <div class="tool" data-type="paragraph">Afegir paràgraf</div>
+          <div class="tool" data-type="image">Afegir imatge</div>
+        </div>
+
+        <div id="builder">
+          <div class="row-container"></div>
+        </div>
+
+        <div id="config-tools">
+          <label for="column-choice">Nombre de columnes per fila:</label>
+          <select id="column-choice">
+            <option value="1">1 columna</option>
+            <option value="2">2 columnes</option>
+          </select>
+          <button id="add-row">Afegir fila</button>
+          <button id="save-config">Desar configuració</button>
+          <button id="load-config">Carregar configuració</button>
+        </div>
+
+        <div class="save-news-container">
+          <button id="save-news" class="save-news-btn">Guardar notícia</button>
+        </div>
       </div>
-
-      <div id="builder">
-        <div class="row-container"></div>
-      </div>
-
-      <div id="config-tools">
-        <label for="column-choice">Nombre de columnes per fila:</label>
-        <select id="column-choice">
-          <option value="1">1 columna</option>
-          <option value="2">2 columnes</option>
-        </select>
-        <button id="add-row">Afegir fila</button>
-        <button id="save-config">Desar configuració</button>
-        <button id="load-config">Carregar configuració</button>
-      </div>
-
-      <script
-        src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-        crossorigin="anonymous"
-      ></script>
-
-      <script
-        src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
-        integrity="sha384-SStJQoPipVtHHnIgUfDI+jTAbSyU+HMbhwt2XRRNpLIRFg9VguopT6Y4+cdOlkqg"
-        crossorigin="anonymous"
-      ></script>
-      <script src="editor.js"></script>
     </main>
 
     <aside class="access">
