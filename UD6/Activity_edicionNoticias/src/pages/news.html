@@ -21,6 +21,7 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/news.js"></script>
   </head>
 
@@ -28,7 +29,7 @@
     <header>
       <div class="logo">
         <a href="../../index.html">
-          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo"/>
+          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo" />
         </a>
       </div>
       <div class="menu_login">
@@ -62,58 +63,96 @@
     </div>
 
     <main class="font-primary-font mx-auto p-4 max-w-7xl">
-      <div class="flex flex-col mx-4 md:flex-row justify-between items-center mb-6">
+      <div
+        class="flex flex-col mx-4 md:flex-row justify-between items-center mb-6"
+      >
         <h1 class="font-secondary-font text-3xl text-dark-color mb-4 md:mb-0">
           NOTÍCIES
         </h1>
         <div class="relative w-full md:w-1/2 -z-50">
-          <span class="absolute inset-y-0 left-3 flex items-center text-gray-500">
+          <span
+            class="absolute inset-y-0 left-3 flex items-center text-gray-500"
+          >
             <ion-icon name="search"></ion-icon>
           </span>
-          <input 
-            type="text" 
-            placeholder="Cerca notícies..." 
+          <input
+            type="text"
+            placeholder="Cerca notícies..."
             class="w-full pl-10 border border-gray-300 rounded-lg py-2 px-4 text-dark-color focus:outline-none focus:ring-2 focus:ring-azulS focus:border-transparent"
           />
-        </div>       
-        <button class="my-4"><a href="./edit_news.html">Crear notícia</a></button>
+        </div>
+        <button class="my-4">
+          <a href="./edit_news.html">Crear notícia</a>
+        </button>
       </div>
-      <section class="grid gap-6 mb-8 mx-4 md:grid-cols-2 lg:grid-cols-3" id="container-news">
+      <section
+        id="container-news"
+        class="grid gap-6 mb-8 mx-4 md:grid-cols-2 lg:grid-cols-3"
+      >
         <div class="card-component">
-          <img src="../images/muntatge20.png" alt="Imatge notícia" class="card-image">
+          <img
+            src="../images/muntatge20.png"
+            alt="Imatge notícia"
+            class="card-image"
+          />
           <div class="p-4">
-            <h2 class="text-xl font-bold text-oscuroS mb-2">La Balena Blava del Ramis rep una nova tècnica de conservació</h2>
+            <h2 class="text-xl font-bold text-oscuroS mb-2">
+              La Balena Blava del Ramis rep una nova tècnica de conservació
+            </h2>
             <p class="mb-4">10/11/2024 - Laura Martínez</p>
             <p class="mb-4">
-              L'equip de restauració de l’Institut Joan Ramis i Ramis ha començat a aplicar una nova tècnica de consolidació per a les restes... 
+              L'equip de restauració de l’Institut Joan Ramis i Ramis ha
+              començat a aplicar una nova tècnica de consolidació per a les
+              restes...
             </p>
-            <a href="new.html" class="text-azulS font-semibold hover:underline">Llegeix més</a>
+            <a href="new.html?id=${news.id}" class="text-azulS font-semibold hover:underline"
+              >Llegeix més</a
+            >
           </div>
         </div>
         <div class="card-component">
-          <img src="../images/centrecultural.jpg
-          " alt="Imatge notícia" class="card-image">
+          <img
+            src="../images/centrecultural.jpg
+          "
+            alt="Imatge notícia"
+            class="card-image"
+          />
           <div class="p-4">
-            <h2 class="text-xl font-bold text-oscuroS mb-2">Inauguració del nou centre de cultura marítima a Ciutadella</h2>
+            <h2 class="text-xl font-bold text-oscuroS mb-2">
+              Inauguració del nou centre de cultura marítima a Ciutadella
+            </h2>
             <p class="mb-4">25/09/2024</p>
             <p class="mb-4">
-              El nou centre cultural dedicat a la història marítima de Menorca ha obert les seves portes aquest cap de setmana a Ciutadella. L’espai compta amb exposicions interactives...
+              El nou centre cultural dedicat a la història marítima de Menorca
+              ha obert les seves portes aquest cap de setmana a Ciutadella.
+              L’espai compta amb exposicions interactives...
             </p>
-            <a href="new.html" class="text-azulS font-semibold hover:underline">Llegeix més</a>
+            <a href="new.html?id=${news.id}" class="text-azulS font-semibold hover:underline"
+              >Llegeix més</a
+            >
           </div>
         </div>
         <div class="card-component">
-          <img src="../images/camicavalls.jpg" alt="Imatge notícia" class="card-image">
+          <img
+            src="../images/camicavalls.jpg"
+            alt="Imatge notícia"
+            class="card-image"
+          />
           <div class="p-4">
-            <h2 class="text-xl font-bold text-oscuroS mb-2">El Cami de Cavalls acull una cursa solidària sense precedents</h2>
+            <h2 class="text-xl font-bold text-oscuroS mb-2">
+              El Cami de Cavalls acull una cursa solidària sense precedents
+            </h2>
             <p class="mb-4">12/05/2024</p>
             <p class="mb-4">
-              Aquest diumenge, més de 500 participants van recórrer un tram del Cami de Cavalls en una cursa solidària organitzada per recaptar fons per a la conservació...
+              Aquest diumenge, més de 500 participants van recórrer un tram del
+              Cami de Cavalls en una cursa solidària organitzada per recaptar
+              fons per a la conservació...
             </p>
-            <a href="new.html" class="text-azulS font-semibold hover:underline">Llegeix més</a>
+            <a href="new.html?id=${news.id}" class="text-azulS font-semibold hover:underline"
+              >Llegeix més</a
+            >
           </div>
         </div>
-
       </section>
     </main>
 
@@ -168,39 +207,48 @@
       </p>
     </footer>
     <script>
-      const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
-      const mobileMenu = document.querySelector('.mobile-menu');
-      const closeMenuBtn = document.querySelector('.mobile-menu .close-btn');
-      mobileMenuIcon.addEventListener('click', () => {
-        mobileMenu.classList.add('open');
+      const mobileMenuIcon = document.querySelector(".mobile-menu-icon");
+      const mobileMenu = document.querySelector(".mobile-menu");
+      const closeMenuBtn = document.querySelector(".mobile-menu .close-btn");
+      mobileMenuIcon.addEventListener("click", () => {
+        mobileMenu.classList.add("open");
       });
-      closeMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-      });
-    </script>
-    <script>
-      const btnAccess = document.getElementById('btnAccess');
-      const accessPanel = document.getElementById('access-panel');
-      const closeAccessPanel = document.getElementById('closeAccessPanel');
-      btnAccess.addEventListener('click', () => {
-        accessPanel.classList.add('open');
-      });
-      closeAccessPanel.addEventListener('click', () => {
-        accessPanel.classList.remove('open');
+      closeMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
       });
     </script>
     <script>
-      const buttons = document.querySelectorAll('.access-option button');
+      const btnAccess = document.getElementById("btnAccess");
+      const accessPanel = document.getElementById("access-panel");
+      const closeAccessPanel = document.getElementById("closeAccessPanel");
+      btnAccess.addEventListener("click", () => {
+        accessPanel.classList.add("open");
+      });
+      closeAccessPanel.addEventListener("click", () => {
+        accessPanel.classList.remove("open");
+      });
+    </script>
+    <script>
+      const buttons = document.querySelectorAll(".access-option button");
       const body = document.body;
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          const targetClass = button.getAttribute('data-class');
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const targetClass = button.getAttribute("data-class");
           body.classList.remove(
-            'grayscale', 'dark-contrast', 'light-contrast', 'high-saturation', 'low-saturation',
-            'font-size-small', 'font-size-medium', 'font-size-large',
-            'line-height-normal', 'line-height-wide',
-            'word-spacing-normal', 'word-spacing-wide',
-            'letter-spacing-normal', 'letter-spacing-wide'
+            "grayscale",
+            "dark-contrast",
+            "light-contrast",
+            "high-saturation",
+            "low-saturation",
+            "font-size-small",
+            "font-size-medium",
+            "font-size-large",
+            "line-height-normal",
+            "line-height-wide",
+            "word-spacing-normal",
+            "word-spacing-wide",
+            "letter-spacing-normal",
+            "letter-spacing-wide"
           );
           body.classList.add(targetClass);
         });
