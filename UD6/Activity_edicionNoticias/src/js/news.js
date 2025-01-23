@@ -1,4 +1,6 @@
+// news.js
 $(document).ready(function () {
+  // 1) Leemos la lista de noticias
   const newsList = JSON.parse(localStorage.getItem("newsList")) || [];
   const newsContainer = $("#container-news");
 
@@ -7,35 +9,74 @@ $(document).ready(function () {
     return;
   }
 
-  newsList.forEach((news) => {
-    // Generar el resumen
-    const summary = news.content
-      .map((row) =>
-        row.columns
-          .filter((col) => col.type === "paragraph" && col.content)
-          .map((col) => col.content.trim())
-          .join(" ")
-      )
-      .join(" ")
-      .slice(0, 100);
+  // 2) Recorremos cada noticia y creamos su tarjeta
+  newsList.forEach((newsItem) => {
+    // a) Buscar la primera imagen real en su contenido (triple bucle)
+    const image = findFirstImage(newsItem.content) || "../images/logo_ok_AULAMUSEU.png";
 
-    // Obtener la imagen o usar la predeterminada
-    const image =
-      news.content
-        .find((row) => row.columns.some((col) => col.type === "image"))
-        ?.columns.find((col) => col.type === "image")?.content ||
-      "../images/logo_ok_AULAMUSEU.png";
+    // b) Crear el resumen a partir de párrafos
+    const summary = createSummary(newsItem.content);
 
+    // c) Generar el HTML de la tarjeta
     const newsCard = `
       <div class="card-component">
         <img src="${image}" alt="Imatge notícia" class="card-image">
         <div class="p-4">
-          <h2 class="text-xl font-bold text-oscuroS mb-2">${news.title}</h2>
-          <p class="mb-4">${news.creationDate} - ${news.author}</p>
-          <p class="mb-4">${summary || "No hay contenido disponible"}...</p>
-          <a href="new.html?id=${news.id}" class="text-azulS font-semibold hover:underline">Llegeix més</a>
+          <h2 class="text-xl font-bold text-oscuroS mb-2">${newsItem.title}</h2>
+          <p class="mb-4">${newsItem.creationDate} - ${newsItem.author}</p>
+          <p class="mb-4">${summary}</p>
+          <a href="new.html?id=${newsItem.id}" class="text-azulS font-semibold hover:underline">Llegeix més</a>
         </div>
-      </div>`;
+      </div>
+    `;
     newsContainer.append(newsCard);
   });
+
+  /**
+   * Busca la primera imagen en la estructura (contenido) de la noticia
+   */
+  function findFirstImage(contentArray) {
+    if (!Array.isArray(contentArray)) return null;
+    for (const row of contentArray) {
+      if (row && Array.isArray(row.columns)) {
+        for (const columnArr of row.columns) {
+          if (!Array.isArray(columnArr)) continue;
+          for (const element of columnArr) {
+            if (element.type === "image" && element.content) {
+              return element.content;
+            }
+          }
+        }
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Crea un resumen concatenando TODOS los párrafos y recortándolo a 100 chars
+   */
+  function createSummary(contentArray) {
+    if (!Array.isArray(contentArray)) return "No hay contenido disponible.";
+
+    let text = "";
+    for (const row of contentArray) {
+      if (row && Array.isArray(row.columns)) {
+        for (const columnArr of row.columns) {
+          if (!Array.isArray(columnArr)) continue;
+          for (const element of columnArr) {
+            if (element.type === "paragraph" && element.content) {
+              text += element.content.trim() + " ";
+            }
+          }
+        }
+      }
+    }
+
+    text = text.trim();
+    if (!text) return "No hay contenido disponible.";
+    if (text.length > 100) {
+      return text.slice(0, 100) + "...";
+    }
+    return text;
+  }
 });
