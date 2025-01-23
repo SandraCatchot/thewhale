@@ -1,8 +1,4 @@
-// edit_news.js
 $(document).ready(function () {
-  // =========================
-  // 1) DETECTAR SI ESTAMOS EDITANDO
-  // =========================
   const urlParams = new URLSearchParams(window.location.search);
   const editingId = urlParams.get("id"); // si existe => modo EDICIÓN
 
@@ -23,9 +19,6 @@ $(document).ready(function () {
   }
   // Si no hay editingId => modo creación normal
 
-  // =========================
-  // 2) DRAG & DROP
-  // =========================
   $(".tool").draggable({
     helper: "clone",
     revert: "invalid",
@@ -110,9 +103,6 @@ $(document).ready(function () {
   initializeDroppable();
   initializeDeleteButtons();
 
-  // =========================
-  // 3) BOTÓN GUARDAR NOTICIA
-  // =========================
   $("#save-news").on("click", async function () {
     const title = $("#news-title").val().trim();
     const author = $("#news-author").val().trim();
@@ -161,10 +151,6 @@ $(document).ready(function () {
     }
   });
 
-  // =========================
-  // 4) FUNCIONES AUXILIARES
-  // =========================
-
   function loadContentIntoBuilder(contentArray) {
     // Borra todo y reconstruye
     $(".row-container").empty();
@@ -189,8 +175,6 @@ $(document).ready(function () {
               </div>
             `;
           } else if (element.type === "image") {
-            // Si quieres permitir cambiar la imagen:
-            // Podríamos meter <input type="file">, pero en este ejemplo solo mostramos
             newRowHtml += `
               <div class="element">
                 <img src="${element.content}" alt="Imagen">
@@ -264,7 +248,6 @@ $(document).ready(function () {
   }
 });
 
-// Funciones globales (llamadas en HTML)
 function loadImage(event) {
   const input = event.target;
   const reader = new FileReader();

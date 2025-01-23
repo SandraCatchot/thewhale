@@ -1,4 +1,3 @@
-// new.js
 $(document).ready(function () {
   const urlParams = new URLSearchParams(window.location.search);
   const newsId = urlParams.get("id");
@@ -19,7 +18,6 @@ $(document).ready(function () {
     return;
   }
 
-  // Renderizamos
   $("#news-title").text(newsItem.title);
   $("#news-meta").html(`Publicat el ${newsItem.creationDate} per <span class="font-semibold">${newsItem.author}</span>`);
 
@@ -67,7 +65,6 @@ $(document).ready(function () {
   // Mostramos los botones de editar/eliminar
   $("#news-actions").show();
 
-  // Eliminar
   $("#btnDelete").on("click", function () {
     if (!confirm("¿Estás seguro de eliminar esta noticia?")) return;
 
@@ -76,7 +73,6 @@ $(document).ready(function () {
     window.location.href = "news.html";
   });
 
-  // Editar
   $("#btnEdit").on("click", function () {
     window.location.href = `edit_news.html?id=${newsId}`;
   });

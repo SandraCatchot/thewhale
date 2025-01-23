@@ -1,4 +1,3 @@
-// news.js
 $(document).ready(function () {
   const newsList = JSON.parse(localStorage.getItem("newsList")) || [];
   const newsContainer = $("#container-news");
