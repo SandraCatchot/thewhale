@@ -23,6 +23,7 @@
     ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/login.js"></script>
+    <!-- Aquí cargamos new.js -->
     <script src="../js/new.js"></script>
   </head>
 
@@ -40,11 +41,13 @@
           <a href="news.html">Notícies</a>
           <a href="alvoltant.html">Al voltant de la balena</a>
         </nav>
+
         <div class="logo_login">
           <a href="../pages/login.html">
             <ion-icon name="person-circle"></ion-icon>
           </a>
         </div>
+
         <div class="mobile-menu-icon">
           <ion-icon name="menu"></ion-icon>
         </div>
@@ -70,13 +73,13 @@
       >
         ← Torna a Notícies
       </a>
-
       <h1 class="text-3xl font-secondary-font font-bold mb-4" id="news-title"></h1>
       <div class="text-sm text-center text-gray-600 mb-6" id="news-meta"></div>
       <article class="text-gray-800 leading-relaxed" id="news-content">
         <p>Cargando contenido...</p>
       </article>
 
+      <!-- BOTONES PARA EDITAR/ELIMINAR NOTICIA -->
       <div id="news-actions" class="mt-8 hidden">
         <button
           id="btnEdit"
@@ -91,7 +94,6 @@
           Eliminar notícia
         </button>
       </div>
-      
     </main>
 
     <aside class="access">

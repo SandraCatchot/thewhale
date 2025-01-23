@@ -1,6 +1,5 @@
 // news.js
 $(document).ready(function () {
-  // 1) Leemos la lista de noticias
   const newsList = JSON.parse(localStorage.getItem("newsList")) || [];
   const newsContainer = $("#container-news");
 
@@ -9,15 +8,10 @@ $(document).ready(function () {
     return;
   }
 
-  // 2) Recorremos cada noticia y creamos su tarjeta
   newsList.forEach((newsItem) => {
-    // a) Buscar la primera imagen real en su contenido (triple bucle)
     const image = findFirstImage(newsItem.content) || "../images/logo_ok_AULAMUSEU.png";
-
-    // b) Crear el resumen a partir de párrafos
     const summary = createSummary(newsItem.content);
 
-    // c) Generar el HTML de la tarjeta
     const newsCard = `
       <div class="card-component">
         <img src="${image}" alt="Imatge notícia" class="card-image">
@@ -32,9 +26,6 @@ $(document).ready(function () {
     newsContainer.append(newsCard);
   });
 
-  /**
-   * Busca la primera imagen en la estructura (contenido) de la noticia
-   */
   function findFirstImage(contentArray) {
     if (!Array.isArray(contentArray)) return null;
     for (const row of contentArray) {
@@ -52,9 +43,6 @@ $(document).ready(function () {
     return null;
   }
 
-  /**
-   * Crea un resumen concatenando TODOS los párrafos y recortándolo a 100 chars
-   */
   function createSummary(contentArray) {
     if (!Array.isArray(contentArray)) return "No hay contenido disponible.";
 
