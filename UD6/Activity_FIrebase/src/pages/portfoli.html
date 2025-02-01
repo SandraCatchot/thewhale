@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula Museu - La balena blava</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/portfoli.css" />
+    <link rel="stylesheet" href="../css/accesibilidad.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="../js/accesibility.js"></script>
+    <script src="../js/menu_mobile.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href="../../index.html">
+          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo" />
+        </a>
+      </div>
+      <div class="menu_login">
+        <nav class="desktop-menu">
+          <a href="#historia">Història</a>
+          <a href="portfoli.html">Portfoli</a>
+          <a href="news.html">Notícies</a>
+          <a href="alvoltant.html">Al voltant de la balena</a>
+        </nav>
+
+        <div class="logo_login">
+          <a href="../pages/login.html">
+            <ion-icon name="person-circle"></ion-icon>
+          </a>
+        </div>
+
+        <div class="mobile-menu-icon">
+          <ion-icon name="menu"></ion-icon>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu">
+      <div class="close-btn">
+        <ion-icon name="close"></ion-icon>
+      </div>
+      <nav class="mobile-menu-links">
+        <a href="#historia">Història</a>
+        <a href="portfoli.html">Portfoli</a>
+        <a href="news.html">Notícies</a>
+        <a href="alvoltant.html">Al voltant de la balena</a>
+      </nav>
+    </div>
+
+    <main>
+      <h1 class="main-title">EL MUNTATGE DE LA BALENA</h1>
+      <p class="description">
+        El projecte de l’Institut Joan Ramis i Ramis ha implicat la neteja,
+        consolidació i muntatge dels ossos amb tècniques avançades i escaneig 3D
+        per garantir-ne la conservació. Ara, aquesta impressionant estructura
+        serveix com a testimoni del patrimoni natural i cultural de Menorca.
+      </p>
+      <div class="portfoli-container">
+        <img src="../images/muntatge20.png" alt="Imagen 20" />
+        <img src="../images/muntatge1.png" alt="Imagen 1" />
+        <img src="../images/muntatge2.png" alt="Imagen 2" />
+        <img src="../images/muntatge3.png" alt="Imagen 3" />
+        <img src="../images/muntatge4.png" alt="Imagen 4" />
+        <img src="../images/muntatge5.png" alt="Imagen 5" />
+        <img src="../images/muntatge6.png" alt="Imagen 6" />
+        <img src="../images/muntatge7.png" alt="Imagen 7" />
+        <img src="../images/muntatge8.png" alt="Imagen 8" />
+        <img src="../images/muntatge9.png" alt="Imagen 9" />
+        <img src="../images/muntatge10.png" alt="Imagen 10" />
+        <img src="../images/muntatge11.png" alt="Imagen 11" />
+        <img src="../images/muntatge12.png" alt="Imagen 12" />
+        <img src="../images/muntatge13.png" alt="Imagen 13" />
+        <img src="../images/muntatge14.png" alt="Imagen 14" />
+        <img src="../images/muntatge15.png" alt="Imagen 15" />
+        <img src="../images/muntatge16.png" alt="Imagen 16" />
+        <img src="../images/muntatge17.png" alt="Imagen 17" />
+        <img src="../images/muntatge18.png" alt="Imagen 18" />
+        <img src="../images/muntatge19.png" alt="Imagen 19" />
+      </div>
+    </main>
+    <footer>
+      <p>© 2024 Tots els drets reservats</p>
+      <p>Pàgina Web creada per Sandra Catchot Sancho</p>
+      <p>
+        <a href="#terminos">Terminis de servei</a> •
+        <a href="#privacidad">Política de privacitat</a>
+      </p>
+    </footer>
+    <aside class="access">
+      <button id="btnAccess" class="btnAccess">
+        <ion-icon
+          name="accessibility-outline"
+          style="font-size: 24px"
+        ></ion-icon>
+      </button>
+    </aside>
+    <section id="access-panel" class="access-panel">
+      <div class="panel-header">
+        <h2>Opcions d'Accesibilitat</h2>
+        <button id="closeAccessPanel" class="close-button">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </div>
+      <div class="panel-content">
+        <div class="access-option">
+          <h3>Ajusta el contrast</h3>
+          <div class="access-buttons">
+            <button data-class="grayscale">Escala de grisos</button>
+            <button data-class="dark-contrast">+ Contrast</button>
+            <button data-class="light-contrast">- Contrast</button>
+            <button data-class="high-saturation">+ Saturació</button>
+            <button data-class="low-saturation">- Saturació</button>
+          </div>
+        </div>
+        <div class="access-option">
+          <h3>Ajusta la lletra</h3>
+          <div class="access-buttons">
+            <button data-class="font-size-large">+ Tamany lletra</button>
+            <button data-class="font-size-medium">- Tamany lletra</button>
+            <button data-class="line-height-wide">+ Interlineat</button>
+            <button data-class="line-height-normal">- Interlineat</button>
+            <button data-class="word-spacing-wide">+ Espai paraules</button>
+            <button data-class="word-spacing-normal">- Espai paraules</button>
+            <button data-class="letter-spacing-wide">+ Espai lletres</button>
+            <button data-class="letter-spacing-normal">- Espai lletres</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

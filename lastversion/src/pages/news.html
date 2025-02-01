@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula Museu - Notícies</title>
+    <link rel="stylesheet" href="../output.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/accesibilidad.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- news.js cargará dinámicamente las noticias desde localStorage -->
+    <script src="../js/news.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href="../../index.html">
+          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo" />
+        </a>
+      </div>
+      <div class="menu_login">
+        <nav class="desktop-menu">
+          <a href="#historia">Història</a>
+          <a href="portfoli.html">Portfoli</a>
+          <a href="news.html">Notícies</a>
+          <a href="alvoltant.html">Al voltant de la balena</a>
+        </nav>
+        <div class="logo_login">
+          <a href="../pages/login.html">
+            <ion-icon name="person-circle"></ion-icon>
+          </a>
+        </div>
+        <div class="mobile-menu-icon">
+          <ion-icon name="menu"></ion-icon>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu">
+      <div class="close-btn">
+        <ion-icon name="close"></ion-icon>
+      </div>
+      <nav class="mobile-menu-links">
+        <a href="#historia">Història</a>
+        <a href="portfoli.html">Portfoli</a>
+        <a href="news.html">Notícies</a>
+        <a href="alvoltant.html">Al voltant de la balena</a>
+      </nav>
+    </div>
+
+    <main class="font-primary-font mx-auto p-4 max-w-7xl">
+      <div
+        class="flex flex-col mx-4 md:flex-row justify-between items-center mb-6"
+      >
+        <h1 class="font-secondary-font text-3xl text-dark-color mb-4 md:mb-0">
+          NOTÍCIES
+        </h1>
+        <div class="relative w-full md:w-1/2 -z-50">
+          <span
+            class="absolute inset-y-0 left-3 flex items-center text-gray-500"
+          >
+            <ion-icon name="search"></ion-icon>
+          </span>
+          <input
+            type="text"
+            placeholder="Cerca notícies..."
+            class="w-full pl-10 border border-gray-300 rounded-lg py-2 px-4 text-dark-color focus:outline-none focus:ring-2 focus:ring-azulS focus:border-transparent"
+          />
+        </div>
+        <button class="my-4">
+          <a href="./edit_news.html">Crear notícia</a>
+        </button>
+      </div>
+      <section
+        id="container-news"
+        class="grid gap-6 mb-8 mx-4 md:grid-cols-2 lg:grid-cols-3"
+      >
+        <!-- Las noticias se inyectarán dinámicamente desde news.js -->
+      </section>
+    </main>
+
+    <aside class="access">
+      <button id="btnAccess" class="btnAccess">
+        <ion-icon
+          name="accessibility-outline"
+          style="font-size: 24px"
+        ></ion-icon>
+      </button>
+    </aside>
+    <section id="access-panel" class="access-panel">
+      <div class="panel-header">
+        <h2>Opcions d'Accesibilitat</h2>
+        <button id="closeAccessPanel" class="close-button">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </div>
+      <div class="panel-content">
+        <div class="access-option">
+          <h3>Ajusta el contrast</h3>
+          <div class="access-buttons">
+            <button data-class="grayscale">Escala de grisos</button>
+            <button data-class="dark-contrast">+ Contrast</button>
+            <button data-class="light-contrast">- Contrast</button>
+            <button data-class="high-saturation">+ Saturació</button>
+            <button data-class="low-saturation">- Saturació</button>
+          </div>
+        </div>
+        <div class="access-option">
+          <h3>Ajusta la lletra</h3>
+          <div class="access-buttons">
+            <button data-class="font-size-large">+ Tamany lletra</button>
+            <button data-class="font-size-medium">- Tamany lletra</button>
+            <button data-class="line-height-wide">+ Interlineat</button>
+            <button data-class="line-height-normal">- Interlineat</button>
+            <button data-class="word-spacing-wide">+ Espai paraules</button>
+            <button data-class="word-spacing-normal">- Espai paraules</button>
+            <button data-class="letter-spacing-wide">+ Espai lletres</button>
+            <button data-class="letter-spacing-normal">- Espai lletres</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2024 Tots els drets reservats</p>
+      <p>Pàgina Web creada per Sandra Catchot Sancho</p>
+      <p>
+        <a href="#terminos">Terminis de servei</a> •
+        <a href="#privacidad">Política de privacitat</a>
+      </p>
+    </footer>
+    <script>
+      const mobileMenuIcon = document.querySelector(".mobile-menu-icon");
+      const mobileMenu = document.querySelector(".mobile-menu");
+      const closeMenuBtn = document.querySelector(".mobile-menu .close-btn");
+      mobileMenuIcon.addEventListener("click", () => {
+        mobileMenu.classList.add("open");
+      });
+      closeMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+      });
+    </script>
+    <script>
+      const btnAccess = document.getElementById("btnAccess");
+      const accessPanel = document.getElementById("access-panel");
+      const closeAccessPanel = document.getElementById("closeAccessPanel");
+      btnAccess.addEventListener("click", () => {
+        accessPanel.classList.add("open");
+      });
+      closeAccessPanel.addEventListener("click", () => {
+        accessPanel.classList.remove("open");
+      });
+    </script>
+    <script>
+      const buttons = document.querySelectorAll(".access-option button");
+      const body = document.body;
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const targetClass = button.getAttribute("data-class");
+          body.classList.remove(
+            "grayscale",
+            "dark-contrast",
+            "light-contrast",
+            "high-saturation",
+            "low-saturation",
+            "font-size-small",
+            "font-size-medium",
+            "font-size-large",
+            "line-height-normal",
+            "line-height-wide",
+            "word-spacing-normal",
+            "word-spacing-wide",
+            "letter-spacing-normal",
+            "letter-spacing-wide"
+          );
+          body.classList.add(targetClass);
+        });
+      });
+    </script>
+  </body>
+</html>

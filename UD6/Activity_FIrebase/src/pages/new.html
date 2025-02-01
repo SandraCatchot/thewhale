@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula Museu - Notícies</title>
+    <link rel="stylesheet" href="../output.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/accesibilidad.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/new.js"></script>
+    <script src="../js/accesibility.js"></script>
+    <script src="../js/menu_mobile.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href="../../index.html">
+          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo" />
+        </a>
+      </div>
+      <div class="menu_login">
+        <nav class="desktop-menu">
+          <a href="#historia">Història</a>
+          <a href="portfoli.html">Portfoli</a>
+          <a href="news.html">Notícies</a>
+          <a href="alvoltant.html">Al voltant de la balena</a>
+        </nav>
+
+        <div class="logo_login">
+          <a href="../pages/login.html">
+            <ion-icon name="person-circle"></ion-icon>
+          </a>
+        </div>
+
+        <div class="mobile-menu-icon">
+          <ion-icon name="menu"></ion-icon>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu">
+      <div class="close-btn">
+        <ion-icon name="close"></ion-icon>
+      </div>
+      <nav class="mobile-menu-links">
+        <a href="#historia">Història</a>
+        <a href="portfoli.html">Portfoli</a>
+        <a href="news.html">Notícies</a>
+        <a href="alvoltant.html">Al voltant de la balena</a>
+      </nav>
+    </div>
+
+    <main class="max-w-4xl mx-auto p-6">
+      <a
+        href="news.html"
+        class="text-azulS font-semibold hover:underline flex items-center mb-6"
+      >
+        ← Torna a Notícies
+      </a>
+      <h1 class="text-3xl font-secondary-font font-bold mb-4" id="news-title"></h1>
+      <div class="text-sm text-center text-gray-600 mb-6" id="news-meta"></div>
+      <article class="text-gray-800 leading-relaxed" id="news-content">
+        <p>Cargando contenido...</p>
+      </article>
+
+      <div id="news-actions" class="mt-8 hidden">
+        <button
+          id="btnEdit"
+          class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mr-4"
+        >
+          Editar notícia
+        </button>
+        <button
+          id="btnDelete"
+          class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
+        >
+          Eliminar notícia
+        </button>
+      </div>
+    </main>
+
+    <aside class="access">
+      <button id="btnAccess" class="btnAccess">
+        <ion-icon
+          name="accessibility-outline"
+          style="font-size: 24px"
+        ></ion-icon>
+      </button>
+    </aside>
+    <section id="access-panel" class="access-panel">
+      <div class="panel-header">
+        <h2>Opcions d'Accesibilitat</h2>
+        <button id="closeAccessPanel" class="close-button">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </div>
+      <div class="panel-content">
+        <div class="access-option">
+          <h3>Ajusta el contrast</h3>
+          <div class="access-buttons">
+            <button data-class="grayscale">Escala de grisos</button>
+            <button data-class="dark-contrast">+ Contrast</button>
+            <button data-class="light-contrast">- Contrast</button>
+            <button data-class="high-saturation">+ Saturació</button>
+            <button data-class="low-saturation">- Saturació</button>
+          </div>
+        </div>
+        <div class="access-option">
+          <h3>Ajusta la lletra</h3>
+          <div class="access-buttons">
+            <button data-class="font-size-large">+ Tamany lletra</button>
+            <button data-class="font-size-medium">- Tamany lletra</button>
+            <button data-class="line-height-wide">+ Interlineat</button>
+            <button data-class="line-height-normal">- Interlineat</button>
+            <button data-class="word-spacing-wide">+ Espai paraules</button>
+            <button data-class="word-spacing-normal">- Espai paraules</button>
+            <button data-class="letter-spacing-wide">+ Espai lletres</button>
+            <button data-class="letter-spacing-normal">- Espai lletres</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2024 Tots els drets reservats</p>
+      <p>Pàgina Web creada per Sandra Catchot Sancho</p>
+      <p>
+        <a href="#terminos">Terminis de servei</a> •
+        <a href="#privacidad">Política de privacitat</a>
+      </p>
+    </footer>
+  </body>
+</html>

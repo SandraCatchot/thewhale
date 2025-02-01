@@ -1,0 +1,13 @@
+@mixin box-shadow($x, $y, $blur, $color) {
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin gradient-bg($start-color, $end-color) {
+  background: $start-color; 
+  background: linear-gradient(to right, $start-color, $end-color); 
+}
+
+@mixin transition($property, $duration, $timing) {
+  transition: $property $duration $timing;
+}
+

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula Museu - La balena blava</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/alvoltant.css" />
+    <link rel="stylesheet" href="../css/accesibilidad.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="../../index.html">
+          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo" />
+        </a>
+      </div>
+      <div class="menu_login">
+        <nav class="desktop-menu">
+          <a href="#historia">Història</a>
+          <a href="portfoli.html">Portfoli</a>
+          <a href="news.html">Notícies</a>
+          <a href="alvoltant.html">Al voltant de la balena</a>
+        </nav>
+        <div class="logo_login">
+          <a href="../pages/login.html">
+            <ion-icon name="person-circle"></ion-icon>
+          </a>
+        </div>
+        <div class="mobile-menu-icon">
+          <ion-icon name="menu"></ion-icon>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu">
+      <div class="close-btn">
+        <ion-icon name="close"></ion-icon>
+      </div>
+      <nav class="mobile-menu-links">
+        <a href="#historia">Història</a>
+        <a href="portfoli.html">Portfoli</a>
+        <a href="news.html">Notícies</a>
+        <a href="alvoltant.html">Al voltant de la balena</a>
+      </nav>
+    </div>
+    <main>
+      <div class="container">
+        <h2>AL VOLTANT DE LA BALENA</h2>
+        <div class="container-opciones">
+          <span id="tab-ossos" class="tab active" onclick="showList('ossos')"
+            >Els òssos</span
+          >
+          <span id="tab-feina" class="tab" onclick="showList('feina')"
+            >Altres feines d'alumnes</span
+          >
+        </div>
+
+        <div id="container-mobile" class="container-mobile">
+          <div class="card-ossos">
+            <img
+              src="../images/ossos/ossos1.webp"
+              class="image-voltant"
+              alt="Imatge vèrtex dorsal"
+            />
+            <p class="text-voltant">
+              <b>Vèrtex dorsal:</b><br />Aquest os formava part de la secció
+              superior de la columna vertebral de la balena...
+            </p>
+          </div>
+          <div class="card-ossos">
+            <img
+              src="../images/ossos/ossos2.webp"
+              class="image-voltant"
+              alt="Imatge costella toràcica"
+            />
+            <p class="text-voltant">
+              <b>Costella toràcica:</b><br />Aquesta costella protegia el cor i
+              els pulmons de la balena...
+            </p>
+          </div>
+          <div class="card-ossos">
+            <img
+              src="../images/ossos/ossos3.webp"
+              class="image-voltant"
+              alt="Imatge escàpula dreta"
+            />
+            <p class="text-voltant">
+              <b>Escàpula dreta:</b><br />L'escàpula d'una balena és essencial
+              per a la unió de les aletes anteriors...
+            </p>
+          </div>
+          <div class="card-ossos">
+            <img
+              src="../images/ossos/ossos4.webp"
+              class="image-voltant"
+              alt="Imatge fèmur vestigial"
+            />
+            <p class="text-voltant">
+              <b>Fèmur vestigial:</b><br />Encara que les balenes modernes no
+              tenen extremitats posteriors visibles...
+            </p>
+          </div>
+          <div class="card-ossos">
+            <img
+              src="../images/ossos/ossos5.webp"
+              class="image-voltant"
+              alt="Imatge mandíbula inferior"
+            />
+            <p class="text-voltant">
+              <b>Mandíbula inferior:</b><br />Aquest ós allargat i robust...
+            </p>
+          </div>
+          <div class="card-ossos">
+            <img
+              src="../images/ossos/ossos6.webp"
+              class="image-voltant"
+              alt="Imatge vèrtebra caudal"
+            />
+            <p class="text-voltant">
+              <b>Vèrtebra caudal:</b><br />Situada a prop de la cua...
+            </p>
+          </div>
+          <div class="card-feina">
+            <img
+              src="../images/muntatge1.png"
+              class="image-voltant"
+              alt="Imatge feina 1"
+            />
+            <p class="text-voltant">Descripció feina seleccionada.</p>
+          </div>
+          <div class="card-feina">
+            <img
+              src="../images/muntatge1.png"
+              class="image-voltant"
+              alt="Imatge feina 2"
+            />
+            <p class="text-voltant">Descripció feina seleccionada.</p>
+          </div>
+          <div class="card-feina">
+            <img
+              src="../images/muntatge1.png"
+              class="image-voltant"
+              alt="Imatge feina 3"
+            />
+            <p class="text-voltant">Descripció feina seleccionada.</p>
+          </div>
+        </div>
+
+        <div id="container-desktop" class="container-desktop">
+          <div id="listado" class="listado">
+            <div class="list-item" onclick="showDetail('os1')">Ós 1</div>
+            <div class="list-item" onclick="showDetail('os2')">Ós 2</div>
+            <div class="list-item" onclick="showDetail('os3')">Ós 3</div>
+            <div class="list-item" onclick="showDetail('os4')">Ós 4</div>
+            <div class="list-item" onclick="showDetail('os5')">Ós 5</div>
+          </div>
+
+          <div id="details" class="details">
+            <img
+              id="details-image"
+              src="../images/ossos1.png"
+              class="image-voltant"
+            />
+          </div>
+
+          <div id="description" class="description">
+            <p id="details-text" class="text-voltant"></p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="access">
+      <button id="btnAccess" class="btnAccess">
+        <ion-icon
+          name="accessibility-outline"
+          style="font-size: 24px"
+        ></ion-icon>
+      </button>
+    </aside>
+    <section id="access-panel" class="access-panel">
+      <div class="panel-header">
+        <h2>Opcions d'Accesibilitat</h2>
+        <button id="closeAccessPanel" class="close-button">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </div>
+      <div class="panel-content">
+        <div class="access-option">
+          <h3>Ajusta el contrast</h3>
+          <div class="access-buttons">
+            <button data-class="grayscale">Escala de grisos</button>
+            <button data-class="dark-contrast">+ Contrast</button>
+            <button data-class="light-contrast">- Contrast</button>
+            <button data-class="high-saturation">+ Saturació</button>
+            <button data-class="low-saturation">- Saturació</button>
+          </div>
+        </div>
+        <div class="access-option">
+          <h3>Ajusta la lletra</h3>
+          <div class="access-buttons">
+            <button data-class="font-size-large">+ Tamany lletra</button>
+            <button data-class="font-size-medium">- Tamany lletra</button>
+            <button data-class="line-height-wide">+ Interlineat</button>
+            <button data-class="line-height-normal">- Interlineat</button>
+            <button data-class="word-spacing-wide">+ Espai paraules</button>
+            <button data-class="word-spacing-normal">- Espai paraules</button>
+            <button data-class="letter-spacing-wide">+ Espai lletres</button>
+            <button data-class="letter-spacing-normal">- Espai lletres</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2024 Tots els drets reservats</p>
+      <p>Pàgina Web creada per Sandra Catchot Sancho</p>
+      <p>
+        <a href="#terminos">Terminis de servei</a> •
+        <a href="#privacidad">Política de privacitat</a>
+      </p>
+    </footer>
+   
+    
+    <script src="../js/accesibility.js"></script>
+    <script src="../js/alvoltant.js"></script>
+    <script src="../js/menu_mobile.js"></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+@import "variables";
+
+.access-panel {
+  position: fixed;
+  top: 100px;
+  right: -350px;
+  width: 300px;
+  background-color: $secondary-color;
+  border-left: 2px solid $primary-color;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  z-index: 1001;
+  transition: right 0.3s ease-in-out;
+
+  &.open {
+    right: 20px;
+  }
+
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $primary-color;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+
+    h2 {
+      font-size: 1.2rem;
+      color: $primary-color;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .close-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: $dark-color;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $color-accent;
+      }
+
+      ion-icon {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .panel-content {
+    .access-option {
+      margin-bottom: 1.5rem;
+
+      h3 {
+        font-size: 1.1rem;
+        color: $primary-color;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      button {
+        margin: 0.2rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        background-color: $primary-color;
+        color: $secondary-color;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        @include transition(background-color, 0.3s, ease);
+
+        &:hover {
+          background-color: $color-accent;
+          color: $dark-color;
+        }
+      }
+    }
+  }
+}

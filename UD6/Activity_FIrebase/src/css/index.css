@@ -1,0 +1,110 @@
+.sketchfab-embed-wrapper {
+  max-width: 85%;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: slideIn 1s ease-in-out;
+  border-radius: 1em;
+}
+.sketchfab-embed-wrapper iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: none;
+}
+
+.main-title {
+  text-align: center;
+  color: #01161e;
+  margin: 1.7rem;
+  font-size: 1.5em;
+  font-family: "Merriweather Sans", sans-serif;
+  font-weight: normal;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.links-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 1.2rem;
+  text-align: center;
+  justify-items: center;
+  margin-bottom: 60px;
+}
+.links-container a {
+  background: #124559;
+  background: linear-gradient(to right, #124559, #01161e);
+  color: #E8EBE4;
+  padding: 2rem;
+  margin: 0.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  width: 150px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
+  transition: color 0.3s ease;
+}
+.links-container a:hover {
+  color: #ffa630;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@media (min-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+  }
+  .description p {
+    text-align: center;
+  }
+  .links-container {
+    display: flex;
+    justify-content: center;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+  }
+  .links-container a {
+    width: 180px;
+    height: 50px;
+  }
+  .sketchfab-embed-wrapper {
+    max-width: 85%;
+    height: 400px;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-in-out;
+    border-radius: 1em;
+    margin-bottom: 30px;
+  }
+  .sketchfab-embed-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    border: none;
+  }
+}/*# sourceMappingURL=index.css.map */

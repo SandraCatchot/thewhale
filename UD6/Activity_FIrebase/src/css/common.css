@@ -1,0 +1,352 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+img,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+main {
+  margin: 0 auto;
+  width: 100%;
+  font-family: "Lato", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+  margin: 1rem;
+  color: #01161e;
+  font-family: "Merriweather Sans", sans-serif;
+  font-style: normal;
+}
+
+header {
+  background: #124559;
+  background: linear-gradient(to right, #124559, #01161e);
+  color: #01161e;
+  padding: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Lato", sans-serif;
+}
+header .logo {
+  display: flex;
+  align-items: center;
+}
+header .logo img {
+  max-height: 80px;
+}
+header .logo img:hover {
+  transform: rotate(5deg);
+}
+header .menu_login {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+header .menu_login .logo_login a {
+  color: #E8EBE4;
+  transition: color 0.4s ease-in;
+}
+header .menu_login .logo_login a ion-icon {
+  font-size: 2.5rem;
+}
+header .menu_login .logo_login a:hover {
+  color: #ffa630;
+}
+
+.desktop-menu {
+  display: none;
+}
+.desktop-menu a {
+  color: #E8EBE4;
+  padding: 20px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1rem;
+}
+.desktop-menu a:hover {
+  color: #ffa630;
+  text-decoration: underline;
+}
+
+.header-icons {
+  font-size: 3rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+}
+
+button {
+  transition: background-color 0.7s ease;
+  padding: 10px;
+  background-color: #124559;
+  color: #E8EBE4;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #ffa630;
+  color: #01161e;
+}
+
+footer {
+  background: #124559;
+  background: linear-gradient(to right, #124559, #01161e);
+  color: #E8EBE4;
+  text-align: center;
+  font-size: 0.9rem;
+  font-family: "Lato", sans-serif;
+  height: 120px;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5em;
+  margin-top: 1.5m;
+}
+footer a {
+  color: #E8EBE4;
+}
+footer a:hover {
+  color: #ffa630;
+}
+
+.mobile-menu-icon {
+  font-size: 2rem;
+  color: #E8EBE4;
+  cursor: pointer;
+  display: block;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: #01161e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 999;
+}
+.mobile-menu.open {
+  transform: translateY(0);
+}
+.mobile-menu .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  color: #E8EBE4;
+  cursor: pointer;
+}
+.mobile-menu .mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.mobile-menu .mobile-menu-links a {
+  color: #E8EBE4;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin: 1rem;
+  transition: color 0.3s ease;
+}
+.mobile-menu .mobile-menu-links a:hover {
+  color: #ffa630;
+}
+
+.access {
+  position: fixed;
+  bottom: 40px;
+  left: 30px;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+}
+.access .btnAccess {
+  background-color: transparent;
+  color: black;
+  border-radius: 40%;
+  border: solid grey 1px;
+  display: flex;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+.access .btnAccess img {
+  width: 45px;
+  height: 45px;
+}
+.access .btnAccess:hover {
+  background-color: #ffa630;
+}
+
+.access-panel {
+  position: fixed;
+  top: 100px;
+  right: -350px;
+  width: 300px;
+  background-color: #E8EBE4;
+  border-left: 2px solid #124559;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  z-index: 1001;
+  transition: right 0.3s ease-in-out;
+}
+.access-panel.open {
+  right: 20px;
+}
+.access-panel .panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #124559;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+.access-panel .panel-header h2 {
+  font-size: 1.2rem;
+  color: #124559;
+  margin: 0;
+  font-weight: bold;
+}
+.access-panel .panel-header .close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #01161e;
+  transition: color 0.3s ease;
+}
+.access-panel .panel-header .close-button:hover {
+  color: #ffa630;
+}
+.access-panel .panel-header .close-button ion-icon {
+  font-size: 2.5rem;
+}
+.access-panel .panel-content .access-option {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.access-panel .panel-content .access-option h3 {
+  font-size: 1.1rem;
+  color: #124559;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+.access-panel .panel-content .access-option .access-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.access-panel .panel-content .access-option .access-buttons button {
+  margin: 0.2rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  background-color: #124559;
+  color: #E8EBE4;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.access-panel .panel-content .access-option .access-buttons button:hover {
+  background-color: #ffa630;
+  color: #01161e;
+}
+
+/* Clases globales */
+body.grayscale {
+  filter: grayscale(100%);
+}
+
+body.dark-contrast {
+  filter: contrast(130%);
+}
+
+body.light-contrast {
+  filter: brightness(90%);
+}
+
+body.high-saturation {
+  filter: saturate(130%);
+}
+
+body.low-saturation {
+  filter: saturate(70%);
+}
+
+body.font-size-small {
+  font-size: 14px;
+}
+
+body.font-size-medium {
+  font-size: 16px;
+}
+
+body.font-size-large {
+  font-size: 18px;
+}
+
+body.line-height-normal {
+  line-height: 1.5;
+}
+
+body.line-height-wide {
+  line-height: 1.8;
+}
+
+body.word-spacing-normal {
+  word-spacing: 0px;
+}
+
+body.word-spacing-wide {
+  word-spacing: 2px;
+}
+
+body.letter-spacing-normal {
+  letter-spacing: 0px;
+}
+
+body.letter-spacing-wide {
+  letter-spacing: 1px;
+}
+
+@media (min-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+  }
+  .desktop-menu {
+    display: inline-block;
+  }
+  .mobile-menu-icon {
+    display: none;
+  }
+  .mobile-menu {
+    display: none;
+  }
+}/*# sourceMappingURL=common.css.map */
