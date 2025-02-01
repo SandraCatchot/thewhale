@@ -7,6 +7,12 @@
   font-size: x-large;
 }
 
+.edit-users-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
 /* Barra de búsqueda */
 .mobile-search-bar {
   display: flex;

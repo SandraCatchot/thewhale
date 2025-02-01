@@ -118,7 +118,8 @@ footer {
   align-items: center;
   justify-content: center;
   padding: 1.5em;
-  margin-top: 1.5m;
+  margin-top: 50px;
+  margin-bottom: 0;
 }
 footer a {
   color: #E8EBE4;
@@ -355,6 +356,12 @@ body.letter-spacing-wide {
 .tituloForm {
   color: #124559;
   font-size: x-large;
+}
+
+.edit-users-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Barra de búsqueda */
