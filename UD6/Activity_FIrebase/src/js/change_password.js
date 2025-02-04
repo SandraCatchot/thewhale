@@ -1,4 +1,3 @@
-// change_password.js
 import { app, db } from "./firebase_config.js";
 import {
   collection,
@@ -10,10 +9,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 
 $(document).ready(function () {
-  // Intentamos recuperar el email del usuario desde "current_email"
+  
   let currentEmail = localStorage.getItem("current_email");
   if (!currentEmail) {
-    // Si no existe "current_email", intentamos obtenerlo de "logged_in_user"
     const loggedUserStr = localStorage.getItem("logged_in_user");
     if (loggedUserStr) {
       try {
@@ -32,15 +30,12 @@ $(document).ready(function () {
   }
   console.log("Change Password: current email =", currentEmail);
 
-  // Manejo del envío del formulario de cambio de contraseña
   $("#changePasswordForm").submit(async function (e) {
     e.preventDefault();
 
-    // Obtenemos los valores ingresados
     const newPassword = $("#newPassword").val().trim();
     const confirmPassword = $("#confirmPassword").val().trim();
 
-    // Validación de requisitos: mínimo 12 caracteres, al menos 1 minúscula, 1 mayúscula, 1 dígito y 1 carácter especial.
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{12,}$/;
     if (!passwordRegex.test(newPassword)) {
       $("#feedback")
@@ -55,7 +50,6 @@ $(document).ready(function () {
       return;
     }
 
-    // Consultamos en Firestore el documento del usuario según su email
     const usersColRef = collection(db, "users");
     const q = query(usersColRef, where("email", "==", currentEmail));
     let querySnapshot;
@@ -84,12 +78,10 @@ $(document).ready(function () {
     }
     console.log("Documento de usuario encontrado:", userDoc.id, userDoc.data());
 
-    // Generamos una nueva salt y calculamos el hash de la nueva contraseña
     const newSalt = generateSalt();
     const newPasswordHash = CryptoJS.SHA256(newPassword + newSalt).toString();
     console.log("Nueva salt:", newSalt, "Nuevo hash:", newPasswordHash);
 
-    // Actualizamos el documento del usuario en Firestore
     const userRef = doc(db, "users", userDoc.id);
     try {
       await updateDoc(userRef, {
@@ -115,7 +107,6 @@ $(document).ready(function () {
       console.warn("No se encontró 'logged_in_user' en localStorage.");
     }
 
-    // Eliminamos el email temporal de localStorage
     localStorage.removeItem("current_email");
     console.log("Se eliminó 'current_email' de localStorage.");
 
@@ -123,7 +114,6 @@ $(document).ready(function () {
       .text("Contrasenya modificada correctament. Redirigint...")
       .css("color", "green");
 
-    // Redirigimos según los permisos del usuario: a edit_users.html si tiene permisos o a news.html en caso contrario
     setTimeout(() => {
       if (loggedUser && (loggedUser.edit_users || loggedUser.edit_news)) {
         console.log("Redirigiendo a edit_users.html");
@@ -135,7 +125,6 @@ $(document).ready(function () {
     }, 2000);
   });
 
-  // Función para generar una salt aleatoria
   function generateSalt() {
     return Math.random().toString(36).substring(2, 15);
   }

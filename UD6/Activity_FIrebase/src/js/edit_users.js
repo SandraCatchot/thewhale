@@ -1,4 +1,3 @@
-// edit_users.js
 import { app, db } from "./firebase_config.js";
 import {
   collection,
@@ -12,26 +11,23 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 
 $(document).ready(async function () {
-  // 1. Comprobamos si el usuario logueado tiene permisos para editar usuarios
   const loggedInUser = JSON.parse(localStorage.getItem("logged_in_user"));
   if (!loggedInUser || !loggedInUser.edit_users) {
-    alert("No tienes permisos para editar usuarios.");
-    window.location.href = "login.html"; // O redirige a otra página adecuada
+    alert("No tens permisos per editar usuaris.");
+    window.location.href = "login.html"; 
     return;
   }
 
-  // 2. Definición de variables y referencia a la colección "users" en Firestore
   const usersColRef = collection(db, "users");
   let users = [];
   let nextId = 1;
 
-  // Función para cargar todos los usuarios desde Firestore
   async function loadUsers() {
     const querySnapshot = await getDocs(usersColRef);
     users = [];
     querySnapshot.forEach((docSnap) => {
       let data = docSnap.data();
-      data.docId = docSnap.id; // Guardamos el ID del documento para futuras actualizaciones
+      data.docId = docSnap.id;
       users.push(data);
     });
     if (users.length > 0) {
@@ -43,7 +39,6 @@ $(document).ready(async function () {
 
   await loadUsers();
 
-  // Función para renderizar la tabla de usuarios (vista escritorio)
   function renderUserTable() {
     $(".edit-users-container").empty();
 
@@ -51,7 +46,7 @@ $(document).ready(async function () {
     let $createButton = $("<button>")
       .attr("id", "createUser")
       .addClass("create-user-btn")
-      .text("Crear Nuevo Usuario");
+      .text("Crear NOU USUARI");
 
     $headerDiv.append($createButton);
 
@@ -60,12 +55,12 @@ $(document).ready(async function () {
     let $thead = $("<thead>");
     let $headRow = $("<tr>");
     $headRow.append($("<th>").text("ID"));
-    $headRow.append($("<th>").text("Nombre"));
+    $headRow.append($("<th>").text("Nom"));
     $headRow.append($("<th>").text("Email"));
-    $headRow.append($("<th>").text("Edit Users"));
-    $headRow.append($("<th>").text("Edit News"));
-    $headRow.append($("<th>").text("Edit Bone Files"));
-    $headRow.append($("<th>").text("Acciones"));
+    $headRow.append($("<th>").text("Editar usuaris"));
+    $headRow.append($("<th>").text("Editar notícies"));
+    $headRow.append($("<th>").text("Editar fitxes óssos"));
+    $headRow.append($("<th>").text("Accions"));
     $thead.append($headRow);
     $table.append($thead);
 
@@ -87,11 +82,11 @@ $(document).ready(async function () {
       let $deleteBtn = $("<button>")
         .addClass("delete-user")
         .attr("data-id", user.docId)
-        .text("Eliminar");
+        .text("Esborrar");
       let $changePassBtn = $("<button>")
         .addClass("change-password")
         .attr("data-id", user.docId)
-        .text("Cambiar Contraseña");
+        .text("Canviar contraseña");
 
       // Impedir eliminar al usuario administrador
       if (user.email === "desenvolupador@iesjoanramis.org") {
@@ -107,7 +102,6 @@ $(document).ready(async function () {
     $(".edit-users-container").append($headerDiv).append($table);
   }
 
-  // Función para renderizar el formulario de creación/edición de usuario
   async function renderUserForm(user) {
     let isEditing = false;
     if (user && user.docId) {
@@ -119,13 +113,12 @@ $(document).ready(async function () {
     $(".edit-users-container").empty();
 
     let $formDiv = $("<div>").addClass("user-form");
-    let $title = $("<h2>").text(isEditing ? "Editar Usuario" : "Crear Usuario");
+    let $title = $("<h2>").text(isEditing ? "Editar usuari" : "Crear usuari");
     let $form = $("<form>").attr("id", "userForm");
 
-    // Campo: Nombre
     $form.append(
       $("<label>")
-        .text("Nombre:")
+        .text("Nom:")
         .append(
           $("<input>").attr({
             type: "text",
@@ -135,7 +128,7 @@ $(document).ready(async function () {
           })
         )
     );
-    // Campo: Email
+    
     $form.append(
       $("<label>")
         .text("Email:")
@@ -148,10 +141,10 @@ $(document).ready(async function () {
           })
         )
     );
-    // Checkbox: Edit Users
+    
     $form.append(
       $("<label>")
-        .text("Edit Users:")
+        .text("Editar usuaris:")
         .append(
           $("<input>").attr({
             type: "checkbox",
@@ -160,10 +153,10 @@ $(document).ready(async function () {
           })
         )
     );
-    // Checkbox: Edit News
+  
     $form.append(
       $("<label>")
-        .text("Edit News:")
+        .text("Editar notícies:")
         .append(
           $("<input>").attr({
             type: "checkbox",
@@ -172,10 +165,10 @@ $(document).ready(async function () {
           })
         )
     );
-    // Checkbox: Edit Bone Files
+    
     $form.append(
       $("<label>")
-        .text("Edit Bone Files:")
+        .text("Editar fitxes óssos:")
         .append(
           $("<input>").attr({
             type: "checkbox",
@@ -185,15 +178,13 @@ $(document).ready(async function () {
         )
     );
 
-    // Botones del formulario
-    let $submitBtn = $("<button>").attr("type", "submit").text(isEditing ? "Guardar Cambios" : "Crear Usuario");
+    let $submitBtn = $("<button>").attr("type", "submit").text(isEditing ? "Guardar" : "Crear usuari");
     let $cancelBtn = $("<button>").attr("type", "button").attr("id", "cancelForm").text("Cancelar");
 
     $form.append($submitBtn).append($cancelBtn);
     $formDiv.append($title).append($form);
     $(".edit-users-container").append($formDiv);
 
-    // Manejo del envío del formulario
     $("#userForm").submit(async function (e) {
       e.preventDefault();
       let formData = new FormData(e.target);
@@ -207,7 +198,6 @@ $(document).ready(async function () {
       };
 
       if (isEditing) {
-        // Conservamos los datos sensibles existentes
         newUser.password_hash = user.password_hash;
         newUser.salt = user.salt;
         newUser.active = user.active;
@@ -215,7 +205,6 @@ $(document).ready(async function () {
         const docRef = doc(db, "users", user.docId);
         await updateDoc(docRef, newUser);
       } else {
-        // Al crear un nuevo usuario, generamos una salt y establecemos la contraseña por defecto ("Ramis.20")
         let salt = generateSalt();
         newUser.password_hash = CryptoJS.SHA256("Ramis.20" + salt).toString();
         newUser.salt = salt;
@@ -233,29 +222,26 @@ $(document).ready(async function () {
     });
   }
 
-  // Eventos para cambiar la contraseña
   $(document).on("click", ".change-password", function () {
     let docId = $(this).data("id");
     localStorage.setItem("userToChangePassword", docId);
     window.location.href = "change_password.html";
   });
 
-  // Evento para editar un usuario
   $(document).on("click", ".edit-user", async function () {
     let docId = $(this).data("id");
     let userToEdit = users.find((u) => u.docId === docId);
     await renderUserForm(userToEdit);
   });
 
-  // Evento para eliminar un usuario
   $(document).on("click", ".delete-user", async function () {
     let docId = $(this).data("id");
     let userToDelete = users.find((u) => u.docId === docId);
     if (userToDelete.email === "desenvolupador@iesjoanramis.org") {
-      alert("El usuario administrador no se puede eliminar.");
+      alert("L'usuari administrador no es pot esborrarr.");
       return;
     }
-    let confirmDelete = confirm("¿Estás seguro de que deseas eliminar este usuario?");
+    let confirmDelete = confirm("Segur que vols esborrar aquest usuari?");
     if (confirmDelete) {
       await deleteDoc(doc(db, "users", docId));
       await loadUsers();
@@ -263,40 +249,34 @@ $(document).ready(async function () {
     }
   });
 
-  // Evento para crear un nuevo usuario
   $(document).on("click", "#createUser", function () {
     renderUserForm();
   });
 
-  /* ----- VISTAS PARA MÓVIL ----- */
   function renderMobileView() {
     $(".edit-users-container").empty();
 
-    // Título
-    let $titulo = $("<h1>").addClass("tituloForm").text("Gestión de usuarios");
+    let $titulo = $("<h1>").addClass("tituloForm").text("Gestió d'usuaris");
     $(".edit-users-container").append($titulo);
 
-    // Barra de búsqueda
     let $searchBar = $("<div>").addClass("mobile-search-bar");
     let $searchIcon = $("<span>").addClass("search-icon").html("🔍");
     let $searchInput = $("<input>")
       .attr({
         type: "text",
         id: "searchUser",
-        placeholder: "Buscar usuario..."
+        placeholder: "Cercar usuari..."
       })
       .addClass("search-input");
     $searchBar.append($searchIcon).append($searchInput);
     $(".edit-users-container").append($searchBar);
 
-    // Botón para crear usuario
     let $createButton = $("<button>")
       .attr("id", "createUser")
       .addClass("create-user-btn")
-      .text("Crear Nuevo Usuario");
+      .text("Crear nou usuari");
     $(".edit-users-container").append($createButton);
 
-    // Contenedor de cards
     let $cardContainer = $("<div>").addClass("user-card-container");
     users.forEach((user, index) => {
       let bgColor = index % 2 === 0 ? "#E3F2FD" : "#BBDEFB";
@@ -309,7 +289,6 @@ $(document).ready(async function () {
     });
     $(".edit-users-container").append($cardContainer);
 
-    // Evento de búsqueda
     $("#searchUser").on("input", function () {
       let searchText = $(this).val().toLowerCase();
       $(".user-card").each(function () {
@@ -318,7 +297,6 @@ $(document).ready(async function () {
       });
     });
 
-    // Evento de clic en una card para editar
     $(".user-card").on("click", function () {
       let docId = $(this).data("id");
       let user = users.find((u) => u.docId === docId);
@@ -326,17 +304,16 @@ $(document).ready(async function () {
     });
   }
 
-  // Renderiza el formulario en un popup (vista móvil)
   function renderUserFormPopup(user) {
     let isEditing = !!user;
     let $popupOverlay = $("<div>").addClass("popup-overlay");
     let $popupContent = $("<div>").addClass("popup-content");
-    let $title = $("<h2>").text(isEditing ? "Editar Usuario" : "Crear Usuario");
+    let $title = $("<h2>").text(isEditing ? "Modificar usuari" : "Crear usuari");
     let $form = $("<form>").attr("id", "userForm");
 
     $form.append(
       $("<label>")
-        .text("Nombre:")
+        .text("Nom:")
         .append(
           $("<input>").attr({
             type: "text",
@@ -360,7 +337,7 @@ $(document).ready(async function () {
     );
     $form.append(
       $("<label>")
-        .text("Edit Users:")
+        .text("Edició d'usuaris:")
         .append(
           $("<input>").attr({
             type: "checkbox",
@@ -371,7 +348,7 @@ $(document).ready(async function () {
     );
     $form.append(
       $("<label>")
-        .text("Edit News:")
+        .text("Edició de notícies:")
         .append(
           $("<input>").attr({
             type: "checkbox",
@@ -382,7 +359,7 @@ $(document).ready(async function () {
     );
     $form.append(
       $("<label>")
-        .text("Edit Bone Files:")
+        .text("Edició de fitxes óssos:")
         .append(
           $("<input>").attr({
             type: "checkbox",
@@ -392,7 +369,7 @@ $(document).ready(async function () {
         )
     );
 
-    let $submitBtn = $("<button>").attr("type", "submit").text("Guardar Cambios");
+    let $submitBtn = $("<button>").attr("type", "submit").text("Guardar");
     let $cancelBtn = $("<button>").attr("type", "button").addClass("close-popup").text("Cancelar");
 
     $form.append($submitBtn).append($cancelBtn);
@@ -453,7 +430,6 @@ $(document).ready(async function () {
   $(window).on("resize", renderView);
   renderView();
 
-  // Función para generar una salt aleatoria
   function generateSalt() {
     return Math.random().toString(36).substring(2, 15);
   }
