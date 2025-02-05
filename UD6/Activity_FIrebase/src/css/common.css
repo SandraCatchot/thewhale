@@ -76,13 +76,16 @@ header .menu_login {
 #loginContainer {
   position: relative;
 }
-#loginContainer .iconoLogin {
+#loginContainer a {
+  width: 100px;
   color: white;
   transition: color 0.4s ease-in;
-  font-size: 3.5rem;
 }
-#loginContainer .iconoLogin:hover {
-  color: green;
+#loginContainer a ion-icon.iconoLogin {
+  font-size: 50px;
+}
+#loginContainer a:hover {
+  color: #ffa630;
 }
 
 .user-session {

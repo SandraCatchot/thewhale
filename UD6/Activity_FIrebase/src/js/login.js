@@ -136,16 +136,12 @@ $(document).ready(async function () {
         
         showDefaultLoginIcon();
       }
-    } else {
-      
-      showDefaultLoginIcon();
-    }
+    } 
 
-    // Función que vuelve a mostrar el icono de login si no hay usuario activo
     function showDefaultLoginIcon() {
       $loginContainer.html(`
         <a href="../pages/login.html">
-          <ion-icon class="header-icons" style="color:white" name="person-circle"></ion-icon>
+          <ion-icon name="person-circle"></ion-icon>
         </a>
       `);
     }

@@ -80,14 +80,17 @@ header {
 #loginContainer {
   position: relative;
 
-  .iconoLogin {
+  a {
+    width: 100px;
     color: white;
     @include transition(color, 0.4s, ease-in);
 
-    font-size: 3.5rem;
+    ion-icon.iconoLogin {
+      font-size: 50px;
+    }
 
     &:hover {
-      color: green;
+      color: $color-accent;
     }
   }
 }
@@ -104,7 +107,6 @@ header {
     font-weight: bold;
     cursor: pointer;
     @include transition(color, 0.4s, ease-in);
-
   }
 
   #userSessionName {

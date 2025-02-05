@@ -73,16 +73,16 @@ header .menu_login {
   text-decoration: underline;
 }
 
-#loginContainer {
+#login-container {
   position: relative;
 }
-#loginContainer .iconoLogin {
+#login-container a {
+  width: 100px;
   color: white;
   transition: color 0.4s ease-in;
-  font-size: 3.5rem;
 }
-#loginContainer .iconoLogin:hover {
-  color: green;
+#login-container a:hover {
+  color: #ffa630;
 }
 
 .user-session {
@@ -113,15 +113,16 @@ header .menu_login {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: #E8EBE4;
-  color: #ffa630;
+  background-color: #124559;
+  color: #E8EBE4;
   border: 1px solid #ccc;
   padding: 1rem 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 .user-session .user-menu a {
   display: block;
-  color: #E8EBE4;
+  color: #ffa630;
+  font-weight: bold;
   text-decoration: none;
   margin-bottom: 1rem;
   font-size: 0.9rem;

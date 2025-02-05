@@ -74,16 +74,16 @@ header .menu_login {
   text-decoration: underline;
 }
 
-#loginContainer {
+#login-container {
   position: relative;
 }
-#loginContainer .iconoLogin {
+#login-container a {
+  width: 100px;
   color: white;
   transition: color 0.4s ease-in;
-  font-size: 3.5rem;
 }
-#loginContainer .iconoLogin:hover {
-  color: green;
+#login-container a:hover {
+  color: #ffa630;
 }
 
 .user-session {
@@ -114,15 +114,16 @@ header .menu_login {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: #E8EBE4;
-  color: #ffa630;
+  background-color: #124559;
+  color: #E8EBE4;
   border: 1px solid #ccc;
   padding: 1rem 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 .user-session .user-menu a {
   display: block;
-  color: #E8EBE4;
+  color: #ffa630;
+  font-weight: bold;
   text-decoration: none;
   margin-bottom: 1rem;
   font-size: 0.9rem;
@@ -537,17 +538,19 @@ button:hover {
   width: 150px;
 }
 
-/* Formulario */
 .user-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin: 20px;
+  align-items: center;
 }
 
 .user-form label {
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 500px;
 }
 
 .user-form input[type=text],
@@ -560,7 +563,15 @@ button:hover {
 }
 
 .user-form input[type=checkbox] {
-  margin-right: 10px;
+  margin-left: 8px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
 }
 
 /* Animaciones */
