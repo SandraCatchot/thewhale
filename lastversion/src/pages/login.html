@@ -14,7 +14,6 @@
       rel="stylesheet"
     />
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   </head>
@@ -77,10 +76,7 @@
 
     <aside class="access">
       <button id="btnAccess" class="btnAccess">
-        <ion-icon
-          name="accessibility-outline"
-          style="font-size: 24px"
-        ></ion-icon>
+        <ion-icon name="accessibility-outline" style="font-size: 24px"></ion-icon>
       </button>
     </aside>
     <section id="access-panel" class="access-panel">
@@ -126,39 +122,8 @@
       </p>
     </footer>
 
-    <script>
-      const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
-      const mobileMenu = document.querySelector('.mobile-menu');
-      const closeMenuBtn = document.querySelector('.mobile-menu .close-btn');
-      mobileMenuIcon.addEventListener('click', () => {
-        mobileMenu.classList.add('open');
-      });
-      closeMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-      });
-    </script>
-    <script>
-      const btnAccess = document.getElementById('btnAccess');
-      const accessPanel = document.getElementById('access-panel');
-      const closeAccessPanel = document.getElementById('closeAccessPanel');
-      btnAccess.addEventListener('click', () => {
-        accessPanel.classList.add('open');
-      });
-      closeAccessPanel.addEventListener('click', () => {
-        accessPanel.classList.remove('open');
-      });
-    </script>
-    <script>
-      const buttons = document.querySelectorAll('.access-option button');
-      const body = document.body;
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          const targetClass = button.getAttribute('data-class');
-          body.classList.remove('grayscale', 'dark-contrast', 'light-contrast', 'high-saturation', 'low-saturation', 'font-size-small', 'font-size-medium', 'font-size-large', 'line-height-normal', 'line-height-wide', 'word-spacing-normal', 'word-spacing-wide', 'letter-spacing-normal', 'letter-spacing-wide');
-          body.classList.add(targetClass);
-        });
-      });
-    </script>
-    <script src="../js/login.js"></script>
+    <script type="module" src="../js/login.js"></script>
+    <script src="../js/accesibility.js"></script>
+    <script src="../js/menu_mobile.js"></script>
   </body>
 </html>

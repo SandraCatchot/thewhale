@@ -21,13 +21,14 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    
   </head>
 
   <body>
     <header>
       <div class="logo">
         <a href="../../index.html">
-          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo"/>
+          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo" />
         </a>
       </div>
       <div class="menu_login">
@@ -37,13 +38,13 @@
           <a href="news.html">Notícies</a>
           <a href="alvoltant.html">Al voltant de la balena</a>
         </nav>
-        
+
         <div class="logo_login">
           <a href="../pages/login.html">
             <ion-icon name="person-circle"></ion-icon>
           </a>
         </div>
-        
+
         <div class="mobile-menu-icon">
           <ion-icon name="menu"></ion-icon>
         </div>
@@ -65,7 +66,10 @@
     <main>
       <h1 class="main-title">EL MUNTATGE DE LA BALENA</h1>
       <p class="description">
-        El projecte de l’Institut Joan Ramis i Ramis ha implicat la neteja, consolidació i muntatge dels ossos amb tècniques avançades i escaneig 3D per garantir-ne la conservació. Ara, aquesta impressionant estructura serveix com a testimoni del patrimoni natural i cultural de Menorca.
+        El projecte de l’Institut Joan Ramis i Ramis ha implicat la neteja,
+        consolidació i muntatge dels ossos amb tècniques avançades i escaneig 3D
+        per garantir-ne la conservació. Ara, aquesta impressionant estructura
+        serveix com a testimoni del patrimoni natural i cultural de Menorca.
       </p>
       <div class="portfoli-container">
         <img src="../images/muntatge20.png" alt="Imagen 20" />
@@ -87,10 +91,56 @@
         <img src="../images/muntatge16.png" alt="Imagen 16" />
         <img src="../images/muntatge17.png" alt="Imagen 17" />
         <img src="../images/muntatge18.png" alt="Imagen 18" />
-        <img src="../images/muntatge19.png" alt="Imagen 19" />       
-        
+        <img src="../images/muntatge19.png" alt="Imagen 19" />
       </div>
     </main>
+
+    <aside class="access">
+      <button id="btnAccess" class="btnAccess">
+        <ion-icon
+          name="accessibility-outline"
+          style="font-size: 24px"
+        ></ion-icon>
+      </button>
+    </aside>
+    <section id="access-panel" class="access-panel">
+      <div class="panel-header">
+        <h2>Opcions d'Accesibilitat</h2>
+        <button id="closeAccessPanel" class="close-button">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </div>
+      <div class="panel-content">
+        <div class="access-option">
+          <h3>Ajusta el contrast</h3>
+          <div class="access-buttons">
+            <button data-class="grayscale">Escala de grisos</button>
+            <button data-class="dark-contrast">+ Contrast</button>
+            <button data-class="light-contrast">- Contrast</button>
+            <button data-class="high-saturation">+ Saturació</button>
+            <button data-class="low-saturation">- Saturació</button>
+          </div>
+        </div>
+        <div class="access-option">
+          <h3>Ajusta la lletra</h3>
+          <div class="access-buttons">
+            <button data-class="font-size-large">+ Tamany lletra</button>
+            <button data-class="font-size-medium">- Tamany lletra</button>
+            <button data-class="line-height-wide">+ Interlineat</button>
+            <button data-class="line-height-normal">- Interlineat</button>
+            <button data-class="word-spacing-wide">+ Espai paraules</button>
+            <button data-class="word-spacing-normal">- Espai paraules</button>
+            <button data-class="letter-spacing-wide">+ Espai lletres</button>
+            <button data-class="letter-spacing-normal">- Espai lletres</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <script src="../js/accesibility.js"></script>
+    <script src="../js/menu_mobile.js"></script>
+
     <footer>
       <p>© 2024 Tots els drets reservats</p>
       <p>Pàgina Web creada per Sandra Catchot Sancho</p>
@@ -99,86 +149,8 @@
         <a href="#privacidad">Política de privacitat</a>
       </p>
     </footer>
-      <aside class="access">
-        <button id="btnAccess" class="btnAccess">
-          <ion-icon
-            name="accessibility-outline"
-            style="font-size: 24px"
-          ></ion-icon>
-        </button>
-      </aside>
-      <section id="access-panel" class="access-panel">
-        <div class="panel-header">
-          <h2>Opcions d'Accesibilitat</h2>
-          <button id="closeAccessPanel" class="close-button">
-            <ion-icon name="close"></ion-icon>
-          </button>
-        </div>
-        <div class="panel-content">
-          <div class="access-option">
-            <h3>Ajusta el contrast</h3>
-            <div class="access-buttons">
-              <button data-class="grayscale">Escala de grisos</button>
-              <button data-class="dark-contrast">+ Contrast</button>
-              <button data-class="light-contrast">- Contrast</button>
-              <button data-class="high-saturation">+ Saturació</button>
-              <button data-class="low-saturation">- Saturació</button>
-            </div>
-          </div>
-          <div class="access-option">
-            <h3>Ajusta la lletra</h3>
-            <div class="access-buttons">
-              <button data-class="font-size-large">+ Tamany lletra</button>
-              <button data-class="font-size-medium">- Tamany lletra</button>
-              <button data-class="line-height-wide">+ Interlineat</button>
-              <button data-class="line-height-normal">- Interlineat</button>
-              <button data-class="word-spacing-wide">+ Espai paraules</button>
-              <button data-class="word-spacing-normal">- Espai paraules</button>
-              <button data-class="letter-spacing-wide">+ Espai lletres</button>
-              <button data-class="letter-spacing-normal">- Espai lletres</button>
-            </div>
-          </div>
-        </div>
-      </section>    
-   
-    <script>
-      const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
-      const mobileMenu = document.querySelector('.mobile-menu');
-      const closeMenuBtn = document.querySelector('.mobile-menu .close-btn');
-      mobileMenuIcon.addEventListener('click', () => {
-        mobileMenu.classList.add('open');
-      });
-      closeMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-      });
-    </script>
-    <script>
-      const btnAccess = document.getElementById('btnAccess');
-      const accessPanel = document.getElementById('access-panel');
-      const closeAccessPanel = document.getElementById('closeAccessPanel');
-      btnAccess.addEventListener('click', () => {
-        accessPanel.classList.add('open');
-      });
-      closeAccessPanel.addEventListener('click', () => {
-        accessPanel.classList.remove('open');
-      });
-    </script>
-    <script>
-      const buttons = document.querySelectorAll('.access-option button');
-      const body = document.body;
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          const targetClass = button.getAttribute('data-class');
-          body.classList.remove(
-            'grayscale', 'dark-contrast', 'light-contrast', 'high-saturation', 'low-saturation',
-            'font-size-small', 'font-size-medium', 'font-size-large',
-            'line-height-normal', 'line-height-wide',
-            'word-spacing-normal', 'word-spacing-wide',
-            'letter-spacing-normal', 'letter-spacing-wide'
-          );
-          body.classList.add(targetClass);
-        });
-      });
-    </script>
+
+    <script src="../js/login.js"></script>
+    
   </body>
 </html>

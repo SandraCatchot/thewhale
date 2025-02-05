@@ -1,24 +1,34 @@
-$(document).ready(function () {
+import { app, db } from "./firebase_config.js";
+import {
+  doc,
+  getDoc,
+  addDoc,
+  updateDoc,
+  collection
+} from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+
+$(document).ready(async function () {
   const urlParams = new URLSearchParams(window.location.search);
-  const editingId = urlParams.get("id"); // si existe => modo EDICIÓN
+  const editingId = urlParams.get("id"); 
 
   if (editingId) {
-    // Cargar la noticia
-    const newsList = JSON.parse(localStorage.getItem("newsList")) || [];
-    const newsItem = newsList.find((n) => n.id === editingId);
-
-    if (!newsItem) {
-      alert("No se encontró la noticia a editar.");
-    } else {
-      // Llenar título/autor
-      $("#news-title").val(newsItem.title);
-      $("#news-author").val(newsItem.author);
-      // Construir filas/columnas con su contenido
-      loadContentIntoBuilder(newsItem.content);
+    try {
+      const docRef = doc(db, "news", editingId);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        const newsItem = docSnap.data();
+        $("#news-title").val(newsItem.title);
+        $("#news-author").val(newsItem.author);
+        loadContentIntoBuilder(newsItem.content);
+      } else {
+        alert("No s'ha trobat la notícia que es vol editar.");
+      }
+    } catch (error) {
+      console.error("S'ha produït un ERROR al carregar la notícia: ", error);
+      alert("Error al carregar la notícia.");
     }
   }
-  // Si no hay editingId => modo creación normal
-
+  
   $(".tool").draggable({
     helper: "clone",
     revert: "invalid",
@@ -37,13 +47,12 @@ $(document).ready(function () {
         $(this).removeClass("drag-over");
         const type = ui.draggable.data("type");
 
-        // Reglas para cuántos elementos caben en cada columna
         if ($(this).children().length >= 2 && $(this).hasClass("half")) {
-          alert("Solo se permiten dos elementos por columna.");
+          alert("Només està permitit 2 elements per columna.");
           return;
         }
         if ($(this).children().length >= 1 && !$(this).hasClass("half")) {
-          alert("Solo se permite un elemento en esta columna.");
+          alert("Només pots utilitzar un element.");
           return;
         }
 
@@ -51,7 +60,7 @@ $(document).ready(function () {
         if (type === "paragraph") {
           newElement = $(`
             <div class="element">
-              <p class="editable" onclick="editParagraph(this)">Escribe aquí tu texto...</p>
+              <p class="editable" onclick="editParagraph(this)">Escriu aqui el teu text...</p>
             </div>
           `);
         } else if (type === "image") {
@@ -107,66 +116,62 @@ $(document).ready(function () {
     const title = $("#news-title").val().trim();
     const author = $("#news-author").val().trim();
     if (!title || !author) {
-      alert("Por favor, rellena título y autor.");
+      alert("Si us plau, has d'omplir títol i autor.");
       return;
     }
 
-    // Recolectar filas/columnas con posible conversión Base64
     const content = await collectContentWithBase64();
-    const newsList = JSON.parse(localStorage.getItem("newsList")) || [];
 
     if (editingId) {
-      // Modo EDICIÓN
-      const index = newsList.findIndex((n) => n.id === editingId);
-      if (index === -1) {
-        alert("No se encontró la noticia a editar.");
-        return;
+      try {
+        const docRef = doc(db, "news", editingId);
+        await updateDoc(docRef, {
+          title: title,
+          author: author,
+          content: content,
+          modificationDate: new Date().toISOString().split("T")[0]
+        });
+        alert("Notícia actualitzada correctament.");
+        window.location.href = `news.html?id=${editingId}`;
+      } catch (error) {
+        console.error("Error al actualitzar la notícia: ", error);
+        alert("Error al actualitzar la notícia.");
       }
-
-      // Actualizamos
-      newsList[index].title = title;
-      newsList[index].author = author;
-      newsList[index].content = content;
-      newsList[index].modificationDate = new Date().toISOString().split("T")[0];
-
-      localStorage.setItem("newsList", JSON.stringify(newsList));
-      alert("Noticia actualizada correctamente.");
-      window.location.href = `new.html?id=${editingId}`;
     } else {
-      // Modo CREACIÓN
-      const creationDate = new Date().toISOString().split("T")[0];
-      const newNews = {
-        id: Date.now().toString(),
-        title,
-        author,
-        creationDate,
-        modificationDate: creationDate,
-        content,
-        status: 0,
-      };
-      newsList.push(newNews);
-      localStorage.setItem("newsList", JSON.stringify(newsList));
-      alert("Noticia creada exitosamente.");
-      window.location.href = "news.html";
+      try {
+        const creationDate = new Date().toISOString().split("T")[0];
+        const newNews = {
+          title: title,
+          author: author,
+          creationDate: creationDate,
+          modificationDate: creationDate,
+          content: content,
+          status: 0
+        };
+        const docRef = await addDoc(collection(db, "news"), newNews);
+        alert("Notícia creada correctament.");
+        window.location.href = `news.html?id=${docRef.id}`;
+      } catch (error) {
+        console.error("Error al crear la noticia: ", error);
+        alert("Error al crear la notícia.");
+      }
     }
   });
 
   function loadContentIntoBuilder(contentArray) {
-    // Borra todo y reconstruye
     $(".row-container").empty();
     contentArray.forEach((rowObj) => {
-      // rowObj = { type: "row", columns: [ [...], [...], ...] }
       const columnCount = rowObj.columns.length;
       let newRowHtml = '<div class="row">';
 
-      rowObj.columns.forEach((columnArr) => {
+      rowObj.columns.forEach((columnObj) => {
+        const columnArr = columnObj.elements; 
         if (columnCount === 2) {
           newRowHtml += `<div class="column half">`;
         } else {
           newRowHtml += `<div class="column">`;
         }
 
-        // columnArr => array de { type, content }
         columnArr.forEach((element) => {
           if (element.type === "paragraph") {
             newRowHtml += `
@@ -182,7 +187,7 @@ $(document).ready(function () {
             `;
           }
         });
-        newRowHtml += `</div>`; // fin .column
+        newRowHtml += `</div>`;
       });
 
       newRowHtml += `<button class="delete-row-btn">Eliminar fila</button></div>`;
@@ -213,13 +218,11 @@ $(document).ready(function () {
                     content: $element.find("p").text().trim(),
                   });
                 } else if ($element.find("img").length > 0) {
-                  // Revisa si hay input[type=file]
                   const $fileInput = $element.find("input[type='file']");
                   let base64Image = "";
                   if ($fileInput.length > 0 && $fileInput[0].files[0]) {
                     base64Image = await convertFileToBase64($fileInput[0].files[0]);
                   } else {
-                    // No hay input, o no se seleccionó => usamos lo que ya tenga
                     base64Image = $element.find("img").attr("src") || "";
                   }
                   colElements.push({
@@ -227,13 +230,13 @@ $(document).ready(function () {
                     content: base64Image,
                   });
                 }
-              })
+              }).get() 
             );
-            rowObj.columns.push(colElements);
-          })
+            rowObj.columns.push({ elements: colElements });
+          }).get()
         );
         content.push(rowObj);
-      })
+      }).get()
     );
     return content;
   }
@@ -248,7 +251,7 @@ $(document).ready(function () {
   }
 });
 
-function loadImage(event) {
+window.loadImage = function(event) {
   const input = event.target;
   const reader = new FileReader();
   reader.onload = function () {
@@ -258,9 +261,9 @@ function loadImage(event) {
     $(input).hide();
   };
   reader.readAsDataURL(input.files[0]);
-}
+};
 
-function editParagraph(paragraph) {
+window.editParagraph = function(paragraph) {
   const $p = $(paragraph);
   const currentText = $p.text();
   const textarea = $(`<textarea class="editable-input">${currentText}</textarea>`);
@@ -275,4 +278,4 @@ function editParagraph(paragraph) {
   $p.hide();
   $p.after(textarea);
   textarea.focus();
-}
+};
