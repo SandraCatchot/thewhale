@@ -1,7 +1,5 @@
 @import "common";
 
-/* Titulo formulario edicion */
-
 .tituloForm {
   color: $primary-color;
   font-size: x-large;
@@ -92,7 +90,7 @@
   background-color: #f1f1f1;
 }
 
-/* Botones */
+
 button {
   padding: 10px;
   background-color: $primary-color;
@@ -107,7 +105,6 @@ button {
   }
 }
 
-/* Popup */
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -118,7 +115,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 .popup-content {
@@ -130,6 +127,7 @@ button {
   max-width: 600px;
   min-height: 300px;
   text-align: center;
+  animation: fadeIn 0.3s ease;
 
   h2 {
     font-size: 1.2rem;
@@ -140,10 +138,42 @@ button {
   form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 
-    button {
-      width: 150px;
+    label {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: bold;
+      margin-bottom: 15px;
+
+      input {
+        margin-top: 5px;
+        width: 100%;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
     }
+
+    p {
+      width: 80%;
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    .popup-buttons-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      width: 80%; 
+
+    }
+
+   
   }
 
 }
@@ -200,3 +230,5 @@ button {
 .popup-content {
   animation: fadeIn 0.3s ease;
 }
+
+

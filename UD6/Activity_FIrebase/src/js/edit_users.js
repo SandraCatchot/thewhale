@@ -399,9 +399,13 @@ $(document).ready(async function () {
       .addClass("close-popup")
       .text("Cancelar");
 
-    $form.append($submitBtn).append($cancelBtn);
-    $popupContent.append($title).append($form);
-    $popupOverlay.append($popupContent);
+      let $buttonsRow = $("<div>").addClass("popup-buttons-row");
+      $buttonsRow.append($submitBtn, $cancelBtn);
+
+      $form.append($buttonsRow);
+
+      $popupContent.append($title).append($form);
+      $popupOverlay.append($popupContent);
 
     $("main").append($popupOverlay);
 

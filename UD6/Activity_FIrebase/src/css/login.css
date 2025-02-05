@@ -73,15 +73,18 @@ header .menu_login {
   text-decoration: underline;
 }
 
-#login-container {
+#loginContainer {
   position: relative;
 }
-#login-container a {
+#loginContainer a {
   width: 100px;
   color: white;
   transition: color 0.4s ease-in;
 }
-#login-container a:hover {
+#loginContainer a ion-icon.iconoLogin {
+  font-size: 50px;
+}
+#loginContainer a:hover {
   color: #ffa630;
 }
 
@@ -185,7 +188,7 @@ footer a:hover {
   height: 100vh;
   width: 100%;
   background: #01161e;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -195,6 +198,7 @@ footer a:hover {
 }
 .mobile-menu.open {
   transform: translateY(0);
+  display: block;
 }
 .mobile-menu .close-btn {
   position: absolute;
@@ -209,6 +213,7 @@ footer a:hover {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-top: 200px;
 }
 .mobile-menu .mobile-menu-links a {
   color: #E8EBE4;

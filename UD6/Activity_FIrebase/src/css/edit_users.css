@@ -74,15 +74,18 @@ header .menu_login {
   text-decoration: underline;
 }
 
-#login-container {
+#loginContainer {
   position: relative;
 }
-#login-container a {
+#loginContainer a {
   width: 100px;
   color: white;
   transition: color 0.4s ease-in;
 }
-#login-container a:hover {
+#loginContainer a ion-icon.iconoLogin {
+  font-size: 50px;
+}
+#loginContainer a:hover {
   color: #ffa630;
 }
 
@@ -186,7 +189,7 @@ footer a:hover {
   height: 100vh;
   width: 100%;
   background: #01161e;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -196,6 +199,7 @@ footer a:hover {
 }
 .mobile-menu.open {
   transform: translateY(0);
+  display: block;
 }
 .mobile-menu .close-btn {
   position: absolute;
@@ -210,6 +214,7 @@ footer a:hover {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-top: 200px;
 }
 .mobile-menu .mobile-menu-links a {
   color: #E8EBE4;
@@ -396,7 +401,6 @@ body.letter-spacing-wide {
     display: none;
   }
 }
-/* Titulo formulario edicion */
 .tituloForm {
   color: #124559;
   font-size: x-large;
@@ -487,7 +491,6 @@ body.letter-spacing-wide {
   background-color: #f1f1f1;
 }
 
-/* Botones */
 button {
   padding: 10px;
   background-color: #124559;
@@ -501,7 +504,6 @@ button:hover {
   color: #01161e;
 }
 
-/* Popup */
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -512,7 +514,7 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 .popup-content {
@@ -524,6 +526,7 @@ button:hover {
   max-width: 600px;
   min-height: 300px;
   text-align: center;
+  animation: fadeIn 0.3s ease;
 }
 .popup-content h2 {
   font-size: 1.2rem;
@@ -533,9 +536,35 @@ button:hover {
 .popup-content form {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
-.popup-content form button {
-  width: 150px;
+.popup-content form label {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.popup-content form label input {
+  margin-top: 5px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.popup-content form p {
+  width: 80%;
+  text-align: center;
+  margin: 10px 0;
+}
+.popup-content form .popup-buttons-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 80%;
 }
 
 .user-form {
