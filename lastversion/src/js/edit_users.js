@@ -7,14 +7,14 @@ import {
   deleteDoc,
   doc,
   query,
-  where
+  where,
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 
 $(document).ready(async function () {
   const loggedInUser = JSON.parse(localStorage.getItem("logged_in_user"));
   if (!loggedInUser || !loggedInUser.edit_users) {
     alert("No tens permisos per editar usuaris.");
-    window.location.href = "login.html"; 
+    window.location.href = "login.html";
     return;
   }
 
@@ -93,7 +93,12 @@ $(document).ready(async function () {
         $deleteBtn.prop("disabled", true);
       }
 
-      $actionTd.append($editBtn).append(" ").append($deleteBtn).append(" ").append($changePassBtn);
+      $actionTd
+        .append($editBtn)
+        .append(" ")
+        .append($deleteBtn)
+        .append(" ")
+        .append($changePassBtn);
       $tr.append($actionTd);
       $tbody.append($tr);
     });
@@ -124,11 +129,11 @@ $(document).ready(async function () {
             type: "text",
             name: "name",
             required: true,
-            value: user.name || ""
+            value: user.name || "",
           })
         )
     );
-    
+
     $form.append(
       $("<label>")
         .text("Email:")
@@ -137,11 +142,13 @@ $(document).ready(async function () {
             type: "email",
             name: "email",
             required: true,
-            value: user.email || ""
+            value: user.email || "",
           })
         )
     );
-    
+
+    $form.append($("<h3>").text("PERMISOS:"));
+
     $form.append(
       $("<label>")
         .text("Editar usuaris:")
@@ -149,11 +156,11 @@ $(document).ready(async function () {
           $("<input>").attr({
             type: "checkbox",
             name: "edit_users",
-            checked: user.edit_users ? true : false
+            checked: user.edit_users ? true : false,
           })
         )
     );
-  
+
     $form.append(
       $("<label>")
         .text("Editar notícies:")
@@ -161,11 +168,11 @@ $(document).ready(async function () {
           $("<input>").attr({
             type: "checkbox",
             name: "edit_news",
-            checked: user.edit_news ? true : false
+            checked: user.edit_news ? true : false,
           })
         )
     );
-    
+
     $form.append(
       $("<label>")
         .text("Editar fitxes óssos:")
@@ -173,15 +180,27 @@ $(document).ready(async function () {
           $("<input>").attr({
             type: "checkbox",
             name: "edit_bone_files",
-            checked: user.edit_bone_files ? true : false
+            checked: user.edit_bone_files ? true : false,
           })
         )
     );
 
-    let $submitBtn = $("<button>").attr("type", "submit").text(isEditing ? "Guardar" : "Crear usuari");
-    let $cancelBtn = $("<button>").attr("type", "button").attr("id", "cancelForm").text("Cancelar");
+    let $submitBtn = $("<button>")
+      .attr("type", "submit")
+      .text(isEditing ? "Guardar" : "Crear usuari");
+    let $cancelBtn = $("<button>")
+      .attr("type", "button")
+      .attr("id", "cancelForm")
+      .text("Cancelar");
 
-    $form.append($submitBtn).append($cancelBtn);
+      let $buttonContainer = $("<div>").addClass("button-container");
+
+      $buttonContainer.append($submitBtn).append($cancelBtn);
+
+      $form.append($buttonContainer);
+
+
+    
     $formDiv.append($title).append($form);
     $(".edit-users-container").append($formDiv);
 
@@ -194,7 +213,7 @@ $(document).ready(async function () {
         email: formData.get("email"),
         edit_users: formData.has("edit_users") ? 1 : 0,
         edit_news: formData.has("edit_news") ? 1 : 0,
-        edit_bone_files: formData.has("edit_bone_files") ? 1 : 0
+        edit_bone_files: formData.has("edit_bone_files") ? 1 : 0,
       };
 
       if (isEditing) {
@@ -265,7 +284,7 @@ $(document).ready(async function () {
       .attr({
         type: "text",
         id: "searchUser",
-        placeholder: "Cercar usuari..."
+        placeholder: "Cercar usuari...",
       })
       .addClass("search-input");
     $searchBar.append($searchIcon).append($searchInput);
@@ -308,7 +327,9 @@ $(document).ready(async function () {
     let isEditing = !!user;
     let $popupOverlay = $("<div>").addClass("popup-overlay");
     let $popupContent = $("<div>").addClass("popup-content");
-    let $title = $("<h2>").text(isEditing ? "Modificar usuari" : "Crear usuari");
+    let $title = $("<h2>").text(
+      isEditing ? "Modificar usuari" : "Crear usuari"
+    );
     let $form = $("<form>").attr("id", "userForm");
 
     $form.append(
@@ -319,7 +340,7 @@ $(document).ready(async function () {
             type: "text",
             name: "name",
             required: true,
-            value: user ? user.name : ""
+            value: user ? user.name : "",
           })
         )
     );
@@ -331,10 +352,13 @@ $(document).ready(async function () {
             type: "email",
             name: "email",
             required: true,
-            value: user ? user.email : ""
+            value: user ? user.email : "",
           })
         )
     );
+
+    $form.append($("<p>").text("PERMISOS:"));
+
     $form.append(
       $("<label>")
         .text("Edició d'usuaris:")
@@ -342,7 +366,7 @@ $(document).ready(async function () {
           $("<input>").attr({
             type: "checkbox",
             name: "edit_users",
-            checked: user ? user.edit_users : false
+            checked: user ? user.edit_users : false,
           })
         )
     );
@@ -353,7 +377,7 @@ $(document).ready(async function () {
           $("<input>").attr({
             type: "checkbox",
             name: "edit_news",
-            checked: user ? user.edit_news : false
+            checked: user ? user.edit_news : false,
           })
         )
     );
@@ -364,17 +388,24 @@ $(document).ready(async function () {
           $("<input>").attr({
             type: "checkbox",
             name: "edit_bone_files",
-            checked: user ? user.edit_bone_files : false
+            checked: user ? user.edit_bone_files : false,
           })
         )
     );
 
     let $submitBtn = $("<button>").attr("type", "submit").text("Guardar");
-    let $cancelBtn = $("<button>").attr("type", "button").addClass("close-popup").text("Cancelar");
+    let $cancelBtn = $("<button>")
+      .attr("type", "button")
+      .addClass("close-popup")
+      .text("Cancelar");
 
-    $form.append($submitBtn).append($cancelBtn);
-    $popupContent.append($title).append($form);
-    $popupOverlay.append($popupContent);
+      let $buttonsRow = $("<div>").addClass("popup-buttons-row");
+      $buttonsRow.append($submitBtn, $cancelBtn);
+
+      $form.append($buttonsRow);
+
+      $popupContent.append($title).append($form);
+      $popupOverlay.append($popupContent);
 
     $("main").append($popupOverlay);
 
@@ -387,7 +418,7 @@ $(document).ready(async function () {
         email: formData.get("email"),
         edit_users: formData.has("edit_users") ? 1 : 0,
         edit_news: formData.has("edit_news") ? 1 : 0,
-        edit_bone_files: formData.has("edit_bone_files") ? 1 : 0
+        edit_bone_files: formData.has("edit_bone_files") ? 1 : 0,
       };
 
       if (isEditing) {
@@ -398,7 +429,9 @@ $(document).ready(async function () {
         await updateDoc(doc(db, "users", user.docId), updatedUser);
       } else {
         let salt = generateSalt();
-        updatedUser.password_hash = CryptoJS.SHA256("Ramis.20" + salt).toString();
+        updatedUser.password_hash = CryptoJS.SHA256(
+          "Ramis.20" + salt
+        ).toString();
         updatedUser.salt = salt;
         updatedUser.active = 1;
         updatedUser.is_first_login = 1;

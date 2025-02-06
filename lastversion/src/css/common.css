@@ -57,16 +57,6 @@ header .menu_login {
   justify-content: flex-end;
   gap: 1rem;
 }
-header .menu_login .logo_login a {
-  color: #E8EBE4;
-  transition: color 0.4s ease-in;
-}
-header .menu_login .logo_login a ion-icon {
-  font-size: 2.5rem;
-}
-header .menu_login .logo_login a:hover {
-  color: #ffa630;
-}
 
 .desktop-menu {
   display: none;
@@ -83,13 +73,70 @@ header .menu_login .logo_login a:hover {
   text-decoration: underline;
 }
 
-.header-icons {
-  font-size: 3rem;
-  cursor: pointer;
+#loginContainer {
+  position: relative;
+}
+#loginContainer a {
+  width: 100px;
+  color: white;
+  transition: color 0.4s ease-in;
+}
+#loginContainer a ion-icon.iconoLogin {
+  font-size: 50px;
+}
+#loginContainer a:hover {
+  color: #ffa630;
+}
+
+.user-session {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0.8rem;
+  gap: 0.5rem;
+  position: relative;
+}
+.user-session .logged-in-icon {
+  color: #ffa630;
+  font-size: 3.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.4s ease-in;
+}
+.user-session #userSessionName {
+  color: #E8EBE4;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.user-session #userSessionName:hover {
+  color: #ffa630;
+  text-decoration: underline;
+}
+.user-session .user-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #124559;
+  color: #E8EBE4;
+  border: 1px solid #ccc;
+  padding: 1rem 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.user-session .user-menu a {
+  display: block;
+  color: #ffa630;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  padding: 1rem;
+}
+.user-session .user-menu a:hover {
+  color: black;
+  text-decoration: underline;
+}
+.user-session.active .user-menu {
+  display: block;
 }
 
 button {
@@ -141,7 +188,7 @@ footer a:hover {
   height: 100vh;
   width: 100%;
   background: #01161e;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -151,6 +198,7 @@ footer a:hover {
 }
 .mobile-menu.open {
   transform: translateY(0);
+  display: block;
 }
 .mobile-menu .close-btn {
   position: absolute;
@@ -165,6 +213,7 @@ footer a:hover {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-top: 200px;
 }
 .mobile-menu .mobile-menu-links a {
   color: #E8EBE4;

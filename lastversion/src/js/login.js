@@ -1,5 +1,11 @@
 import { app, db } from "./firebase_config.js";
-import { collection, getDocs, addDoc, query, where } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  query,
+  where,
+} from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 
 $(document).ready(async function () {
   const usersColRef = collection(db, "users");
@@ -18,7 +24,7 @@ $(document).ready(async function () {
       edit_news: 1,
       edit_bone_files: 1,
       active: 1,
-      is_first_login: 1
+      is_first_login: 1,
     };
     await addDoc(usersColRef, defaultUser);
   }
@@ -81,4 +87,62 @@ $(document).ready(async function () {
   function generateSalt() {
     return Math.random().toString(36).substring(2, 15);
   }
+
+  //USUARIO LOGUEADO O NO - CERRAR SESION
+    
+    const userData = localStorage.getItem("logged_in_user");
+
+    const $loginContainer = $("#loginContainer");
+
+    if (userData) {
+      const user = JSON.parse(userData);
+
+      if (user.active == 1) {
+        let userSessionHtml = `
+          <div class="user-session">
+            <ion-icon class="logged-in-icon" name="person-circle"></ion-icon>
+            <span id="userSessionName" style="cursor: pointer;">Sesión de: ${user.name}</span>
+            <div class="user-menu" style="display: none; border: 1px solid #ccc; padding: 8px; position: absolute;">
+              <a href="#" id="logoutLink" style="display: block; margin-bottom: 5px;">Cerrar sesión</a>
+        `;
+
+        if (user.edit_news == 1) {
+          userSessionHtml += `<a href="edit_news.html" style="display: block; margin-bottom: 5px;">Editar noticias</a>`;
+        }
+
+        if (user.edit_users == 1) {
+          userSessionHtml += `<a href="edit_users.html" style="display: block;">Editar usuarios</a>`;
+        }
+
+        userSessionHtml += `
+            </div>
+          </div>
+        `;
+
+        $loginContainer.html(userSessionHtml);
+
+        $("#userSessionName").on("click", function () {
+          $(".user-menu").toggle();
+        });
+
+        $("#logoutLink").on("click", function (e) {
+          e.preventDefault();
+        
+          localStorage.removeItem("logged_in_user");
+         
+          window.location.reload();
+        });
+      } else {
+        
+        showDefaultLoginIcon();
+      }
+    } 
+
+    function showDefaultLoginIcon() {
+      $loginContainer.html(`
+        <a href="../pages/login.html">
+          <ion-icon name="person-circle"></ion-icon>
+        </a>
+      `);
+    }
 });

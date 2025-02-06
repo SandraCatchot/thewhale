@@ -21,6 +21,8 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     
   </head>
 
@@ -28,7 +30,7 @@
     <header>
       <div class="logo">
         <a href="../../index.html">
-          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo" />
+          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo"/>
         </a>
       </div>
       <div class="menu_login">
@@ -38,13 +40,11 @@
           <a href="news.html">Notícies</a>
           <a href="alvoltant.html">Al voltant de la balena</a>
         </nav>
-
-        <div class="logo_login">
+        <div id="loginContainer">
           <a href="../pages/login.html">
-            <ion-icon name="person-circle"></ion-icon>
+            <ion-icon class="iconoLogin" name="person-circle"></ion-icon>
           </a>
         </div>
-
         <div class="mobile-menu-icon">
           <ion-icon name="menu"></ion-icon>
         </div>
@@ -138,8 +138,7 @@
     </section>
 
 
-    <script src="../js/accesibility.js"></script>
-    <script src="../js/menu_mobile.js"></script>
+   
 
     <footer>
       <p>© 2024 Tots els drets reservats</p>
@@ -150,7 +149,10 @@
       </p>
     </footer>
 
-    <script src="../js/login.js"></script>
+    <script src="../js/accesibility.js"></script>
+    <script src="../js/menu_mobile.js"></script>
+    <script type="module" src="../js/login.js"></script>
+    <script type="module" src="../js/firebase_config.js"></script>
     
   </body>
 </html>

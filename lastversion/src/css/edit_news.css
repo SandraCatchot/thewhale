@@ -199,12 +199,4 @@
 .save-news-container button:hover {
   background-color: green;
   color: #cbd5e1;
-}
-
-#save-config {
-  display: none;
-}
-
-#load-config {
-  display: none;
 }/*# sourceMappingURL=edit_news.css.map */

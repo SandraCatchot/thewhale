@@ -35,7 +35,7 @@
     <header>
       <div class="logo">
         <a href="../../index.html">
-          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo" />
+          <img src="../images/logo_ok_AULAMUSEU.png" alt="logo"/>
         </a>
       </div>
       <div class="menu_login">
@@ -45,13 +45,11 @@
           <a href="news.html">Notícies</a>
           <a href="alvoltant.html">Al voltant de la balena</a>
         </nav>
-
-        <div class="logo_login">
+        <div id="loginContainer">
           <a href="../pages/login.html">
-            <ion-icon name="person-circle"></ion-icon>
+            <ion-icon class="iconoLogin" name="person-circle"></ion-icon>
           </a>
         </div>
-
         <div class="mobile-menu-icon">
           <ion-icon name="menu"></ion-icon>
         </div>
@@ -99,10 +97,6 @@
           <div class="tool" data-type="image">Afegir imatge</div>
         </div>
 
-        <div id="builder">
-          <div class="row-container"></div>
-        </div>
-
         <div id="config-tools">
           <label for="column-choice">Nombre de columnes per fila:</label>
           <select id="column-choice">
@@ -110,9 +104,11 @@
             <option value="2">2 columnes</option>
           </select>
           <button id="add-row">Afegir fila</button>
-          <button id="save-config">Desar configuració</button>
-          <button id="load-config">Carregar configuració</button>
         </div>
+
+        <div id="builder">
+          <div class="row-container"></div>
+        </div>        
 
         <div class="save-news-container">
           <button id="save-news" class="save-news-btn">Guardar notícia</button>
@@ -172,5 +168,6 @@
     </footer>
 
     <script type="module" src="../js/login.js"></script>
+    
   </body>
 </html>
