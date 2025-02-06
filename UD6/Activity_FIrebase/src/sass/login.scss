@@ -34,6 +34,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    font-size: medium;
 
     button {
       padding: 10px;
@@ -50,7 +51,7 @@
     }
 
     #feedback {
-      font-size: 1.2rem;
+      font-size: 0.8rem;
       color: $dark-color;
       text-align: center;
       height: 25px;

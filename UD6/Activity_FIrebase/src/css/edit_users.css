@@ -504,6 +504,11 @@ button:hover {
   color: #01161e;
 }
 
+.create-user-btn {
+  width: 200px;
+  margin: 10px;
+}
+
 .popup-overlay {
   position: fixed;
   top: 0;

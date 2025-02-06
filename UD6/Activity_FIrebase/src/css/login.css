@@ -431,6 +431,7 @@ body.letter-spacing-wide {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  font-size: medium;
 }
 .login-popup form button {
   padding: 10px;
@@ -445,7 +446,7 @@ body.letter-spacing-wide {
   color: #01161e;
 }
 .login-popup form #feedback {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   color: #01161e;
   text-align: center;
   height: 25px;

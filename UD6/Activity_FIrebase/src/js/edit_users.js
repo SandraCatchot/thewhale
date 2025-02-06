@@ -12,11 +12,6 @@ import {
 
 $(document).ready(async function () {
   const loggedInUser = JSON.parse(localStorage.getItem("logged_in_user"));
-  if (!loggedInUser || !loggedInUser.edit_users) {
-    alert("No tens permisos per editar usuaris.");
-    window.location.href = "login.html";
-    return;
-  }
 
   const usersColRef = collection(db, "users");
   let users = [];
@@ -88,7 +83,6 @@ $(document).ready(async function () {
         .attr("data-id", user.docId)
         .text("Canviar contraseña");
 
-      // Impedir eliminar al usuario administrador
       if (user.email === "desenvolupador@iesjoanramis.org") {
         $deleteBtn.prop("disabled", true);
       }
@@ -193,14 +187,12 @@ $(document).ready(async function () {
       .attr("id", "cancelForm")
       .text("Cancelar");
 
-      let $buttonContainer = $("<div>").addClass("button-container");
+    let $buttonContainer = $("<div>").addClass("button-container");
 
-      $buttonContainer.append($submitBtn).append($cancelBtn);
+    $buttonContainer.append($submitBtn).append($cancelBtn);
 
-      $form.append($buttonContainer);
+    $form.append($buttonContainer);
 
-
-    
     $formDiv.append($title).append($form);
     $(".edit-users-container").append($formDiv);
 
@@ -293,7 +285,7 @@ $(document).ready(async function () {
     let $createButton = $("<button>")
       .attr("id", "createUser")
       .addClass("create-user-btn")
-      .text("Crear nou usuari");
+      .text("Crear NOU USUARI");
     $(".edit-users-container").append($createButton);
 
     let $cardContainer = $("<div>").addClass("user-card-container");
@@ -399,13 +391,13 @@ $(document).ready(async function () {
       .addClass("close-popup")
       .text("Cancelar");
 
-      let $buttonsRow = $("<div>").addClass("popup-buttons-row");
-      $buttonsRow.append($submitBtn, $cancelBtn);
+    let $buttonsRow = $("<div>").addClass("popup-buttons-row");
+    $buttonsRow.append($submitBtn, $cancelBtn);
 
-      $form.append($buttonsRow);
+    $form.append($buttonsRow);
 
-      $popupContent.append($title).append($form);
-      $popupOverlay.append($popupContent);
+    $popupContent.append($title).append($form);
+    $popupOverlay.append($popupContent);
 
     $("main").append($popupOverlay);
 
