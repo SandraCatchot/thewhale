@@ -49,14 +49,10 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
 
-.user-card:nth-child(even) {
-  background-color: #bbdefb;
-}
-
-.user-card:hover {
-  background-color: $color-accent;
+  :hover {
+    background-color: $color-accent;
+  }
 }
 
 /* Tabla de usuarios (versión escritorio) */
