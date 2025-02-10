@@ -6,8 +6,6 @@ import {
   updateDoc,
   deleteDoc,
   doc,
-  query,
-  where,
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 
 $(document).ready(async function () {
@@ -34,7 +32,7 @@ $(document).ready(async function () {
 
   await loadUsers();
 
-  function renderUserTable() {
+  function tablaUsers() {
     $(".edit-users-container").empty();
 
     let $headerDiv = $("<div>").addClass("table-header");
@@ -70,28 +68,44 @@ $(document).ready(async function () {
       $tr.append($("<td>").text(user.edit_bone_files ? "Sí" : "No"));
 
       let $actionTd = $("<td>");
+      let $editIcon = $("<ion-icon>").attr("name", "pencil-outline")
+      .addClass("iconos-editUsers")
+      .css("color", "#124559");
       let $editBtn = $("<button>")
         .addClass("edit-user")
         .attr("data-id", user.docId)
         .text("Editar");
+      let $deleteIcon = $("<ion-icon>").attr("name", "trash-outline")
+      .addClass("iconos-editUsers")
+      .css("color", "red");
       let $deleteBtn = $("<button>")
         .addClass("delete-user")
         .attr("data-id", user.docId)
         .text("Esborrar");
+      let $changePassIcon = $("<ion-icon>").attr("name", "key-outline")
+      .addClass("iconos-editUsers")
+      .css("color", "#124559");
       let $changePassBtn = $("<button>")
         .addClass("change-password")
         .attr("data-id", user.docId)
-        .text("Canviar contraseña");
+        .text("Canviar contrasenya");
 
       if (user.email === "desenvolupador@iesjoanramis.org") {
-        $deleteBtn.prop("disabled", true);
+        if (loggedInUser.email !== "desenvolupador@iesjoanramis.org") {
+          $editBtn.hide();
+          $deleteBtn.hide();
+          $changePassBtn.hide();
+        }
       }
 
       $actionTd
+        .append($editIcon)
         .append($editBtn)
         .append(" ")
+        .append($deleteIcon)
         .append($deleteBtn)
         .append(" ")
+        .append($changePassIcon)
         .append($changePassBtn);
       $tr.append($actionTd);
       $tbody.append($tr);
@@ -101,7 +115,7 @@ $(document).ready(async function () {
     $(".edit-users-container").append($headerDiv).append($table);
   }
 
-  async function renderUserForm(user) {
+  async function formEdicioCreacioUser(user) {
     let isEditing = false;
     if (user && user.docId) {
       isEditing = true;
@@ -225,11 +239,11 @@ $(document).ready(async function () {
         nextId++;
       }
       await loadUsers();
-      renderUserTable();
+      tablaUsers();
     });
 
     $("#cancelForm").click(function () {
-      renderUserTable();
+      tablaUsers();
     });
   }
 
@@ -242,7 +256,7 @@ $(document).ready(async function () {
   $(document).on("click", ".edit-user", async function () {
     let docId = $(this).data("id");
     let userToEdit = users.find((u) => u.docId === docId);
-    await renderUserForm(userToEdit);
+    await formEdicioCreacioUser(userToEdit);
   });
 
   $(document).on("click", ".delete-user", async function () {
@@ -256,15 +270,15 @@ $(document).ready(async function () {
     if (confirmDelete) {
       await deleteDoc(doc(db, "users", docId));
       await loadUsers();
-      renderUserTable();
+      tablaUsers();
     }
   });
 
   $(document).on("click", "#createUser", function () {
-    renderUserForm();
+    formEdicioCreacioUser();
   });
 
-  function renderMobileView() {
+  function tablaUsersMobile() {
     $(".edit-users-container").empty();
 
     let $titulo = $("<h1>").addClass("tituloForm").text("Gestió d'usuaris");
@@ -289,8 +303,17 @@ $(document).ready(async function () {
     $(".edit-users-container").append($createButton);
 
     let $cardContainer = $("<div>").addClass("user-card-container");
+
     users.forEach((user, index) => {
       let bgColor = index % 2 === 0 ? "#E3F2FD" : "#BBDEFB";
+
+      if (
+        loggedInUser.email !== "desenvolupador@iesjoanramis.org" &&
+        user.email === "desenvolupador@iesjoanramis.org"
+      ) {
+        return; 
+      }
+
       let $card = $("<div>")
         .addClass("user-card")
         .attr("data-id", user.docId)
@@ -298,6 +321,8 @@ $(document).ready(async function () {
         .html(`<strong>${user.name}</strong> - ${user.email}`);
       $cardContainer.append($card);
     });
+
+
     $(".edit-users-container").append($cardContainer);
 
     $("#searchUser").on("input", function () {
@@ -311,11 +336,11 @@ $(document).ready(async function () {
     $(".user-card").on("click", function () {
       let docId = $(this).data("id");
       let user = users.find((u) => u.docId === docId);
-      renderUserFormPopup(user);
+      formEdicioCreacioUserPopup(user);
     });
   }
 
-  function renderUserFormPopup(user) {
+  function formEdicioCreacioUserPopup(user) {
     let isEditing = !!user;
     let $popupOverlay = $("<div>").addClass("popup-overlay");
     let $popupContent = $("<div>").addClass("popup-content");
@@ -432,7 +457,7 @@ $(document).ready(async function () {
       }
       await loadUsers();
       $(".popup-overlay").remove();
-      renderMobileView();
+      tablaUsersMobile();
     });
 
     $(".close-popup").on("click", function () {
@@ -444,16 +469,16 @@ $(document).ready(async function () {
     return window.innerWidth <= 768;
   }
 
-  function renderView() {
+  function vistaMobile() {
     if (isMobile()) {
-      renderMobileView();
+      tablaUsersMobile();
     } else {
-      renderUserTable();
+      tablaUsers();
     }
   }
 
-  $(window).on("resize", renderView);
-  renderView();
+  $(window).on("resize", vistaMobile);
+  vistaMobile();
 
   function generateSalt() {
     return Math.random().toString(36).substring(2, 15);

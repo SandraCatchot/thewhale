@@ -7,18 +7,26 @@ import {
   where,
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 
-$(document).ready(async function () {
-  const usersColRef = collection(db, "users");
 
-  const usersSnapshot = await getDocs(usersColRef);
+$(document).ready(async function () {
+
+  const usersCollection = collection(db, "users");
+  const usersSnapshot = await getDocs(usersCollection);
+
+  const response = await fetch('../password.json');
+  if (!response.ok) {
+    console.error('Error al cargar el archivo JSON de configuración');
+    return;
+  }
+  const config = await response.json();
+
   if (usersSnapshot.empty) {
     const salt = generateSalt();
-    const defaultUser = {
+    const usuarioAdmin = {
       id: 1,
       name: "admin",
-      email: "desenvolupador@iesjoanramis.org",
-      password_hash: CryptoJS.SHA256("Ramis.20" + salt).toString(),
-      //QUITAR ESTA CONTRASEÑA DE AQUI, PONERLA EN UN JSON A PARTE
+      email: config.admin_email,
+      password_hash: CryptoJS.SHA256(config.admin_password + salt).toString(),
       salt: salt,
       edit_users: 1,
       edit_news: 1,
@@ -26,9 +34,10 @@ $(document).ready(async function () {
       active: 1,
       is_first_login: 1,
     };
-    await addDoc(usersColRef, defaultUser);
+    await addDoc(usersCollection, usuarioAdmin);
   }
 
+  //ENVÍO DE FORMULARIO LOGIN
   $("form").submit(async function (e) {
     e.preventDefault();
     const email = $("input[type='email']").val().trim();
@@ -40,18 +49,18 @@ $(document).ready(async function () {
       return;
     }
 
-    const q = query(usersColRef, where("email", "==", email));
-    const querySnapshot = await getDocs(q);
+    const q = query(usersCollection, where("email", "==", email));
+    const querySnapshotUser = await getDocs(q);
 
-    if (querySnapshot.empty) {
+    if (querySnapshotUser.empty) {
       feedback.text("No existeix aquest usuari.").css("color", "red");
       return;
     }
 
     let user;
-    querySnapshot.forEach((docSnap) => {
-      user = docSnap.data();
-      user.docId = docSnap.id;
+    querySnapshotUser.forEach((doc) => {
+      user = doc.data();
+      user.docId = doc.id;
     });
 
     const saltedPassword = password + user.salt;
@@ -64,7 +73,7 @@ $(document).ready(async function () {
         feedback
           .text("Primer inici de sessió. Per favor, canvii la contrasenya.")
           .css("color", "orange");
-        setTimeout(() => (window.location.href = "change_password.html"), 2000);
+        setTimeout(() => (window.location.href = "change_password.html"), 1000);
       } else {
         feedback.text("Inici de sessió validat!").css("color", "green");
 
@@ -90,12 +99,12 @@ $(document).ready(async function () {
 
   //USUARIO LOGUEADO O NO - CERRAR SESION
     
-    const userData = localStorage.getItem("logged_in_user");
+    const usuarioLogueado = localStorage.getItem("logged_in_user");
 
     const $loginContainer = $("#loginContainer");
 
-    if (userData) {
-      const user = JSON.parse(userData);
+    if (usuarioLogueado) {
+      const user = JSON.parse(usuarioLogueado);
 
       if (user.active == 1) {
         let userSessionHtml = `
@@ -134,11 +143,11 @@ $(document).ready(async function () {
         });
       } else {
         
-        showDefaultLoginIcon();
+        mostrarIconoLogin();
       }
     } 
 
-    function showDefaultLoginIcon() {
+    function mostrarIconoLogin() {
       $loginContainer.html(`
         <a href="../pages/login.html">
           <ion-icon name="person-circle"></ion-icon>

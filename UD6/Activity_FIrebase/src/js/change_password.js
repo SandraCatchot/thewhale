@@ -17,7 +17,6 @@ $(document).ready(function () {
       try {
         const loggedUser = JSON.parse(loggedUserStr);
         currentEmail = loggedUser.email;
-        console.log("Obtenido currentEmail de logged_in_user:", currentEmail);
       } catch (e) {
         console.error("Error al parsear logged_in_user:", e);
       }
@@ -25,10 +24,8 @@ $(document).ready(function () {
   }
   if (!currentEmail) {
     $("#feedback").text("No s'ha trobat l'usuari.").css("color", "red");
-    console.error("No se encontró 'current_email' ni 'logged_in_user.email' en localStorage.");
     return;
   }
-  console.log("Change Password: current email =", currentEmail);
 
   $("#changePasswordForm").submit(async function (e) {
     e.preventDefault();
@@ -54,7 +51,7 @@ $(document).ready(function () {
     try {
       querySnapshot = await getDocs(q);
     } catch (err) {
-      $("#feedback").text("Error al consultar FIrestore.").css("color", "red");
+      $("#feedback").text("Error al consultar Firestore.").css("color", "red");
       return;
     }
 
@@ -94,7 +91,7 @@ $(document).ready(function () {
       loggedUser.is_first_login = 0;
       localStorage.setItem("logged_in_user", JSON.stringify(loggedUser));
     } else {
-      console.warn("No se encontró 'logged_in_user' en localStorage.");
+      alert("No se encontró 'logged_in_user' en localStorage.");
     }
 
     localStorage.removeItem("current_email");
@@ -105,9 +102,9 @@ $(document).ready(function () {
 
     setTimeout(() => {
       if (loggedUser && (loggedUser.edit_users || loggedUser.edit_news)) {
-        window.location.href = "edit_users.html";
+        window.location.href = "../pages/edit_users.html";
       } else {
-        window.location.href = "news.html";
+        window.location.href = "../pages/news.html";
       }
     }, 2000);
   });
