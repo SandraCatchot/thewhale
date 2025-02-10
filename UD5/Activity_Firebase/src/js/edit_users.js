@@ -24,7 +24,6 @@ $(document).ready(async function () {
       users.push(data);
     });
 
-    // Ordenar usuarios por ID
     users.sort((a, b) => a.id - b.id);
 
     if (users.length > 0) {
@@ -103,6 +102,9 @@ $(document).ready(async function () {
           $editBtn.hide();
           $deleteBtn.hide();
           $changePassBtn.hide();
+          $editIcon.hide();
+          $deleteIcon.hide();
+          $changePassIcon.hide();
         }
       }
 
@@ -123,7 +125,7 @@ $(document).ready(async function () {
     $(".edit-users-container").append($headerDiv).append($table);
   }
 
-  async function formEdicioCreacioUser(user) {
+  async function formEdicioioUser(user) {
     let isEditing = false;
     if (user && user.docId) {
       isEditing = true;
@@ -327,7 +329,7 @@ $(document).ready(async function () {
         .attr("data-id", user.docId)
         .css("background-color", "#E8EBE4")
         .html(
-          `<strong>${user.id} - ${user.name}</strong><br>${user.email}`
+          `<strong>$${user.name}</strong><br>${user.email}`
         );
       $cardContainer.append($card);
     });
