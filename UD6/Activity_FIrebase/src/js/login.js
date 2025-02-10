@@ -13,14 +13,17 @@ $(document).ready(async function () {
   const usersCollection = collection(db, "users");
   const usersSnapshot = await getDocs(usersCollection);
 
-  const response = await fetch('../password.json');
-  if (!response.ok) {
-    console.error('Error al cargar el archivo JSON de configuración');
-    return;
+  let config = null;
+  try {
+    const response = await fetch('/src/password.json');
+    if (response.ok) {
+      config = await response.json();
+    }
+  } catch (error) {
+    console.error('Error al cargar password.json:', error);
   }
-  const config = await response.json();
 
-  if (usersSnapshot.empty) {
+  if (usersSnapshot.empty && config) {
     const salt = generateSalt();
     const usuarioAdmin = {
       id: 1,
