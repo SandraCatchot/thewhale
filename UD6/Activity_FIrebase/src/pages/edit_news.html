@@ -68,6 +68,48 @@
       </nav>
     </div>
 
+    <aside class="access">
+      <button id="btnAccess" class="btnAccess">
+        <ion-icon
+          name="accessibility-outline"
+          style="font-size: 24px"
+        ></ion-icon>
+      </button>
+    </aside>
+    <section id="access-panel" class="access-panel">
+      <div class="panel-header">
+        <h2>Opcions d'Accesibilitat</h2>
+        <button id="closeAccessPanel" class="close-button">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </div>
+      <div class="panel-content">
+        <div class="access-option">
+          <h3>Ajusta el contrast</h3>
+          <div class="access-buttons">
+            <button data-class="grayscale">Escala de grisos</button>
+            <button data-class="dark-contrast">+ Contrast</button>
+            <button data-class="light-contrast">- Contrast</button>
+            <button data-class="high-saturation">+ Saturació</button>
+            <button data-class="low-saturation">- Saturació</button>
+          </div>
+        </div>
+        <div class="access-option">
+          <h3>Ajusta la lletra</h3>
+          <div class="access-buttons">
+            <button data-class="font-size-large">+ Tamany lletra</button>
+            <button data-class="font-size-medium">- Tamany lletra</button>
+            <button data-class="line-height-wide">+ Interlineat</button>
+            <button data-class="line-height-normal">- Interlineat</button>
+            <button data-class="word-spacing-wide">+ Espai paraules</button>
+            <button data-class="word-spacing-normal">- Espai paraules</button>
+            <button data-class="letter-spacing-wide">+ Espai lletres</button>
+            <button data-class="letter-spacing-normal">- Espai lletres</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <main>
       <h1 class="edit-news-title">CREACIÓ / EDICIÓ DE NOTÍCIES</h1>
       <div class="edit-news-container">
@@ -115,48 +157,6 @@
         </div>
       </div>
     </main>
-
-    <aside class="access">
-      <button id="btnAccess" class="btnAccess">
-        <ion-icon
-          name="accessibility-outline"
-          style="font-size: 24px"
-        ></ion-icon>
-      </button>
-    </aside>
-    <section id="access-panel" class="access-panel">
-      <div class="panel-header">
-        <h2>Opcions d'Accesibilitat</h2>
-        <button id="closeAccessPanel" class="close-button">
-          <ion-icon name="close"></ion-icon>
-        </button>
-      </div>
-      <div class="panel-content">
-        <div class="access-option">
-          <h3>Ajusta el contrast</h3>
-          <div class="access-buttons">
-            <button data-class="grayscale">Escala de grisos</button>
-            <button data-class="dark-contrast">+ Contrast</button>
-            <button data-class="light-contrast">- Contrast</button>
-            <button data-class="high-saturation">+ Saturació</button>
-            <button data-class="low-saturation">- Saturació</button>
-          </div>
-        </div>
-        <div class="access-option">
-          <h3>Ajusta la lletra</h3>
-          <div class="access-buttons">
-            <button data-class="font-size-large">+ Tamany lletra</button>
-            <button data-class="font-size-medium">- Tamany lletra</button>
-            <button data-class="line-height-wide">+ Interlineat</button>
-            <button data-class="line-height-normal">- Interlineat</button>
-            <button data-class="word-spacing-wide">+ Espai paraules</button>
-            <button data-class="word-spacing-normal">- Espai paraules</button>
-            <button data-class="letter-spacing-wide">+ Espai lletres</button>
-            <button data-class="letter-spacing-normal">- Espai lletres</button>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <footer>
       <p>© 2024 Tots els drets reservats</p>
