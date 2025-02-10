@@ -15,7 +15,7 @@ $(document).ready(async function () {
 
   let config = null;
   try {
-    const response = await fetch('/src/password.json');
+    const response = await fetch('../password.json');
     if (response.ok) {
       config = await response.json();
     }
