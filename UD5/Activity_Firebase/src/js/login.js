@@ -110,12 +110,14 @@ $(document).ready(async function () {
       const user = JSON.parse(usuarioLogueado);
 
       if (user.active == 1) {
+
         let userSessionHtml = `
           <div class="user-session">
             <ion-icon class="logged-in-icon" name="person-circle"></ion-icon>
-            <span id="userSessionName" style="cursor: pointer;">Sesión de: ${user.name}</span>
+            <span id="userSessionName" style="cursor: pointer;">Sessió de: ${user.name}</span>
             <div class="user-menu" style="display: none; border: 1px solid #ccc; padding: 8px; position: absolute;">
-              <a href="#" id="logoutLink" style="display: block; margin-bottom: 5px;">Cerrar sesión</a>
+            <a href="#" id="changePassword" style="display: block; margin-bottom: 5px;">Canviar contrasenya</a>
+              <a href="#" id="logoutLink" style="display: block; margin-bottom: 5px;">Tancar sessió</a>
         `;
 
         if (user.edit_news == 1) {
@@ -137,12 +139,18 @@ $(document).ready(async function () {
           $(".user-menu").toggle();
         });
 
+        $("#changePassword").on("click", function (e) {
+          e.preventDefault();
+
+          window.location.href = "../pages/change_password.html";
+        });
+
         $("#logoutLink").on("click", function (e) {
           e.preventDefault();
         
           localStorage.removeItem("logged_in_user");
          
-          window.location.reload();
+          window.location.href = "../pages/news.html";
         });
       } else {
         
