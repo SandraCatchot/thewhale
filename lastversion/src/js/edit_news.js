@@ -48,7 +48,7 @@ $(document).ready(async function () {
         const type = ui.draggable.data("type");
 
         if ($(this).children().length >= 2 && $(this).hasClass("half")) {
-          alert("Només està permitit 2 elements per columna.");
+          alert("Només està permès 2 elements per columna.");
           return;
         }
         if ($(this).children().length >= 1 && !$(this).hasClass("half")) {

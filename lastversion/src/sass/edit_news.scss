@@ -59,7 +59,7 @@ $secondary-font: "Merriweather Sans", sans-serif;
     margin-bottom: 2rem;
 
     input {
-      width: 50%;
+      width: 65%;
       padding: 0.8rem;
       font-size: 1rem;
       border: 1px solid $secondary-color;
@@ -207,6 +207,7 @@ $secondary-font: "Merriweather Sans", sans-serif;
 
     select {
       width: 15rem;
+      padding: 5px;
       margin: 1em;
     }
   }

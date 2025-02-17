@@ -48,7 +48,7 @@
   margin-bottom: 2rem;
 }
 .edit-news-container .container-add-author input {
-  width: 50%;
+  width: 65%;
   padding: 0.8rem;
   font-size: 1rem;
   border: 1px solid #e8ebe4;
@@ -177,6 +177,7 @@
 }
 .edit-news-container #config-tools select {
   width: 15rem;
+  padding: 5px;
   margin: 1em;
 }
 .edit-news-container .ui-draggable-dragging {

@@ -140,7 +140,7 @@ header .menu_login {
 }
 
 button {
-  transition: background-color 0.7s ease;
+  transition: background-color 0.6s ease;
   padding: 10px;
   background-color: #124559;
   color: #E8EBE4;

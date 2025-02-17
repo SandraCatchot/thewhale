@@ -140,7 +140,7 @@ header .menu_login {
 }
 
 button {
-  transition: background-color 0.7s ease;
+  transition: background-color 0.6s ease;
   padding: 10px;
   background-color: #124559;
   color: #E8EBE4;
@@ -405,7 +405,7 @@ body.letter-spacing-wide {
   justify-content: center;
   align-items: center;
   min-height: 100%;
-  margin-bottom: 280px;
+  margin-bottom: 100px;
 }
 
 .login-popup {
@@ -431,6 +431,7 @@ body.letter-spacing-wide {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  font-size: medium;
 }
 .login-popup form button {
   padding: 10px;
@@ -445,7 +446,7 @@ body.letter-spacing-wide {
   color: #01161e;
 }
 .login-popup form #feedback {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   color: #01161e;
   text-align: center;
   height: 25px;

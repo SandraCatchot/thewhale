@@ -49,14 +49,10 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
 
-.user-card:nth-child(even) {
-  background-color: #bbdefb;
-}
-
-.user-card:hover {
-  background-color: $color-accent;
+  :hover {
+    background-color: $color-accent;
+  }
 }
 
 /* Tabla de usuarios (versión escritorio) */
@@ -90,6 +86,12 @@
   background-color: #f1f1f1;
 }
 
+.iconos-editUsers {
+  width: 20px;
+  height: 20px;
+  padding-right: 5px;
+}
+
 
 button {
   padding: 10px;
@@ -103,6 +105,11 @@ button {
     background-color: $color-accent;
     color: $dark-color;
   }
+}
+
+.create-user-btn {
+  width: 200px;
+  margin: 10px;
 }
 
 .popup-overlay {

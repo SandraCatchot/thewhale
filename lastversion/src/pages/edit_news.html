@@ -68,54 +68,6 @@
       </nav>
     </div>
 
-    <main>
-      <h1 class="edit-news-title">CREACIÓ / EDICIÓ DE NOTÍCIES</h1>
-      <div class="edit-news-container">
-        <div class="container-add-title">
-          <h3>Títol de la notícia:</h3>
-          <input
-            type="text"
-            placeholder="Títol de la notícia"
-            class="edit-news-input"
-            id="news-title"
-          />
-        </div>
-
-        <div class="container-add-author">
-          <h3>Nom de l'autor:</h3>
-          <input
-            type="text"
-            placeholder="Nom de l'autor"
-            id="news-author"
-            class="edit-news-input"
-          />
-        </div>
-
-        <h3>Afegir elements</h3>
-        <div class="container-tools">
-          <div class="tool" data-type="paragraph">Afegir paràgraf</div>
-          <div class="tool" data-type="image">Afegir imatge</div>
-        </div>
-
-        <div id="config-tools">
-          <label for="column-choice">Nombre de columnes per fila:</label>
-          <select id="column-choice">
-            <option value="1">1 columna</option>
-            <option value="2">2 columnes</option>
-          </select>
-          <button id="add-row">Afegir fila</button>
-        </div>
-
-        <div id="builder">
-          <div class="row-container"></div>
-        </div>        
-
-        <div class="save-news-container">
-          <button id="save-news" class="save-news-btn">Guardar notícia</button>
-        </div>
-      </div>
-    </main>
-
     <aside class="access">
       <button id="btnAccess" class="btnAccess">
         <ion-icon
@@ -157,6 +109,57 @@
         </div>
       </div>
     </section>
+
+    <main>
+      <h1 class="edit-news-title">Creació i edició de notícies</h1>
+      <div class="edit-news-container">
+        <div class="container-add-title">
+          <h3>Títol de la notícia</h3>
+          <input
+            type="text"
+            placeholder="Títol de la notícia"
+            class="edit-news-input"
+            id="news-title"
+          />
+        </div>
+
+        <div class="container-add-author">
+          <h3>Nom de l'autor</h3>
+          <input
+            type="text"
+            placeholder="Nom de l'autor"
+            id="news-author"
+            class="edit-news-input"
+          />
+        </div>
+
+        <h3>Afegir columnes</h3>
+        <div id="config-tools">
+          <label for="column-choice">Nombre de columnes per fila:</label>
+          <select id="column-choice">
+            <option value="1">1 columna</option>
+            <option value="2">2 columnes</option>
+          </select>
+          <button id="add-row">Afegir fila</button>
+        </div>
+
+        <h3>Afegir elements</h3>
+        <div class="container-tools">
+          <div class="tool" data-type="paragraph">Afegir paràgraf</div>
+          <div class="tool" data-type="image">Afegir imatge</div>
+        </div>
+
+        
+
+        <div id="builder">
+          <div class="row-container"></div>
+        </div>        
+
+        <div class="save-news-container">
+          <button id="save-news" class="save-news-btn">Guardar notícia</button>
+        </div>
+      </div>
+    </main>
 
     <footer>
       <p>© 2024 Tots els drets reservats</p>

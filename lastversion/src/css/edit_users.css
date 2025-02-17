@@ -141,7 +141,7 @@ header .menu_login {
 }
 
 button {
-  transition: background-color 0.7s ease;
+  transition: background-color 0.6s ease;
   padding: 10px;
   background-color: #124559;
   color: #E8EBE4;
@@ -451,12 +451,7 @@ body.letter-spacing-wide {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
-.user-card:nth-child(even) {
-  background-color: #bbdefb;
-}
-
-.user-card:hover {
+.user-card :hover {
   background-color: #ffa630;
 }
 
@@ -491,6 +486,12 @@ body.letter-spacing-wide {
   background-color: #f1f1f1;
 }
 
+.iconos-editUsers {
+  width: 20px;
+  height: 20px;
+  padding-right: 5px;
+}
+
 button {
   padding: 10px;
   background-color: #124559;
@@ -502,6 +503,11 @@ button {
 button:hover {
   background-color: #ffa630;
   color: #01161e;
+}
+
+.create-user-btn {
+  width: 200px;
+  margin: 10px;
 }
 
 .popup-overlay {

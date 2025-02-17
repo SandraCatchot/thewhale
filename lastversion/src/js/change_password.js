@@ -17,7 +17,6 @@ $(document).ready(function () {
       try {
         const loggedUser = JSON.parse(loggedUserStr);
         currentEmail = loggedUser.email;
-        console.log("Obtenido currentEmail de logged_in_user:", currentEmail);
       } catch (e) {
         console.error("Error al parsear logged_in_user:", e);
       }
@@ -25,10 +24,8 @@ $(document).ready(function () {
   }
   if (!currentEmail) {
     $("#feedback").text("No s'ha trobat l'usuari.").css("color", "red");
-    console.error("No se encontró 'current_email' ni 'logged_in_user.email' en localStorage.");
     return;
   }
-  console.log("Change Password: current email =", currentEmail);
 
   $("#changePasswordForm").submit(async function (e) {
     e.preventDefault();
@@ -39,14 +36,12 @@ $(document).ready(function () {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{12,}$/;
     if (!passwordRegex.test(newPassword)) {
       $("#feedback")
-        .text("La contraseña ha de tenir mínim 12 caràcters, incloure majúscules, minúscules, numeros i caràcters especials.")
+        .text("La contrasenya ha de tenir mínim 12 caràcters, incloure majúscules, minúscules, numeros i caràcters especials.")
         .css("color", "red");
-      console.error("La contraseña no cumple los requisitos:", newPassword);
       return;
     }
     if (newPassword !== confirmPassword) {
       $("#feedback").text("Les contrasenyes no coincideixen.").css("color", "red");
-      console.error("Las contraseñas no coinciden.");
       return;
     }
 
@@ -56,14 +51,12 @@ $(document).ready(function () {
     try {
       querySnapshot = await getDocs(q);
     } catch (err) {
-      $("#feedback").text("Error al consultar FIrestore.").css("color", "red");
-      console.error("Error en getDocs:", err);
+      $("#feedback").text("Error al consultar Firestore.").css("color", "red");
       return;
     }
 
     if (querySnapshot.empty) {
       $("#feedback").text("Usuario no trobat a Firestore.").css("color", "red");
-      console.error("No se encontró documento para el email:", currentEmail);
       return;
     }
 
@@ -73,14 +66,11 @@ $(document).ready(function () {
     });
     if (!userDoc) {
       $("#feedback").text("No s'ha trobat l'usuari.").css("color", "red");
-      console.error("El documento del usuario es indefinido.");
       return;
     }
-    console.log("Documento de usuario encontrado:", userDoc.id, userDoc.data());
 
     const newSalt = generateSalt();
     const newPasswordHash = CryptoJS.SHA256(newPassword + newSalt).toString();
-    console.log("Nueva salt:", newSalt, "Nuevo hash:", newPasswordHash);
 
     const userRef = doc(db, "users", userDoc.id);
     try {
@@ -89,10 +79,8 @@ $(document).ready(function () {
         salt: newSalt,
         is_first_login: 0
       });
-      console.log("Contraseña actualizada en Firestore para", currentEmail);
     } catch (error) {
       $("#feedback").text("Error al actualitzar la contrasenya.").css("color", "red");
-      console.error("Error al actualizar Firestore:", error);
       return;
     }
 
@@ -102,13 +90,11 @@ $(document).ready(function () {
       loggedUser.salt = newSalt;
       loggedUser.is_first_login = 0;
       localStorage.setItem("logged_in_user", JSON.stringify(loggedUser));
-      console.log("logged_in_user actualizado en localStorage:", loggedUser);
     } else {
-      console.warn("No se encontró 'logged_in_user' en localStorage.");
+      alert("No se encontró 'logged_in_user' en localStorage.");
     }
 
     localStorage.removeItem("current_email");
-    console.log("Se eliminó 'current_email' de localStorage.");
 
     $("#feedback")
       .text("Contrasenya modificada correctament. Redirigint...")
@@ -116,11 +102,9 @@ $(document).ready(function () {
 
     setTimeout(() => {
       if (loggedUser && (loggedUser.edit_users || loggedUser.edit_news)) {
-        console.log("Redirigiendo a edit_users.html");
-        window.location.href = "edit_users.html";
+        window.location.href = "../pages/edit_users.html";
       } else {
-        console.log("Redirigiendo a news.html");
-        window.location.href = "news.html";
+        window.location.href = "../pages/news.html";
       }
     }, 2000);
   });

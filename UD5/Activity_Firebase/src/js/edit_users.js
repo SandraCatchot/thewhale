@@ -1,4 +1,4 @@
-import { app, db } from "./firebase_config.js";
+import { db } from "./firebase_config.js";
 import {
   collection,
   getDocs,
@@ -39,13 +39,12 @@ $(document).ready(async function () {
     $(".edit-users-container").empty();
 
     let $headerDiv = $("<div>").addClass("table-header");
-    let $createButton = $("<button>")
+    let $createbutton = $("<button>")
       .attr("id", "createUser")
       .addClass("create-user-btn")
       .text("Crear NOU USUARI");
 
-    $headerDiv.append($createButton);
-    
+    $headerDiv.append($createbutton);
 
     let $table = $("<table>").addClass("users-table");
 
@@ -125,7 +124,7 @@ $(document).ready(async function () {
     $(".edit-users-container").append($headerDiv).append($table);
   }
 
-  async function formEdicioioUser(user) {
+  async function formEdicioCreacioUser(user) {
     let isEditing = false;
     if (user && user.docId) {
       isEditing = true;
@@ -248,6 +247,8 @@ $(document).ready(async function () {
         await addDoc(usersColRef, newUser);
         nextId++;
       }
+      await addDoc(usersColRef, newUser);
+      nextId++;
       await loadUsers();
       tablaUsers();
     });
@@ -285,6 +286,7 @@ $(document).ready(async function () {
   });
 
   $(document).on("click", "#createUser", function () {
+    console.log("Botón de creación de usuario clicado.");
     formEdicioCreacioUser();
   });
 
@@ -307,16 +309,15 @@ $(document).ready(async function () {
     $searchBar.append($searchIcon).append($searchInput);
     $(".edit-users-container").append($searchBar);
 
-    let $createButton = $("<button>")
+    let $createbutton = $("<button>")
       .attr("id", "createUser")
       .addClass("create-user-btn")
       .text("Crear NOU USUARI");
-    $(".edit-users-container").append($createButton);
+    $(".edit-users-container").append($createbutton);
 
     let $cardContainer = $("<div>").addClass("user-card-container");
 
     users.forEach((user) => {
-
       if (
         loggedInUser.email !== "desenvolupador@iesjoanramis.org" &&
         user.email === "desenvolupador@iesjoanramis.org"
@@ -328,9 +329,7 @@ $(document).ready(async function () {
         .addClass("user-card")
         .attr("data-id", user.docId)
         .css("background-color", "#E8EBE4")
-        .html(
-          `<strong>$${user.name}</strong><br>${user.email}`
-        );
+        .html(`<strong>$${user.name}</strong><br>${user.email}`);
       $cardContainer.append($card);
     });
 
