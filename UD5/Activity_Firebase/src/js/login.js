@@ -121,11 +121,11 @@ $(document).ready(async function () {
         `;
 
         if (user.edit_news == 1) {
-          userSessionHtml += `<a href="edit_news.html" style="display: block; margin-bottom: 5px;">Editar noticias</a>`;
+          userSessionHtml += `<a href="../pages/edit_news.html" style="display: block; margin-bottom: 5px;">Editar notícies</a>`;
         }
 
         if (user.edit_users == 1) {
-          userSessionHtml += `<a href="edit_users.html" style="display: block;">Editar usuarios</a>`;
+          userSessionHtml += `<a href="../pages/edit_users.html" style="display: block;">Editar usuaris</a>`;
         }
 
         userSessionHtml += `
