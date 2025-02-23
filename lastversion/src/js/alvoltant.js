@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 detailsText.innerText = boneDetails[boneKey].text; 
             }
         } else {
-            detailsImage.src = `../images/feina/feina${index}.webp`; 
+            detailsImage.src = `../images/feina/feina${index}.png`; 
             detailsText.innerText = `Descripción detallada de feina ${index}.`; 
         }
     }

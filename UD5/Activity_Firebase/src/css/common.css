@@ -101,6 +101,9 @@ header .menu_login {
   cursor: pointer;
   transition: color 0.4s ease-in;
 }
+.user-session .logged-in-icon:hover {
+  color: white;
+}
 .user-session #userSessionName {
   color: #E8EBE4;
   font-weight: bold;

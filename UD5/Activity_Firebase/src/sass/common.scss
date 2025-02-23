@@ -107,6 +107,10 @@ header {
     font-weight: bold;
     cursor: pointer;
     @include transition(color, 0.4s, ease-in);
+
+    &:hover {
+      color:white;
+    }
   }
 
   #userSessionName {

@@ -5,7 +5,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 
 $(document).ready(async function () {
-  
+
   $("#searchBar").on("keyup", function () {
     let valor = $(this).val().toLowerCase();
 

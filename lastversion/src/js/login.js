@@ -7,20 +7,18 @@ import {
   where,
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 
-
 $(document).ready(async function () {
-
   const usersCollection = collection(db, "users");
   const usersSnapshot = await getDocs(usersCollection);
 
   let config = null;
   try {
-    const response = await fetch('../password.json');
+    const response = await fetch("../password.json");
     if (response.ok) {
       config = await response.json();
     }
   } catch (error) {
-    console.error('Error al cargar password.json:', error);
+    console.error("Error al cargar password.json:", error);
   }
 
   if (usersSnapshot.empty && config) {
@@ -101,60 +99,69 @@ $(document).ready(async function () {
   }
 
   //USUARIO LOGUEADO O NO - CERRAR SESION
-    
-    const usuarioLogueado = localStorage.getItem("logged_in_user");
 
-    const $loginContainer = $("#loginContainer");
+  const usuarioLogueado = localStorage.getItem("logged_in_user");
 
-    if (usuarioLogueado) {
-      const user = JSON.parse(usuarioLogueado);
+  const $loginContainer = $("#loginContainer");
 
-      if (user.active == 1) {
-        let userSessionHtml = `
+  if (usuarioLogueado) {
+    const user = JSON.parse(usuarioLogueado);
+
+    if (user.active == 1) {
+      let userSessionHtml = `
           <div class="user-session">
             <ion-icon class="logged-in-icon" name="person-circle"></ion-icon>
-            <span id="userSessionName" style="cursor: pointer;">Sesión de: ${user.name}</span>
+            <span id="userSessionName" style="cursor: pointer;">Sessió de: ${user.name}</span>
             <div class="user-menu" style="display: none; border: 1px solid #ccc; padding: 8px; position: absolute;">
-              <a href="#" id="logoutLink" style="display: block; margin-bottom: 5px;">Cerrar sesión</a>
+            <a href="#" id="changePassword" style="display: block; margin-bottom: 5px;">Canviar contrasenya</a>
+              <a href="#" id="logoutLink" style="display: block; margin-bottom: 5px;">Tancar sessió</a>
         `;
 
-        if (user.edit_news == 1) {
-          userSessionHtml += `<a href="edit_news.html" style="display: block; margin-bottom: 5px;">Editar noticias</a>`;
-        }
+      if (user.edit_news == 1) {
+        userSessionHtml += `<a href="../pages/edit_news.html" style="display: block; margin-bottom: 5px;">Editar notícies</a>`;
+      }
 
-        if (user.edit_users == 1) {
-          userSessionHtml += `<a href="edit_users.html" style="display: block;">Editar usuarios</a>`;
-        }
+      if (user.edit_users == 1) {
+        userSessionHtml += `<a href="../pages/edit_users.html" style="display: block;">Editar usuaris</a>`;
+      }
 
-        userSessionHtml += `
+      userSessionHtml += `
             </div>
           </div>
         `;
 
-        $loginContainer.html(userSessionHtml);
+      $loginContainer.html(userSessionHtml);
 
-        $("#userSessionName").on("click", function () {
-          $(".user-menu").toggle();
-        });
+      $("#userSessionName").on("click", function () {
+        $(".user-menu").toggle();
+      });
 
-        $("#logoutLink").on("click", function (e) {
-          e.preventDefault();
-        
+      $("#changePassword").on("click", function (e) {
+        e.preventDefault();
+
+        window.location.href = "../pages/change_password.html";
+      });
+
+      $("#logoutLink").on("click", function (e) {
+        e.preventDefault();
+        let confirmLogOut = confirm("Segur que vols tancar la sessió?");
+
+        if (confirmLogOut) {
           localStorage.removeItem("logged_in_user");
-         
-          window.location.reload();
-        });
-      } else {
-        
-        mostrarIconoLogin();
-      }
-    } 
 
-    function mostrarIconoLogin() {
-      $loginContainer.html(`
+          window.location.href = "../pages/news.html";
+        }
+      });
+    } else {
+      mostrarIconoLogin();
+    }
+  }
+
+  function mostrarIconoLogin() {
+    $loginContainer.html(`
         <a href="../pages/login.html">
           <ion-icon name="person-circle"></ion-icon>
         </a>
       `);
-    }
+  }
 });

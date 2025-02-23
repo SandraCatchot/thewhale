@@ -6,12 +6,11 @@ $(document).ready(async function () {
   const newsId = urlParams.get("id");
   
   if (!newsId) {
-    $("main").html("<p>No s'ha trobat la notícia. Torna enrere i selecciona una altra.</p>");
+    $("main").html("<p>No s'ha trobat la notícia. Torna enrere i selecciona una altra notícia.</p>");
     return;
   }
   
   try {
-    // Obtenemos el documento de la noticia desde Firestore
     const docRef = doc(db, "news", newsId);
     const docSnap = await getDoc(docRef);
     
@@ -21,7 +20,6 @@ $(document).ready(async function () {
     }
     
     const newsItem = docSnap.data();
-    // Rellenamos título y metadatos
     $("#news-title").text(newsItem.title);
     $("#news-meta").html(`Publicat el ${newsItem.creationDate} per <span class="font-semibold">${newsItem.author}</span>`);
     
@@ -33,7 +31,6 @@ $(document).ready(async function () {
       return;
     }
     
-    // Recorremos cada fila. Cada fila debe tener un array "columns", y cada columna es un objeto con la propiedad "elements"
     newsItem.content.forEach((row) => {
       if (!row.columns || !Array.isArray(row.columns)) {
         console.error("Fila amb columnes no vàlides:", row);
@@ -42,7 +39,6 @@ $(document).ready(async function () {
       
       const rowDiv = $('<div class="flex flex-wrap gap-6 mb-6"></div>');
       row.columns.forEach((colObj) => {
-        // Cada columna es un objeto { elements: [...] }
         const colDiv = $('<div class="w-full md:w-1/2 px-2"></div>');
         if (!colObj.elements || !Array.isArray(colObj.elements)) {
           console.error("Columna sense elements vàlids:", colObj);
@@ -70,7 +66,6 @@ $(document).ready(async function () {
       articleContainer.append(rowDiv);
     });
     
-    // Mostramos los botones de edición y eliminación
     $("#news-actions").show();
     
     $("#btnDelete").on("click", async function () {

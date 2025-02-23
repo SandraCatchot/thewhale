@@ -1,18 +1,3 @@
-.sketchfab-embed-wrapper {
-  max-width: 85%;
-  margin: 0 auto;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  animation: slideIn 1s ease-in-out;
-  border-radius: 1em;
-}
-.sketchfab-embed-wrapper iframe {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  border: none;
-}
-
 .main-title {
   text-align: center;
   color: #01161e;
@@ -21,6 +6,22 @@
   font-family: "Merriweather Sans", sans-serif;
   font-weight: normal;
   transition: opacity 0.8s ease-in-out;
+}
+
+.sketchfab-embed-wrapper {
+  max-width: 75%;
+  height: 350px;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  margin-bottom: 30px;
+}
+.sketchfab-embed-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+  border: none;
 }
 
 .links-container {
@@ -90,21 +91,5 @@
   .links-container a {
     width: 180px;
     height: 50px;
-  }
-  .sketchfab-embed-wrapper {
-    max-width: 85%;
-    height: 400px;
-    margin: 0 auto;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    animation: slideIn 1s ease-in-out;
-    border-radius: 1em;
-    margin-bottom: 30px;
-  }
-  .sketchfab-embed-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    display: block;
-    margin: 0 auto;
-    border: none;
   }
 }/*# sourceMappingURL=index.css.map */

@@ -1,23 +1,6 @@
 @import '_variables';
 @import 'mixins';
 
-
-.sketchfab-embed-wrapper {
-  max-width: 85%;
-  margin: 0 auto;
-  @include box-shadow(0, 4px, 15px, rgba(0, 0, 0, 0.1));
-  animation: slideIn 1s ease-in-out;
-  border-radius: 1em;
-
-  iframe {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border: none;
-  }
-}
-
 .main-title {
   text-align: center;
   color: $dark-color;
@@ -26,6 +9,23 @@
   font-family: $secondary-font;
   font-weight: normal;
   @include transition(opacity, 0.8s, ease-in-out);
+}
+
+.sketchfab-embed-wrapper {
+  max-width: 75%;
+  height: 350px;
+  margin: 0 auto;
+  @include box-shadow(0, 4px, 15px, rgba(0, 0, 0, 0.1));
+  border-radius: 1em;
+  margin-bottom: 30px;
+
+  iframe {     
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    border: none;
+  }
 }
 
 .links-container {
@@ -99,23 +99,7 @@
     }
   }
   
-  .sketchfab-embed-wrapper {
-    max-width: 85%;
-    height: 400px;
-    margin: 0 auto;
-    @include box-shadow(0, 4px, 15px, rgba(0, 0, 0, 0.1));
-    animation: slideIn 1s ease-in-out;
-    border-radius: 1em;
-    margin-bottom: 30px;
-  
-    iframe {     
-      width: 100%;
-      height: 100%;
-      display: block;
-      margin: 0 auto;
-      border: none;
-    }
-  }
+ 
 
   
 }

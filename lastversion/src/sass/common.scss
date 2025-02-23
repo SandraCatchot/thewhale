@@ -107,6 +107,10 @@ header {
     font-weight: bold;
     cursor: pointer;
     @include transition(color, 0.4s, ease-in);
+
+    &:hover {
+      color:white;
+    }
   }
 
   #userSessionName {
@@ -211,9 +215,14 @@ footer {
   transform: translateY(-100%);
   transition: transform 0.3s ease-in-out;
   z-index: 999;
+  pointer-events: none;
+  visibility: hidden;
+  
   &.open {
     transform: translateY(0);
-    display: block; 
+    display: block;
+    pointer-events: auto;
+    visibility: visible;
   }
   .close-btn {
     position: absolute;
