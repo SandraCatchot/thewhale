@@ -59,17 +59,6 @@ header {
     align-items: center;
     justify-content: flex-end;
     gap: 1rem;
-
-    .logo_login a {
-      color: $secondary-color;
-      @include transition(color, 0.4s, ease-in);
-      ion-icon {
-        font-size: 2.5rem;
-      }
-      &:hover {
-        color: $color-accent;
-      }
-    }
   }
 }
 
@@ -84,6 +73,86 @@ header {
     &:hover {
       color: $color-accent;
       text-decoration: underline;
+    }
+  }
+}
+
+#loginContainer {
+  position: relative;
+
+  a {
+    width: 100px;
+    color: white;
+    @include transition(color, 0.4s, ease-in);
+
+    ion-icon.iconoLogin {
+      font-size: 3.5rem;
+    }
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
+
+.user-session {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+
+  .logged-in-icon {
+    color: $color-accent;
+    font-size: 3.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    @include transition(color, 0.4s, ease-in);
+
+    &:hover {
+      color:white;
+    }
+  }
+
+  #userSessionName {
+    color: $secondary-color;
+    font-weight: bold;
+    cursor: pointer;
+    @include transition(color, 0.3s, ease);
+
+    &:hover {
+      color: $color-accent;
+      text-decoration: underline;
+    }
+  }
+
+  .user-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: $primary-color;
+    color: $secondary-color;
+    border: 1px solid #ccc;
+    padding: 1rem 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+    a {
+      display: block;
+      color: $color-accent;
+      font-weight: bold;
+      text-decoration: none;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      padding: 1rem;
+      &:hover {
+        color: black;
+        text-decoration: underline;
+      }
+    }
+  }
+  &.active {
+    .user-menu {
+      display: block;
     }
   }
 }

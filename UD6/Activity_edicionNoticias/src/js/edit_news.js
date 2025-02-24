@@ -105,7 +105,9 @@ $(document).ready(function () {
 
   $("#save-news").on("click", async function () {
     const title = $("#news-title").val().trim();
-    const author = $("#news-author").val().trim();
+    const user = JSON.parse(localStorage.getItem("logged_in_user")) || [];
+    const author = user.name;    
+
     if (!title || !author) {
       alert("Por favor, rellena título y autor.");
       return;

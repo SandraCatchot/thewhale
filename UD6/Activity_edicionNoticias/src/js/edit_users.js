@@ -1,8 +1,6 @@
 $(document).ready(function () {
-  // Obtenemos los usuarios del localStorage o creamos un array vacío si no hay nada guardado
   let users = JSON.parse(localStorage.getItem("users")) || [];
 
-  // Calculamos el próximo ID a asignar (si no hay usuarios, empezamos en 1)
   let nextId;
   if (users.length === 0) {
     nextId = 1;
@@ -15,12 +13,9 @@ $(document).ready(function () {
     nextId = maxId + 1;
   }
 
-  // Esta función se encarga de mostrar la tabla de usuarios VERSIÓN ESCRITORIO
   function renderUserTable() {
-    // Limpiamos el contenedor
     $(".edit-users-container").empty();
 
-    // Creamos el contenedor del header de la tabla
     let $headerDiv = $("<div>").addClass("table-header");
     let $createButton = $("<button>")
       .attr("id", "createUser")
@@ -29,10 +24,8 @@ $(document).ready(function () {
 
     $headerDiv.append($createButton);
 
-    // Creamos la tabla con jQuery
     let $table = $("<table>").addClass("users-table");
 
-    // Creamos el thead
     let $thead = $("<thead>");
     let $headRow = $("<tr>");
     $headRow.append($("<th>").text("ID"));
@@ -45,7 +38,6 @@ $(document).ready(function () {
     $thead.append($headRow);
     $table.append($thead);
 
-    // Creamos el tbody
     let $tbody = $("<tbody>");
     for (let i = 0; i < users.length; i++) {
       let user = users[i];
@@ -59,33 +51,57 @@ $(document).ready(function () {
       $tr.append($("<td>").text(user.edit_bone_files ? "Sí" : "No"));
 
       let $actionTd = $("<td>");
+      let $editIcon = $("<ion-icon>")
+        .attr("name", "pencil-outline")
+        .addClass("iconos-editUsers")
+        .css("color", "#124559");
       let $editBtn = $("<button>")
         .addClass("edit-user")
-        .attr("data-id", user.id)
+        .attr("data-id", user.docId)
         .text("Editar");
+      let $deleteIcon = $("<ion-icon>")
+        .attr("name", "trash-outline")
+        .addClass("iconos-editUsers")
+        .css("color", "red");
       let $deleteBtn = $("<button>")
         .addClass("delete-user")
-        .attr("data-id", user.id)
-        .text("Eliminar");
+        .attr("data-id", user.docId)
+        .text("Esborrar");
+      let $changePassIcon = $("<ion-icon>")
+        .attr("name", "key-outline")
+        .addClass("iconos-editUsers")
+        .css("color", "#124559");
       let $changePassBtn = $("<button>")
         .addClass("change-password")
-        .attr("data-id", user.id)
-        .text("Cambiar Contraseña");
+        .attr("data-id", user.docId)
+        .text("Canviar contrasenya");
 
-      $actionTd
+        if (user.email === "desenvolupador@iesjoanramis.org") {
+          if (loggedInUser.email !== "desenvolupador@iesjoanramis.org") {
+            $editBtn.hide();
+            $deleteBtn.hide();
+            $changePassBtn.hide();
+            $editIcon.hide();
+            $deleteIcon.hide();
+            $changePassIcon.hide();
+          }
+        }
+
+        $actionTd
+        .append($editIcon)
         .append($editBtn)
         .append(" ")
+        .append($deleteIcon)
         .append($deleteBtn)
         .append(" ")
+        .append($changePassIcon)
         .append($changePassBtn);
       $tr.append($actionTd);
-
       $tbody.append($tr);
     }
 
     $table.append($tbody);
 
-    // Añadimos todo al contenedor principal
     $(".edit-users-container").append($headerDiv).append($table);
   }
 
@@ -105,7 +121,6 @@ $(document).ready(function () {
     let $title = $("<h2>").text(isEditing ? "Editar Usuario" : "Crear Usuario");
     let $form = $("<form>").attr("id", "userForm");
 
-    // Campos del formulario
     $form.append(
       $("<label>")
         .text("Nombre:")
@@ -131,7 +146,6 @@ $(document).ready(function () {
         )
     );
 
-    // Checkboxes
     $form.append(
       $("<label>")
         .text("Edit Users:")
@@ -166,7 +180,6 @@ $(document).ready(function () {
         )
     );
 
-    // Botones del formulario
     let $submitBtn = $("<button>")
       .attr("type", "submit")
       .text(isEditing ? "Guardar Cambios" : "Crear Usuario");
@@ -180,7 +193,6 @@ $(document).ready(function () {
     $formDiv.append($title).append($form);
     $(".edit-users-container").append($formDiv);
 
-    // Manejamos el envío del formulario
     $("#userForm").submit(function (e) {
       e.preventDefault();
       let formData = new FormData(e.target);
@@ -194,7 +206,6 @@ $(document).ready(function () {
       };
 
       if (isEditing) {
-        // Si estamos editando, reemplazamos el usuario existente
         for (let i = 0; i < users.length; i++) {
           if (users[i].id === user.id) {
             users[i] = newUser;
@@ -206,9 +217,7 @@ $(document).ready(function () {
         users.push(newUser);
       }
 
-      // Guardamos cambios en localStorage
       localStorage.setItem("users", JSON.stringify(users));
-      // Volvemos a mostrar la tabla
       renderUserTable();
     });
 
@@ -218,14 +227,12 @@ $(document).ready(function () {
     });
   }
 
-  // Cuando se hace clic en cambiar contraseña
   $(document).on("click", ".change-password", function () {
     let userId = $(this).data("id");
     localStorage.setItem("userToChangePassword", userId);
     window.location.href = "change_password.html";
   });
 
-  // Cuando se hace clic en editar un usuario
   $(document).on("click", ".edit-user", function () {
     let userId = Number($(this).data("id"));
     let userToEdit = null;
@@ -238,11 +245,9 @@ $(document).ready(function () {
     renderUserForm(userToEdit);
   });
 
-  // Cuando se hace clic en eliminar un usuario
   $(document).on("click", ".delete-user", function () {
     let userId = Number($(this).data("id"));
 
-    // Mostrar un cuadro de confirmación al usuario
     let confirmDelete = confirm(
       "¿Estás seguro de que deseas eliminar este usuario?"
     );
@@ -258,28 +263,23 @@ $(document).ready(function () {
       localStorage.setItem("users", JSON.stringify(users));
       renderUserTable();
     } else {
-      // Cancelar la acción de eliminar
       console.log("Eliminación cancelada por el usuario.");
     }
   });
 
-  // Cuando se hace clic en "Crear Nuevo Usuario"
   $(document).on("click", "#createUser", function () {
     renderUserForm();
   });
 
-  // Iniciamos mostrando la tabla de usuarios
   renderUserTable();
 
   function renderMobileView() {
     $(".edit-users-container").empty();
 
-    //Título
     let $titulo = $("<h1>").addClass("tituloForm");
     $titulo.text("Gestión de usuarios")
     $(".edit-users-container").append($titulo);
 
-    // Barra de búsqueda
     let $searchBar = $("<div>").addClass("mobile-search-bar");
     let $searchIcon = $("<span>").addClass("search-icon").html("🔍");
     let $searchInput = $("<input>")
@@ -293,7 +293,6 @@ $(document).ready(function () {
     $(".edit-users-container").append($searchBar);
     
 
-    // Contenedor de cards
     let $cardContainer = $("<div>").addClass("user-card-container");
     users.forEach((user, index) => {
       let bgColor = index % 2 === 0 ? "#E3F2FD" : "#BBDEFB"; // Alternar colores
@@ -305,7 +304,6 @@ $(document).ready(function () {
     });
     $(".edit-users-container").append($cardContainer);
 
-    // Evento de búsqueda
     $("#searchUser").on("input", function () {
       let searchText = $(this).val().toLowerCase();
       $(".user-card").each(function () {
@@ -314,7 +312,6 @@ $(document).ready(function () {
       });
     });
 
-    // Evento de clic en una card
     $(".user-card").on("click", function () {
       let userId = $(this).data("id");
       let user = users.find((u) => u.id === userId);
@@ -322,7 +319,6 @@ $(document).ready(function () {
     });
   }
 
-  // Mostrar el formulario en un popup
   function renderUserFormPopup(user) {
     let isEditing = !!user;
 
