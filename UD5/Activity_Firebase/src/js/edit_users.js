@@ -8,6 +8,13 @@ import {
   doc,
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 
+/*
+
+  CANVIAR QUE AUTOR DE NOTICIES SIGUI USUARI LOGUEJAT I NO HAVER D'INTRODUIR UN AUTOR
+
+
+*/
+
 $(document).ready(async function () {
   const loggedInUser = JSON.parse(localStorage.getItem("logged_in_user"));
 

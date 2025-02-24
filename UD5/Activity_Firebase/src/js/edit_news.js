@@ -7,6 +7,17 @@ import {
   collection
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 
+/*
+
+  CANVIAR QUE AUTOR DE NOTICIES SIGUI USUARI LOGUEJAT I NO HAVER D'INTRODUIR UN AUTOR
+
+  CANVIAR QUE SA NOTICIA NOVA SIGUI SA PRIMERA I NO SA DARRERA
+
+  PODER GUARDAR ESBORRANYS DE NOTICIES
+
+
+*/
+
 $(document).ready(async function () {
   const urlParams = new URLSearchParams(window.location.search);
   const editingId = urlParams.get("id"); 
