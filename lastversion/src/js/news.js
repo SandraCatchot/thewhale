@@ -2,10 +2,11 @@ import { app, db } from "./firebase_config.js";
 import {
   collection,
   getDocs,
+  query,
+  orderBy
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 
 $(document).ready(async function () {
-
   $("#searchBar").on("keyup", function () {
     let valor = $(this).val().toLowerCase();
 
@@ -17,7 +18,11 @@ $(document).ready(async function () {
   const newsContainer = $("#container-news");
 
   try {
-    const querySnapshot = await getDocs(collection(db, "news"));
+    const newsQuery = query(
+      collection(db, "news"),
+      orderBy("creationDate", "desc")
+    );
+    const querySnapshot = await getDocs(newsQuery);
     const newsList = [];
     querySnapshot.forEach((docSnap) => {
       const data = docSnap.data();
@@ -37,17 +42,17 @@ $(document).ready(async function () {
 
       const newsCard = `
        <div class="card-component">
-       <img src="${image}" alt="Imatge notícia" class="card-image">
-    <div class="p-4">
-      <h2 class="text-xl font-bold text-oscuroS mb-2">
-        <a href="new.html?id=${newsItem.docId}" class="hover:underline">${newsItem.title}</a>
-      </h2>
-      <p class="mb-4">${newsItem.creationDate} - ${newsItem.author}</p>
-      <p class="mb-4">${summary}</p>
-      <a href="new.html?id=${newsItem.docId}" class="text-azulS font-semibold hover:underline">Llegeix més</a>
-    </div>
-  </div>
-`;
+         <img src="${image}" alt="Imatge notícia" class="card-image">
+         <div class="p-4">
+           <h2 class="text-xl font-bold text-oscuroS mb-2">
+             <a href="new.html?id=${newsItem.docId}" class="hover:underline">${newsItem.title}</a>
+           </h2>
+           <p class="mb-4">${newsItem.creationDate} - ${newsItem.author}</p>
+           <p class="mb-4">${summary}</p>
+           <a href="new.html?id=${newsItem.docId}" class="text-azulS font-semibold hover:underline">Llegeix més</a>
+         </div>
+       </div>
+      `;
 
       newsContainer.append(newsCard);
     });

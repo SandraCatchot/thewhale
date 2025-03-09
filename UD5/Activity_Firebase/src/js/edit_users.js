@@ -6,14 +6,11 @@ import {
   updateDoc,
   deleteDoc,
   doc,
+  query,
+  orderBy
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 
-/*
 
-  CANVIAR QUE AUTOR DE NOTICIES SIGUI USUARI LOGUEJAT I NO HAVER D'INTRODUIR UN AUTOR
-
-
-*/
 
 $(document).ready(async function () {
   const loggedInUser = JSON.parse(localStorage.getItem("logged_in_user"));
@@ -23,16 +20,15 @@ $(document).ready(async function () {
   let nextId = 1;
 
   async function loadUsers() {
-    const querySnapshot = await getDocs(usersColRef);
+    const usersQuery = query(usersColRef, orderBy("id", "asc"));
+    const querySnapshot = await getDocs(usersQuery);
     users = [];
     querySnapshot.forEach((docSnap) => {
       let data = docSnap.data();
       data.docId = docSnap.id;
       users.push(data);
     });
-
-    users.sort((a, b) => a.id - b.id);
-
+  
     if (users.length > 0) {
       nextId = Math.max(...users.map((u) => u.id)) + 1;
     } else {
@@ -254,8 +250,6 @@ $(document).ready(async function () {
         await addDoc(usersColRef, newUser);
         nextId++;
       }
-      await addDoc(usersColRef, newUser);
-      nextId++;
       await loadUsers();
       tablaUsers();
     });
@@ -293,7 +287,6 @@ $(document).ready(async function () {
   });
 
   $(document).on("click", "#createUser", function () {
-    console.log("Botón de creación de usuario clicado.");
     formEdicioCreacioUser();
   });
 
@@ -336,7 +329,7 @@ $(document).ready(async function () {
         .addClass("user-card")
         .attr("data-id", user.docId)
         .css("background-color", "#E8EBE4")
-        .html(`<strong>$${user.name}</strong><br>${user.email}`);
+        .html(`<strong>${user.name}</strong><br>${user.email}`);
       $cardContainer.append($card);
     });
 
@@ -463,9 +456,7 @@ $(document).ready(async function () {
         await updateDoc(doc(db, "users", user.docId), updatedUser);
       } else {
         let salt = generateSalt();
-        updatedUser.password_hash = CryptoJS.SHA256(
-          "Ramis.20" + salt
-        ).toString();
+        updatedUser.password_hash = CryptoJS.SHA256(config.admin_password + salt).toString();
         updatedUser.salt = salt;
         updatedUser.active = 1;
         updatedUser.is_first_login = 1;
